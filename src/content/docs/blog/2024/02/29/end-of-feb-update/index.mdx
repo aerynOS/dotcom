@@ -4,6 +4,8 @@ date: 2024-02-29T18:32:35+00:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2024 aerynOS Developers"
 ---
 import { Aside } from '@astrojs/starlight/components';
 

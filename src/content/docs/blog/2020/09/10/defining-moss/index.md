@@ -5,6 +5,8 @@ draft: false
 authors: [ikey]
 tags: [news]
 featuredImage: "/img/blog/defining-moss/Featured.webp"
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2020 aerynOS Developers"
 ---
 
 Over the past few weeks, throughout the entire bootstrap process, we've

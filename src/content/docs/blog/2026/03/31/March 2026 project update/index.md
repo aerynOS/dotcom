@@ -3,6 +3,8 @@ title: "March 2026 project update"
 date: 2026-03-31T12:00:00Z
 authors: [nomadiccore, ermo]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2026 aerynOS Developers"
 ---
 
 # AerynOS: March 2026 project update

@@ -4,6 +4,8 @@ date: 2020-09-21T16:09:46+01:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2020 aerynOS Developers"
 ---
 
 Following quickly on the heels of yesterday's announcement that the binary format has been defined, we've

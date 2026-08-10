@@ -3,6 +3,8 @@ title: "A post we never want to have to make!"
 date: 2026-05-03T23:00:00Z
 authors: [nomadiccore, ermo]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2026 aerynOS Developers"
 ---
 
 ![An image showing the word "Sorry" with three exclamation marks](sorry.jpg)

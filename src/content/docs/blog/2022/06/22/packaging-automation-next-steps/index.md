@@ -4,6 +4,8 @@ date: 2022-06-22T17:23:14+01:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2022 aerynOS Developers"
 ---
 
 Hot damn we've been busy lately. No, [really](https://gitlab.com/groups/serpent-os/-/activity).

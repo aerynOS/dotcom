@@ -3,6 +3,8 @@ title: "Development update: os-tools"
 date: 2025-07-11T12:18:00Z
 authors: [nomadiccore,ermo]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
 ---
 
 In our recent mid-year blog post, we mentioned that it would be the first in a short series of posts providing updates on the various work streams we have been actively progressing during the last few months. Whilst that post focused primarily on our infrastructure, in this one, we will shift our focus towards the work we have been doing around our [os-tools](https://github.com/AerynOS/os-tools).

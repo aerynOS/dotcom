@@ -4,6 +4,8 @@ date: 2021-11-23T23:45:06Z
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2021 aerynOS Developers"
 ---
 
 It all depends.. it really does. On shared libraries.. interpreters.. `pkg-config` providers

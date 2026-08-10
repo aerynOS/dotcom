@@ -4,6 +4,8 @@ date: 2020-08-28T21:35:16+01:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2020 aerynOS Developers"
 ---
 
 Well, we've made an awful lot of progress in these last few days. It wasn't

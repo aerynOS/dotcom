@@ -5,6 +5,8 @@ draft: false
 authors: [ikey]
 tags: [news]
 featuredImage: "/img/blog/results-of-the-experiment/Featured.webp"
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2020 aerynOS Developers"
 ---
 import FigureScreenshotOne from "@/components/ui/FigureScreenshotOne.astro"
 import featuredImage from "./Featured.webp"

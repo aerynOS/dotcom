@@ -4,6 +4,8 @@ date: 2024-03-31T23:56:54+01:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2024 aerynOS Developers"
 ---
 
 Despite a brief excursion out of the country for a first-in-a-lifetime holiday, I'm happily back at the desk to bring you up to date with the
