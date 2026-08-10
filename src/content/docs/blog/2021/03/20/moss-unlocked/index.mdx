@@ -4,6 +4,8 @@ date: 2021-03-20T14:07:30Z
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2021 aerynOS Developers"
 ---
 
 Well, it's not all doom and gloom these days. We've actually made some

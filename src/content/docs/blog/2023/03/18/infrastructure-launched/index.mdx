@@ -4,6 +4,8 @@ date: 2023-03-18T23:20:55+00:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2023 aerynOS Developers"
 ---
 
 After many months and much work, our infrastructure is [finally online](https://dash.serpentos.com).

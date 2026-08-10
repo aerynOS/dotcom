@@ -3,6 +3,8 @@ title: "2025 in retrospect"
 date: 2026-01-02T23:00:00Z
 authors: [nomadiccore, ermo]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2026 aerynOS Developers"
 ---
 
 2025 has been a year of significant change for the AerynOS project, not just in terms of development itself but also in name and in the staff working on the project.

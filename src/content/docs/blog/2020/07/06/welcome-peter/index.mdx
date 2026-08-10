@@ -4,6 +4,8 @@ date: 2020-07-06T16:12:07+01:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2020 aerynOS Developers"
 ---
 
 Recently we did reveal on Twitter that long time friend and colleague-of-many-projects, Peter O'Connor, has formally joined the core team for

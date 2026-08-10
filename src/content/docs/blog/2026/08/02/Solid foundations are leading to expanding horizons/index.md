@@ -3,6 +3,8 @@ title: "Solid foundations are leading to expanding horizons"
 date: 2026-08-02T21:00:00Z
 authors: [nomadiccore, ermo]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2026 aerynOS Developers"
 ---
 
 ![A car light trail signifying moving at pace](unsplash.webp)

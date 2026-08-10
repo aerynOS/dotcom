@@ -15,6 +15,7 @@ extend-ignore-re = [
     "\\\"Aer\\\"",
     "\\\"+git\\\"",
     "ba",
+    "ND",
 ]
 extend-ignore-identifiers-re = [
     # Ignore identifiers that look like SSL cipher suites:

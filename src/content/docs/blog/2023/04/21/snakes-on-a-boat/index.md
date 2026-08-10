@@ -4,6 +4,8 @@ date: 2023-04-21T22:12:56+01:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2023 aerynOS Developers"
 ---
 
 We had intended to get a blog post out a little bit quicker, but the last month has been extremely

@@ -3,6 +3,8 @@ title: "Rebranding, Upgrading, and Wallpapering: AerynOS’ April glow-up!"
 date: 2026-04-30T12:00:00Z
 authors: [nomadiccore, ermo]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2026 aerynOS Developers"
 ---
 
 ![Image captured by a drone camera of wintery snowy fields with a river meandering through the middle](winter.jpg)

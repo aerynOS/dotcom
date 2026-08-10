@@ -4,6 +4,8 @@ date: 2020-08-08T15:15:04+01:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2020 aerynOS Developers"
 ---
 
 Short and sweet, stage1 of the bootstrap is complete. As I indicated on the [Lispy Snake](https://lispysnake.com/blog/2020/08/03/status-update/) blog,

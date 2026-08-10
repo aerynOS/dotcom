@@ -4,6 +4,8 @@ date: 2021-03-16T22:19:12Z
 draft: false
 authors: [sunnyflunk]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2021 aerynOS Developers"
 ---
 
 Getting updates as fast as possible to users has made deltas a popular and sought after feature for distributing

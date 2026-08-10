@@ -4,6 +4,8 @@ date: 2020-07-01T19:39:56+01:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2020 aerynOS Developers"
 ---
 
 So as many have come to realise, we had to rush out a website super quick yesterday as the cat

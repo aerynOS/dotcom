@@ -3,6 +3,8 @@ title: "Mid Year Update"
 date: 2025-06-30T21:37:00Z
 authors: [nomadiccore,ermo]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
 ---
 
 As we hit the middle of the year, it's time for another update for those of you following along with AerynOS's development.

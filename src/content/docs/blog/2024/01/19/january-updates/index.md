@@ -4,6 +4,8 @@ date: 2024-01-19T22:54:07+00:00
 draft: false
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2024 aerynOS Developers"
 ---
 
 Precisely one month since our end of year summary, so, what have we been up to?

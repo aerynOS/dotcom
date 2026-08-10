@@ -3,6 +3,8 @@ title: Evolve This OS
 date: 2025-02-14T23:25:37Z
 authors: [ikey]
 tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
 ---
 
 A long overdue, and highly requested update today. We're finally rebranding the project!
