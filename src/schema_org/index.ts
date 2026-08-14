@@ -20,7 +20,7 @@ export function schema_web_page({
     "isPartOf": {
       "@type": "WebSite",
       "url": "https://aerynos.com",
-      "name": "AerynOS",
+      "name": "aerynOS",
       "description": "Redefining Linux for the modern era.",
     },
     "inLanguage": "en-US"

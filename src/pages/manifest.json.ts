@@ -44,8 +44,8 @@ export const GET: APIRoute = async () => {
   );
 
   const manifest = {
-    short_name: "AerynOS",
-    name: "AerynOS",
+    short_name: "aerynOS",
+    name: "aerynOS",
     icons,
     display: "minimal-ui",
     id: "/",
