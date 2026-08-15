@@ -1,12 +1,12 @@
 import ogImageSrc from "@/images/logo.png";
 
 export const SITE = {
-  title: "AerynOS",
-  tagline: "Top-quality Hardware Tools",
-  description: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
-  description_short: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+  title: "aerynOS",
+  tagline: "A alpha performance focused Linux distribution",
+  description: "aerynOS is an independent performance-oriented Linux-based operating system that diverges significantly from traditional distributions whilst still aiming to provide a familiar and comfortable environment. The code-base is currently in an alpha technical preview stage, which means that it is not yet ready for widespread use. However, we are committed to eventually providing a stable and reliable operating system that will be easy to use and customize.",
+  description_short: "aerynOS is an independent performance-oriented Linux-based operating system that diverges significantly from traditional distributions whilst still aiming to provide a familiar and comfortable environment.",
   url: "https://aerynos.com",
-  author: "Emil Gulamov",
+  author: "aerynOS Team",
 };
 
 export const SEO = {
@@ -48,19 +48,19 @@ export const COMMUNITY = [
   {
     title: "GitHub Discussions",
     description: "Join the conversation on GitHub.",
-    url: "https://github.com/AerynOS",
+    url: "https://github.com/aerynOS",
     icon: "tabler:brand-github",
   },
   {
     title: "X",
     description: "Join our community on X.",
-    url: "https://x.com/AerynOS_Linux",
+    url: "https://x.com/aerynOS_Linux",
     icon: "tabler:brand-x",
   },
   {
     title: "Mastodon",
     description: "Join our community on Mastodon.",
-    url: "https://hachyderm.io/@AerynOS",
+    url: "https://hachyderm.io/@aerynOS",
     icon: "tabler:brand-mastodon",
   },
 ];
