@@ -1,14 +1,8 @@
-import { defineConfig } from "astro/config"
-// import tailwind from "@astrojs/tailwind"
-// import sitemap from "@astrojs/sitemap"
-// import compressor from "astro-compressor"
+import { defineConfig, svgoOptimizer } from "astro/config";
 import icon from "astro-icon"
 import starlight from '@astrojs/starlight'
 import starlightBlog from 'starlight-blog'
-import { defineConfig, svgoOptimizer } from "astro/config";
-
 import astroBrokenLinksChecker from 'astro-broken-link-checker';
-
 import mdx from "@astrojs/mdx"
 
 // https://astro.build/config
