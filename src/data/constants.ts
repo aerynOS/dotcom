@@ -46,10 +46,10 @@ export const COMMUNITY = [
     icon: "tabler:brand-zulip",
   },
   {
-    title: "GitHub Discussions",
-    description: "Join the conversation on GitHub.",
-    url: "https://github.com/aerynOS",
-    icon: "tabler:brand-github",
+    title: "Discourse",
+    description: "Join the conversation on our Discourse.",
+    url: "https://aerynos.discourse.group/",
+    icon: "simple-icons:discourse",
   },
   {
     title: "X",
