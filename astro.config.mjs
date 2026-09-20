@@ -29,7 +29,7 @@ export default defineConfig({
     icon(),
     // tailwind(),
     starlight({ // Starlight config:
-      title: "AerynOS",
+      title: "aerynOS",
       logo: {
         dark: '@/images/logo.svg',
         light: '@/images/logo-light-mode.svg',
