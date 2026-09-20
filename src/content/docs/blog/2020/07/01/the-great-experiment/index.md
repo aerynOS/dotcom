@@ -16,7 +16,7 @@ was already out of the bag. One thing that should also be clarified, is our appr
 ## We're A Lab
 
 Primarily (but not exclusively) Serpent OS (future: Serpent Linux) is an endeavour worked on by the
-[Lispy Snake, Ltd](https://lispysnake.com) crew. So we're all about creating awesome technology and
+Lispy Snake, Ltd crew. So we're all about creating awesome technology and
 trying to further the playing field.
 
 Serpent OS is not, however, **owned** by Lispy Snake. It is a contributor-based open source project,
