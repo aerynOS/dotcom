@@ -66,23 +66,38 @@ export default defineConfig({
           authors: {
             ikey: {
               name: 'Ikey',
-              title: 'Founder',
+              title: 'Founder: Retired',
+              picture: '/images/authors/ikey.jpg',
+              url: 'https://github.com/ikeycode',
             },
             sunnyflunk: {
               name: 'SunnyFlunk',
-              title: 'Distro Engineer',
+              title: 'Distro Engineer: Retired',
+              picture: '/images/authors/sunnyflunk.png',
+              url: 'https://github.com/sunnyflunk',
             },
             ermo: {
-              name: 'Ermo',
-              title: 'Co-founder',
+              name: 'ermo',
+              title: 'Co-founder & Project Steward',
+              picture: '/images/authors/ermo.png',
+              url: 'https://github.com/ermo',
             },
             nomadiccore: {
               name: 'NomadicCore',
-              title: 'Comms',
+              title: 'Project Comms',
+              picture: '/images/authors/khaga87.png',
+              url: 'https://github.com/khaga87',
+            },
+            khaga87: {
+              name: 'khaga87',
+              title: 'Project Comms',
+              picture: '/images/authors/khaga87.png',
+              url: 'https://github.com/khaga87',
             },
             joebonrichie: {
               name: 'Joey Riches',
-              title: 'Tooling & Packaging'
+              picture: '/images/authors/joey.png',
+              url: 'https://github.com/joebonrichie'
             }
           },
         }),
