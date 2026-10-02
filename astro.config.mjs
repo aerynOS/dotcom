@@ -63,6 +63,10 @@ export default defineConfig({
         starlightBlog({
           title: "Blog",
           recentPostCount: 100,
+          metrics: {
+            readingTime: true,
+            words: 'total',
+            },
           authors: {
             ikey: {
               name: 'Ikey',
