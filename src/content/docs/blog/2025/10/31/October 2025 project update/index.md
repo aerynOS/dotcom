@@ -1,0 +1,167 @@
+---
+title: "October 2025 project update"
+date: 2025-10-31T09:00:00Z
+authors: [nomadiccore, ermo]
+cover:
+  alt: AerynOS 2025.10 installed with GNOME Desktop
+  image: ./Featured.webp
+tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
+---
+
+We are firmly in the final quarter of 2025 and what a year it's been so far. In our last blog post at the end of September, we mentioned that we were delaying the release of our next ISO into October to give our Gnome 49 stack (and the wider extensions ecosystem) more time to mature.
+
+Coming into the final week of October, the team made the decision to transition from clang's libc++ to GNU libstdc++ and work through the associated rebuild requirements across our repository.
+
+We also mentioned in our September blog post that we had reached the point of having stable build infrastructure. However, over the course of October, we had an old problem re-appear, which proved somewhat vexing to solve initially.
+
+After the issue was debugged, and a fixed version of boulder was deployed to the build infrastructure, we used the transition back to libstdc++, which included hundreds and hundreds of rebuilds, and the landing of the KDE Plasma 6.5 stack to verify that that we have put this particular issue behind us.
+
+In addition to the build infrastructure related boulder fixes, the team has also found the time to hash out a design for, and prepare an early prototype PR of, the moss declarative `system-model` feature, as well as landing a few small user experience improvements and correctness fixes to both moss and boulder.
+
+With that all said and done, we are ready with our 2025.10 GNOME Live ISO refresh for you to enjoy along with this blog post.
+
+<!-- excerpt -->
+
+## Whats new in the distro
+
+Package / stack updates for this month include:
+
+- KDE Plasma 6.5.1
+- Cosmic Beta3
+- Gnome 49.1
+- Linux 6.16.12
+- Mesa 25.2.5
+- KDE Frameworks 6.19
+- KDE Gear 25.08.2
+- llvm 21.1.4
+- uutils-coreutils 0.3.0
+- sudo-rs 0.2.9
+- ffmpeg 8.0
+- pipewire 1.4.9
+- Wine 10.17
+- nodejs 22.21.0
+- zed 0.206.6
+- virt-manager 5.1.0
+- bash 5.3.3
+- scx-scheds 1.0.16
+- vim 9.1.1829
+- systemd 257.10
+- uv 0.9.5
+- perl-module-build: Add at v0.4234
+- libdovi: Add at v3.3.2
+- openconnect: Add a v9.12
+
+... along with sundry additions and updates.
+
+## Desktop Updates
+
+### Cosmic
+
+Our Cosmic environment has seen additional testers and contributors coming on-board to support Bryan who we highlighted in the previous blog post. Our Cosmic packaging team's approach is to use System76’s repo-release [repository](https://github.com/pop-os/repo-release) rather than waiting for git tags. The team are running roughly on a bi-weekly update cycle keeping us up to date with Cosmic's development where we had previously fallen behind. At the time of this blog post, our versions are tagged at Cosmic Beta3, however the code is somewhere between Cosmic Beta3 and Beta4, and Beta4 is being worked on as we write this.
+
+#### Known issues
+
+We are currently experiencing an issue with sudo-rs in Cosmic Terminal and the GNOME Ptyxis terminal emulator in our Cosmic session, however the issue doesn't present with e.g. the Kitty terminal emulator, which can therefore be used as a workaround for the issue. We are tracking this issue in our bug tracker.
+
+Additional details about Cosmic can be found on System76's [website](https://system76.com/cosmic).
+
+### Gnome
+
+The Gnome packaging team has updated our Gnome environment to 49.1. The team has also expanded the number of available Gnome packages in our repository, and we now include Showtime and Gnome-contacts in our gnome pkgsets accordingly. For clarity, these were added in September but were not mentioned in our previous blog post.
+
+Gnome continues to work very well on AerynOS and remains as our default live installation environment.
+
+### KDE Plasma
+
+Reilly Brogan has done a fantastic job landing KDE Plasma 6.5, KDE Gear 25.08.2 and KDE Frameworks 6.19.0 into our repository over the last month. The overall KDE Plasma experience continues to improve with users providing largely very positive feedback on its performance and fluidity on AerynOS.
+
+Over the last couple of months, KDE Plasma has now also been promoted as a recommended installation option alongside Gnome.
+
+## Distribution Updates
+
+### Switching back to GNU libstdc++ from LLVM libcxx
+
+The team decided to switch back to the GNU libstdc++ library from the LLVM libcxx C++ library as a defensive measure. This has resulted in us having to carry fewer patches across the stack, and has resolved a few bugs as a bonus. In particular, this has squashed an annoying bug related to the Firefox Widevine DRM plugin that in turn previously made certain video conferencing tools crash.
+
+### Packaging License Matching
+
+New this month, when packagers use the `boulder recipe new` invocation to create a new recipe from an upstream source archive, boulder will attempt to identify the applicable license of the package, and add it to the autogenerated skeleton stone.yaml recipe file.
+
+This is a nice quality of life and user experience feature for our packagers. The AerynOS ethos is to try to help lessen the burden on packagers by automating things that are simple in nature, yet time-consuming. This in turn, we hope, will enable packagers to spend more of their time on the parts of the packaging process that genuinely benefit from a human touch in terms of building a distro that they and users enjoy.
+
+### Parallelize the `moss state verify` command
+
+Until recently, when employing the `moss state verify` command to ensure the integrity of all moss states, boulder was limited to running on a single thread. The team updated the `moss state verify` command to run certain tasks in parallel (using `rayon`) which has significantly reduced the time to complete the verification process.
+
+The `moss state verify` command currently does not have any indication of progress such as a progress bar. As such, a user may be unsure if their system is frozen. Whilst parallelizing performance-sensitive aspects of this task significantly reduces the time to completion, we have an issue raised to add a progress bar to the command for an improved user experience.
+
+### Infrastructure Stabilization
+
+As it turned out, the issue we kept seeing (and have kept seeing since May) where build tasks would hang for no apparent reason, was actually related to the boulder threading code leaving threads running at the point where we called the `clone2` syscall to enter a user-namespace container for build isolation purposes -- fearless concurrency indeed...
+
+However, as these issues only manifested for us when boulder was invoked by the build infrastructure, and even then only rarely, it was not a problem we could trigger on demand.
+
+After some head-scratching and debugging sessions where we attached debuggers to live builds that had happened to hang, we finally found the root cause, and in turn were able to simplify our threading code significantly by always using a dedicated, explicit runtime that gets automatically shut down once the parallel (rayon) or threaded (tokio) work unit goes out of scope.
+
+This in turn now ensures that all threads have been shut down as required, before entering the cloned user-namespace container.
+
+Massive thanks to Cory Forsstrom for the work he put into solving this problem very elegantly over a couple of Pull Requests.
+
+### moss `system-model` prototype feature
+
+The system-model feature is inspired by the feature of the same name from the Conary system and package manager. However, in practice, it will likely end up more like a hybrid of the Conary feature and e.g. the simpler and more limited Gentoo (and FreeBSD) 'world' set.
+
+We are still hoping to be able to, when the time comes, offer versioned system-models that match our planned versioned repository work.
+
+The goal of the moss system-model feature is that it will eventually enable us to define, and switch between, system installs declaratively and seamlessly. This feature is slated to be suitable for use on both live systems, recovery initramfs environments, and for installing new systems.
+
+It is important to note that the system-model feature will be an opt-in feature, and that it will continue to be possible to use moss in an imperative fashion, where the system state is defined by the sum total of historical moss operations executed on the command line.
+
+The design we have settled on makes it possible in the future to import ("resolve") a declarative system-model to an imperatively defined system, just as it will be possible in the future to export ("derive") a declarative system-model of any given imperatively created moss system state.
+
+We hope that, as we evolve and flesh out the system-model feature work, this will give both users and system integrators the flexibility they need to define their systems in ways that matches their requirements and preferences.
+
+## Wider Project updates
+
+### Donations
+
+During October, we have made changes to our donation accounts and updated our site accordingly. Most importantly, the primary way to now provide donations to AerynOS is via our Ko-fi [page](https://ko-fi.com/aerynos).
+
+Due to the way Ko-Fi works, we have had to cancel all existing recurring donations as the money would not automatically flow to our new accounts. We have sent messages out to our donors and are hoping that they will want to sign-up again to provide continued donations towards the project.
+
+All donations received by AerynOS are going towards paying our running costs, reimbursing ermo for his project hardware investments, and building a buffer for acquiring new hardware once the current hardware reaches its End of Life.
+
+Taken together, these three budget items result in a target income of around €500 per month, with a third of that projected to go to each of the outlined items.
+
+Due to the cancellations mentioned above, we are currently down to €25 of new/committed monthly recurring donations.
+
+Rest assured however, that this will not impact the project's long term viability as we have the ability as a team to cover these costs. However, if you are able to provide any sort of donation, it would be greatly appreciated.
+
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
+</div>
+
+As a side note, we have also moved away from taking donations in USD by default and switched to EUR as this is the currency we are primarily spending in for our project costs. This does not preclude us from accepting USD based donations however.
+
+### Presenting the 2025.10 ISO refresh
+
+Whilst we provide a bootable ISO image with a live GNOME environment, its main purpose is to serve as a vehicle for our 'lichen' installer which is able to install all of our 'GNOME', 'KDE Plasma', 'Cosmic' and 'Terminal Only' versions of AerynOS. Given that 'lichen' is a net installer, it will always pull the latest packages from our repository at the time of installation and as such, it requires an active internet connection. This means there is less of a need for regular ISO updates, as we have carefully designed our installation routine and our pkgsets to not be tightly coupled to the packages that happened to be available at the time of the live ISO creation.
+
+![Gnome Install](./Featured.webp "AerynOS 2025.10 installed with GNOME Desktop")
+
+That said, with the addition of some significant updates in the Gnome stack, we felt it was a good opportunity to land a new live ISO for you all to try out. The link for our 2025.10 ISO can be found at our [download](https://aerynos.com/download/) page.
+
+## Next steps
+
+Going into November, the team will continue to execute on our development plans related to improving our infrastructure in terms of both capability and user experience, just as we will be continuing to work on improving our moss and boulder tools via their planned workstreams, particularly the moss `system-model` related workstream.
+
+On a final note, we are progressing on the documentation front, and work is steadily trickling into our documentation site. Thank you to everyone who has contributed!
+
+If you are interested in our work or generally want to hang out, the best place to join us is in our Matrix[^1] space. Alternatively, our Forums can be found on [GitHub](https://github.com/orgs/AerynOS/discussions)
+
+---
+[^1]: aerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.

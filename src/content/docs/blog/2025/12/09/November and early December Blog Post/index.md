@@ -1,0 +1,204 @@
+---
+title: "November + early December 2025 project update"
+date: 2025-12-09T12:00:00Z
+authors: [nomadiccore, ermo]
+cover:
+  alt: AerynOS 2025.12 installed with KDE Plasma Desktop
+  image: ./KDE_Screenshot.webp
+tags: [news]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
+---
+
+As we near the end of the year, the team has been reflecting on how best to position itself going into 2026. Over the course of November and early December, the team has made a number of changes, some of which have been public facing which you may have already seen if you've been following our socials.
+
+On the public side, the two most visible changes has been our transition away from Matrix to Zulip for our instant messaging chat platform, and our transition to netcup for our server requirements. In the background, the team has also changed email hosting providers, however no one would really have noticed any difference there.
+
+Packaging updates are progressing nicely with a nice rhythm for Cosmic and KDE stack updates, which along with fixes to reported issues is all helping to improve the overall experience for the people testing and checking out AerynOS.
+
+On the infrastructure side of things, we have landed simple auto-pruning logic into our Vessel repository manager. This sort of automation ensures that we keep our repository lean and mean.
+
+Things are progressing nicely in terms of getting [phase 1 of our Versioned Repositories infra feature](https://github.com/orgs/AerynOS/discussions/117) ready for production use. It was designed to from the outset to mesh nicely with our Moss system-model feature. Internal testing on a private infra instance has been running smoothly with these new features so far.
+
+<!-- excerpt -->
+
+## What’s new in the distro
+
+Package / stack updates for this iteration include:
+
+- COSMIC Beta9
+- GNOME 49.2
+- KDE Frameworks 6.20.0
+- KDE Gear 25.08.2
+- KDE Plasma 6.5.4
+- bash 5.3.8
+- buildah: Add at v1.42.2
+- docker 29.0.4
+- ffmpeg 8.0.1
+- firefox 146.0
+- gamemode: Add at 1.8.2
+- linux 6.17.10
+- llvm 21.1.7
+- mesa 25.3.1 (with Vulkan anti-lag support enabled)
+- openvpn 2.6.17
+- prism-launcher 9.4
+- scx-scheds 1.0.17
+- sudo-rs 0.2.10
+- uutils-coreutils 0.4.0
+- vim 9.1.1896
+- vscodium v1.106.37943
+- wine 10.19
+- xwayland-satellite 0.8
+- zed 0.210.4
+- zlib-ng: 2.3.2
+
+... along with sundry additions and updates.
+
+## Desktop Updates
+
+### Cosmic
+
+![Cosmic Install](./Cosmic_Screenshot.webp "AerynOS 2025.12 installed with Cosmic Desktop")
+
+Our Cosmic packaging team have automated much of the update process based around the more frequent git tags that the System76 team are now publishing for the Cosmic Beta phase. As such, we are more quickly able to push updates out to our volatile repository for eventual availability in our unstable repository.
+
+As an aside, we believe we have fixed the issue for Cosmic DE sessions where USB devices were not automatically showing up, by adding gvfs as part of the Cosmic pkgset. This is a fairly important usability feature so great to have it fixed.
+
+We have also fixed the issue we reported in our October Project Update blog post about sudo-rs not functioning correctly on Cosmic Terminal and Ptyxis in our Cosmic session.
+
+Overall, Cosmic is progressing nicely in general and we are polishing the experience on AerynOS in lockstep with Cosmic Beta9 having landed in our repositories.
+
+Additional details about Cosmic can be found on System76's [website](https://system76.com/cosmic).
+
+### Gnome
+
+![Gnome Install](./Gnome_Screenshot.webp "AerynOS 2025.12 installed with GNOME Desktop")
+
+As usual, there isn't really much to say wrt. GNOME. The team has updated it to 49.2 and it is running nicely as expected.
+
+### KDE Plasma
+
+![KDE Plasma Install](./KDE_Screenshot.webp "AerynOS 2025.12 installed with KDE Plasma Desktop")
+
+KDE Plasma has been updated to 6.5.4, KDE Frameworks to 6.20.0.
+
+As part of these updates, Reilly added a few custom patches to better support monitors with high refresh rates.
+
+## Infrastructure Updates
+
+### Auto-pruning in vessel
+
+The new auto-pruning feature in our Vessel repository manager service means that our infra will periodically (currently daily) review what packages are present on our server storage versus which packages are reachable via a repository index.
+
+If packages are no longer reachable via a repository index, they are considered surplus to requirements and pruned.
+
+Automating this workload ensures that our storage doesn't fill up and that our repository looks after itself over time, freeing the team from encountering unpleasant surprises in the form of having to take corrective action as storage fills up.
+
+## Wider Project Updates
+
+### Transition to netcup for our server requirements
+
+As part of a wider review of our requirements, the team looked at how we were using our server and whether it was "right-sized" for where we are as a project. The project has shifted over the last 7 months to more heavily using ermo's four private servers, meaning the "main" AerynOS build server hasn't been utilised as effectively. Therefore, the team took the decision to sunset this server and look for a server better specified for repo hosting and infra coordination. To this end, we settled on a netcup "root server" based in Germany (where the old server was based in Finland). The netcup server has a 2.5Gbit NIC and has -- for European users at least -- yielded significantly faster download speeds.
+
+It is still early days, however we are very pleased with our transition to netcup. Their support offering during our initial set up phase was both responsive and very helpful.
+
+### Transition from Matrix to Zulip
+
+We want to preface this by saying we love what Matrix is doing by providing a federated open source instant messaging chat solution for users.
+
+However, for AerynOS specifically, we have been having a few issues with our matrix space, partially in administration and partially around federation and delays in messaging (or in some cases, some users not able to see messages from other users in one room but they could in others).
+
+As a team, we looked at what other options were available, and considered what our requirements were before eventually deciding to try Zulip on for size.
+
+After trying it internally for some time, it quickly became clear that it offers great instant messaging capabilities like Matrix whilst also offering many other features such as asynchronous conversations (threads/topics) that allow users, contributors and staff to better focus on the various project conversations that fall in their sphere of interest or responsibility.
+
+Like Matrix, Zulip is an Open Source Project and it also has hundreds of integrations that help elevate the overall User and Moderator experience.
+
+Initial feedback from our wider user base has been overwhelmingly positive and we are excited to continue on this journey!
+
+For transparency, Zulip has a policy of supporting Open Source Projects, and has generously sponsored the AerynOS project with a standard cloud server instance at no cost.
+
+Please feel free to join our [Zulip](https://aerynos.zulipchat.com) server and get to know the community that is building up around AerynOS.
+
+### Transition to Migadu for emails
+
+The team had a look at the options available in the market for emails and decided to make a transition to Migadu's offering, after Migadu offered us an OSS project discount.
+
+While it does require a little more set up than other providers out there, it has the substantial benefit that you can set up as many email addresses on your account as you want or need, without this impacting the cost base.
+
+This will undoubtedly prove helpful for the project going forward.
+
+### Logo / Branding / Website progress
+
+The team has been looking at our branding and reviewing our requirements. It's safe to say that if we didn't have to update these, we would keep them as is as there are other higher priority activities.
+
+However, if we take the logo itself, it was created using AI tools, so doesn't really line up with our project ethos and does leave questions over licensing and ownership.
+
+As such, we have been looking at what we might want from a logo and how it can best represent AerynOS. In keeping with this, we have also been looking at our wider branding including the colour schemes that we use.
+
+Given that the naming conventions for AerynOS's infrastructure and tooling projects all link to nature, we are leaning towards a nature oriented colour scheme going forward.
+
+Lastly, we have been looking at our website which is in dire need of work. We currently use Astro for the website, however we have found that to be a complex solution. This is especially true as none of the current team / wider contributor base has much experience with Astro. We have been looking at the field of Static Site Generators (SSGs) and have shortlisted it down to Zola and Hugo, both of which are meant to be much easier to work with than Astro.
+
+Zola is the preferred option with it being Rust based, however it's fair to say that it is a much smaller project so doesn't have anywhere near as extensive a theme library to choose from. Hugo is a larger / more mature project with greater theming, but is tied to Go which would create an additional maintenance burden outside of the team's core focus.
+
+Outside of existing themes, one option is to create (and subsequently maintain) a brand new theme, but this requires expertise and would place a burden on the team to ensure compatibility and that everything is updated within the template as time progresses.
+
+If you have experience in website design and would like to help create / shape a redesign for our main website, then please join us on our [Zulip](https://aerynos.zulipchat.com/) server so that we can discuss how to move things forward.
+
+### Documentation website progress
+
+With new contributors coming on board, our documentation website has seen significant updates in both content and in presentation. Whilst still a work-in-progress project, it is becoming more usable with less gaps. The team and wider contributor base continues to push updates, the big outstanding one being how to create new package recipes from scratch.
+
+Once these gaps are filled in, it will become an iterative exercise to make sure our documentation stays updated and potentially go down into further detail where feedback suggests this is necessary.
+
+### Download choices and BitTorrent
+
+Another area we have been reviewing is how we serve ISO downloads to our users. We currently only offer a direct download via our package server behind a CDN. As a small operation, this has suited us well enough, however users in certain locations don't necessarily benefit from this solution.
+
+We have had the BitTorrent option on the board for a long while now, and over the last couple of weeks, we silently added a torrent link for the AerynOS 2025.10 ISO. With the 2025.12 ISO we are taking this approach forward. This will have a secondary benefit of reducing the load on our server / CDN at the point of ISO releases, as bandwidth is naturally distributed due to the torrenting approach. We will continue to offer direct downloads for anyone who prefers this option.
+
+## ISO refresh
+
+We are releasing our newest Alpha ISO, AerynOS 2025.12, which includes the updates we've worked on during the month of November and the first week of December, and which features the 6.17.10 kernel at the time of upload.
+
+As usual, this is a Live GNOME ISO that contains our Alpha/PoC `lichen` installer. Hence, installing AerynOS requires a network connection over which the latest pkgsets can be downloaded and subsequently installed onto a dedicated AerynOS target hard drive.
+
+The link for our 2025.12 ISO can be found at our [download](/download/) page.
+
+## Next Steps
+
+The rest of december is dedicated to bringing phase 1 of the Versioned Repositories feature [PR here](https://github.com/AerynOS/infra/pull/142) and its associated Moss system-model companion feature [PR here](https://github.com/AerynOS/os-tools/pull/596) up to snuff and landed for the general public.
+
+As mentioned in the introduction, these PRs are already in testing, and merely need some final bits and bobs wrapped up before they can be landed and put in production.
+
+:::note[What are Versioned Repositories?]
+The fully realised Versioned Repositories feature will enable us to deploy new Boulder and Moss features in a seamless fashion. It will allow us to introduce breaking code and on-disk format changes, that would otherwise cause installed systems to require manual intervention for them to continue to receive updates.
+
+Once Versioned Repositories are in place, the goal is that users will be able to simply update and sync their system as normal via the `sudo moss sync -u` command.
+
+With this:
+
+- Users will be upgraded to the new versions of Moss that uses a new repository format, without having to pay special attention.
+- It will enable AerynOS to iteratively expand the capability of Moss and Boulder on existing systems without breaking user systems in the process.
+
+Going further, we consider Versioned Repositories a pre-requisite for what we call "try-builds" and eventually for multi-arch support.
+
+- Automated try-builds denotes the process whereby the infrastructure discovers an update to the upstream source repository of a package, attempts to auto-update the recipe and then attempts to build the updated package recipe in question.
+- We think this will be a useful tool for contributors as it will automate some of the packaging tedium related to simple package version updates. It will also help enable automated regression testing and build flag optimisation in a future workstream.
+- Included under the multi-arch umbrella is our ability to target ARM, RISC-V, and different x86 architecture levels such as x86-64-v3 and v4.
+:::
+
+## Supporting the project
+
+Following the October blog post, we had a flurry of new donors whom we want to thank for supporting our project. Their support is greatly appreciated, especially given the global cost of living crisis leaving less money in peoples pockets each month. Your support means a lot to everyone on the project as it shows the faith you have in the work we are doing!
+
+2025 has been a significant year for the project, with the team having landed our new Rust based infrastructure, repository-wide rebuilds along with landing KDE and significantly improving our Cosmic offering whilst also landed new features into our tooling. We see our Versioned Repository work continuing into 2026, and this will eventually help lift AerynOS into becoming a serious offering in the Linux distribution space. Onwards and upwards!
+
+If you are following along with our project and are in a position to support us, please consider donating via our Ko-fi page.
+
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
+</div>

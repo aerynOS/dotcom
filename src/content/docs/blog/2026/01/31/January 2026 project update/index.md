@@ -2,15 +2,13 @@
 title: "January 2026 project update"
 date: 2026-01-30T12:00:00Z
 authors: [nomadiccore, ermo]
+cover:
+  alt: The sun shining through clouds over a mountainous valley. Signifies a fresh start for the new year!
+  image: ./Fresh-start.webp
 tags: [news]
 license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2026 aerynOS Developers"  
 ---
-
-
-# AerynOS: January 2026 project update
-
-![Fresh Start](Fresh-start.jpg)
 
 Kicking off 2026, activity across the AerynOS project has been moving at pace. As covered in our 2025 retrospective, last year the team laid the groundwork for the project's future growth and development. Starting off 2026, the team is building upon this foundation to keep delivering progress across the project.
 
@@ -23,6 +21,8 @@ You may recently have seen that AerynOS is taking a stronger stance against the 
 Additional progress has been made project-wide on our documentation and we have also made improvements to our CDN setup for improved package delivery.
 
 Our efforts seem to be received well, as we are seeing an influx of new members joining our [Zulip server](https://aerynos.zulipchat.com/) and getting involved with AerynOS, whether through general discussion or through packaging efforts. We have also seen a jump in our followers across our various social media accounts and generally a more positive reception of what AerynOS is trying to achieve in the Linux space.
+
+<!-- excerpt -->
 
 ## What’s new in the distro
 
@@ -58,24 +58,23 @@ Package / stack updates for this iteration include:
 
 ... along with sundry additions and updates.
 
-
 ## Desktop Updates
 
 ### Cosmic
 
-![Cosmic Install](Cosmic_Screenshot.jpg)
+![Cosmic Install](./Cosmic_Screenshot.webp "AerynOS 2026.01 installed with Cosmic Desktop")
 
 Given System76's move to a more regular release cycle for [Cosmic DE](https://system76.com/cosmic), we are able to land updates to our repository more frequently. This month, System76 landed Cosmic 1.0.3 with some key updates including support for rounded corners and window shadows across all applications and additional appearance settings being made available.
 
-> #### Cosmic context
-> AerynOS is following System76's "Epoch" git branch for Cosmic DE. This is where System76 stages new updates to the Cosmic ecosystem before publishing new point releases. As such, our Cosmic package is actually somewhere between 1.0.3 and 1.0.4.
->
->  Given that Cosmic 1.0.4 has been released, it will be included in our repository shortly. It may already be there by the time you read this blog post.
+:::note[Cosmic context]
+AerynOS is following System76's "Epoch" git branch for Cosmic DE. This is where System76 stages new updates to the Cosmic ecosystem before publishing new point releases. As such, our Cosmic package is actually somewhere between 1.0.3 and 1.0.4.
 
+Given that Cosmic 1.0.4 has been released, it will be included in our repository shortly. It may already be there by the time you read this blog post.
+:::
 
 ### Gnome
 
-![Gnome Install](Gnome_Screenshot.jpg)
+![Gnome Install](./Gnome_Screenshot.webp "AerynOS 2026.01 installed with GNOME Desktop")
 
 This month sees the inclusion of [Gnome 49.3](https://discourse.gnome.org/t/gnome-49-3-released/33609) which is a stable bug-fix release with updates across the Gnome stack. 
 
@@ -89,7 +88,7 @@ Plus many more fixes. See the upstream [changelog](https://download.gnome.org/te
 
 ### KDE Plasma
 
-![KDE Install](KDE_Screenshot.jpg)
+![KDE Install](./KDE_Screenshot.webp "AerynOS 2026.01 installed with KDE Plamsa Desktop")
 
 KDE Plasma has been updated to [6.5.5](https://kde.org/announcements/plasma/6/6.5.5/), KDE Frameworks to 6.22.0 and KDE Gear to 25.12.1.
 
@@ -128,12 +127,11 @@ As a reminder, we do not include MangoWC, Niri or Sway as options to install dir
 }
 </style>
 
+:::note[Why not use our system-model?]
+Our new system-model approach can be used as a way of significantly simplifying the process of setting up a new AerynOS install by declaratively stating which packages you want installed on your system from a given repository (currently either Unstable or Volatile) and even being able to lock your environment to any given fixed-in-time stream update tag.
 
-> #### Why not use our system-model?
-> Our new system-model approach can be used as a way of significantly simplifying the process of setting up a new AerynOS install by declaratively stating which packages you want installed on your system from a given repository (currently either Unstable or Volatile) and even being able to lock your environment to any given fixed-in-time stream update tag.
->
->  For more information about our system-model approach, please refer to the our previous [2025 in retrospect blog post](https://aerynos.com/blog/2026/01/2025-in-retrospect/#system-model)
-
+For more information about our system-model approach, please refer to the our previous [2025 in retrospect blog post](https://aerynos.com/blog/2026/01/2025-in-retrospect/#system-model)
+:::
 
 ## Infrastructure and Tooling Updates
 
@@ -156,7 +154,6 @@ The team have started work on refactoring error handling in `moss` with an early
 This is useful when troubleshooting, as it allows us to diagnose whether there is an issue with the user's internet connection, or with the package itself on our server.
 
 This error handling workstream will continue in the background to further improve the quality of human readable error output in our tooling.
-
 
 ## Wider Project Updates
 
@@ -206,7 +203,6 @@ As and when we do make the transition to Codeberg, we would also like to sponsor
 
 Sponsorship, where we are able, is another way we feel we can support the open source community and as our own sponsorship / income grows, we will be in a better position to contribute to the upstream projects on which we rely.
 
-
 ## ISO refresh
 
 We are releasing our newest Alpha ISO, AerynOS 2026.01, which includes the updates we've worked on since the start of December, and which features the 6.18.7 kernel.
@@ -214,7 +210,6 @@ We are releasing our newest Alpha ISO, AerynOS 2026.01, which includes the updat
 As usual, this is a Live GNOME ISO that merely serves as a delivery vehicle for our Alpha/PoC `lichen` installer. Hence, installing AerynOS requires a network connection over which the latest pkgsets can be downloaded and subsequently installed onto a hard drive.
 
 The link for our 2026.01 ISO can be found on our [download](/download/) page.
-
 
 ## Next Steps
 
@@ -232,7 +227,6 @@ Due to the work done during 2025 on the infrastructure code-base, enabling the s
 
 We're very, very excited about what this will enable us to do in the future!
 
-
 ## Supporting the project
 
 As mentioned in our previous blog post, our sponsorship goals in 2026 will be to continue growing our recurring sponsorships to help recover the backlog of historic project costs, and also to build up towards future hardware investments such as an x86_64-v4 capable builder.
@@ -243,18 +237,10 @@ Similarly, we are interested in and open to EU-based CDN sponsorship as a way of
 
 If you are following along with our project and are in a position to support us, please consider donating via our Ko-fi page. If you wish to discuss other sponsorship details, please reach out to us at contact@aerynos.com.
 
-<div style="display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 50px">
-<a style="font-weight: bold;
-          color: white;
-          background-color: #626f47ff;
-          padding: 10px 20px;
-          text-decoration: none;
-          text-align:center;
-          border-radius: 5px"
-   href=/sponsor/>Sponsor AerynOS</a>
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
 </div>
 
 ### Thank You!

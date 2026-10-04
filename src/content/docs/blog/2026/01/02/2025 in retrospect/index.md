@@ -2,6 +2,9 @@
 title: "2025 in retrospect"
 date: 2026-01-02T23:00:00Z
 authors: [nomadiccore, ermo]
+cover:
+  alt: People sitting around a camp fire in the snow. Signifies the team coming together to reflect on the year!
+  image: ./Camp-Fire.webp
 tags: [news]
 license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2026 aerynOS Developers"
@@ -10,8 +13,6 @@ copyright: "Copyright © 2026 aerynOS Developers"
 2025 has been a year of significant change for the AerynOS project, not just in terms of development itself but also in name and in the staff working on the project.
 
 We know many people will be following along, waiting for our beta and/or stable releases but for now we want to take a look back at 2025 and summarize what we have delivered and how that is positioning us strongly for 2026.
-
-![Camp Fire](Camp-Fire.jpg)
 
 **The TL;DR summary:**
 
@@ -27,6 +28,7 @@ We know many people will be following along, waiting for our beta and/or stable 
   - We reworked our cloud hosting setup to deliver more build capabilities at lower cost base
   - We renewed our media strategy through increased blog posts and engagement across social media platforms
 
+<!-- excerpt -->
 
 ## What's in a name
 
@@ -65,7 +67,6 @@ We are now 9 months on from Ikey stepping back, and taking into account that we 
 We would like to stress that, as a project, we hold no ill will towards Ikey, and that we simply wish him the best. There is no hiding that his work was foundational to AerynOS with respect to both the tooling, the distribution itself, and the vision & ethos he promulgated for the project. We simply would not be where we are now as a project without his years of forward-looking engineering efforts.
 
 At the same time, we think the present blog post will serve to outline why, based on our ability to deliver up until now, we are confident in our ability to continue developing AerynOS and its tooling into the future.
-
 
 ## Infrastructure & Tooling development
 
@@ -121,7 +122,6 @@ All of these features, particularly where users could potentially face issues wi
 }
 </style>
 
-
 ## Team organisation
 
 We kicked off the year with looking for support in 4 key areas:
@@ -155,7 +155,6 @@ For now, we don't have any concrete plans to package up additional DEs or WMs fo
 
 In terms of future potential, it's worth mentioning that AerynOS is first and foremost a forward-looking, Wayland-aligned project, which means that Wayland session support is a minimum requirement for any future DE or WM additions to the repository.
 
-
 ### Installer
 
 At the start of this year, Ikey shared initial screenshots of a GUI based installer that would eventually replace our text based installer as the primary installation method. With Ikey stepping back from the project, the development of this GUI installer took a back seat to allow the team to focus on higher-priority items such as delivering working infra.
@@ -163,7 +162,6 @@ At the start of this year, Ikey shared initial screenshots of a GUI based instal
 Recently, one of our new staff members, Bryan Hyland, began working in the background on a new GUI based installer to eventually fill this role. 
 
 To put it simply, the idea is to eventually use the newly developed system-model approach to define the packages that would be installed per DE / WM and also allow users to use their own custom system-model.kdl files as the basis of an installation.
-
 
 ## Sponsorship
 
@@ -187,18 +185,10 @@ Similarly, we are interested in and open to CDN sponsorship as a way of strength
 
 If you wish to discuss sponsorship details, please reach out to us at contact@aerynos.com.
 
-<div style="display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 50px">
-<a style="font-weight: bold;
-          color: white;
-          background-color: #626f47ff;
-          padding: 10px 20px;
-          text-decoration: none;
-          text-align:center;
-          border-radius: 5px"
-   href=/sponsor/>Sponsor AerynOS</a>
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
 </div>
 
 ## Going into 2026

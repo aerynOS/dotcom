@@ -2,12 +2,13 @@
 title: "Solid foundations are leading to expanding horizons"
 date: 2026-08-02T21:00:00Z
 authors: [nomadiccore, ermo]
+cover:
+  alt: A car light trail signifying moving at pace
+  image: ./unsplash.webp
 tags: [news]
 license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2026 aerynOS Developers"
 ---
-
-![A car light trail signifying moving at pace](unsplash.webp)
 
 It's been several months since our last update in May, and a lot has happened around the AerynOS project in the meantime!
 
@@ -28,6 +29,8 @@ In terms of our code bases, we have contributors experimenting with improving th
 From a development story arc perspective, AerynOS has been deliberately kept under a very tight leash over the last year, as we have focused on strengthening our core tooling and infrastructure code bases. Whilst we are nowhere near "done" with our vision for our tooling, now that our ability to seamlessly deliver updates to our on-disk repository and file formats has been secured, you will see AerynOS deliberately transitioning into a more open and collaborative space for those of you who want to get involved with the project and work on areas that you find fun, interesting and engaging.
 
 This shift in approach has already been evident over the last couple of months, as engagement around the project continues to grow through all of our social media platforms and particularly in our Zulip server.
+
+<!-- excerpt -->
 
 ## What's new in the distro
 
@@ -105,7 +108,7 @@ As ever, our intrepid contributors and staff have landed a bunch of updates. Ple
 
 ### Versioned Repositories phase 2
 
-![A terminal window showing the transition through Versioned Repositories phase 2](mossvrp2.webp)
+![A terminal window showing the transition through Versioned Repositories phase 2](./mossvrp2.webp "Terminal window showing the transition through Versioned Repositories phase 2")
 
 The team, spearheaded by efforts from tarkah and ermo, have landed our Versioned Repositories phase 2 development sprint. This feature was included in the Unstable Stream update released on 5 July with users having reported a positive transition experience ever since.
 
@@ -137,7 +140,7 @@ We will talk more about this in a future blog post when the currently in-develop
 
 ### Systemd packaging and user-facing changes
 
-![A moss sync command in terminal showing the changes to systemd](systemd.webp)
+![A moss sync command in terminal showing the changes to systemd](./systemd.webp "moss sync command in terminal showing changes to systemd")
 
 Reilly reworked our systemd package to ensure that manually enabling or disabling systemd units will no longer be overridden on moss package transactions.
 
@@ -177,7 +180,7 @@ We are taking a deliberate approach of focusing on what we have delivered rather
 
 If you have experience developing websites with Hugo and want to contribute, we welcome PRs on the [Codeberg repository](https://codeberg.org/AerynOS/dotcom-hugo).
 
-![A screenshot of the homepage of the new in progress AerynOS website](hugo-dotcom.webp)
+![A screenshot of the homepage of the new in progress aerynOS website](./hugo-dotcom.webp "A screenshot of the in development aerynOS website")
 
 Please note that this is just a placeholder as the current focus is on the design rather than the content.
 
@@ -207,7 +210,7 @@ The new ISO incorporates all the latest updates to date including the latest 7.1
 
 ## CDN77 sponsorship
 
-![The cdn77 logo](cdn77.png)
+![The cdn77 logo](./cdn77.png "The CDN77 logo")
 
 The latest project sponsor for AerynOS is [CDN77](https://www.cdn77.com/), who is providing the project with content delivery and storage hosting services.
 
@@ -263,18 +266,10 @@ Ideally we would like to grow our monthly income (and therefore surplus). Doing 
 3. Consider purchasing hardware for compatibility testing
 4. Fund future initiatives for the betterment of the project
 
-<div style="display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 50px">
-<a style="font-weight: bold;
-          color: white;
-          background-color: #626f47ff;
-          padding: 10px 20px;
-          text-decoration: none;
-          text-align:center;
-          border-radius: 5px"
-   href=/sponsor/>Sponsor AerynOS</a>
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
 </div>
 
 If you wish to discuss other sponsorship opportunities, such as hosting or hardware sponsorship, please reach out to us at contact@aerynos.com.
