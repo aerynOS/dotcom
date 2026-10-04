@@ -2,14 +2,13 @@
 title: "March 2026 project update"
 date: 2026-03-31T12:00:00Z
 authors: [nomadiccore, ermo]
+cover:
+  alt: A man climbing up a mountain to signify AerynOS overcoming it's challenges
+  image: ./climbing.webp
 tags: [news]
 license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2026 aerynOS Developers"
 ---
-
-# AerynOS: March 2026 project update
-
-![Climbing](climbing.jpg)
 
 Another month brings another project update. In some respects, March has felt somewhat quieter than usual for the project. However, in the background, things have been fairly busy on the development front, as we prepare for larger and more visible tooling updates to land in the months to come.
 
@@ -19,6 +18,7 @@ The development work this month has centered around the features we offer in ter
 
 Lastly, we want to take a moment to thank Framework for their on-going hardware sponsorship of our project. This month, they have provided the project with an AMD AI 300 based Framework 16 that Joey Riches is now using as a dedicated device for AerynOS development.
 
+<!-- excerpt -->
 
 ## What’s new in the distro
 
@@ -54,14 +54,13 @@ Package / stack updates for this iteration include:
 - llvm 22.1.1
 - Qt6 6.11.0
 
-
 ... along with sundry additions and updates.
 
 ## Desktop Updates
 
 ### GNOME
 
-![Gnome Install](Gnome.png)
+![A screenshot of the GNOME desktop environment on the latest AerynOS 2026.03 release](./Gnome.webp "AerynOS 2026.03 GNOME install")
 
 This month sees a significant update to the GNOME stack with the delivery of [GNOME 50](https://release.gnome.org/50/). We have not received any reports of any issues but if you do find any bugs, please report them back to us via [GitHub Issues](https://github.com/AerynOS/recipes/issues) or through our [Zulip](https://aerynos.zulipchat.com/) community.
 
@@ -75,7 +74,7 @@ Plus many more features and fixes.
 
 ### KDE Plasma
 
-![KDE Install](KDE_Plasma.jpg)
+![A screenshot of the KDE Plasma desktop environment on the latest AerynOS 2026.03 release](./KDE_Plasma.webp "AerynOS 2026.03 KDE install")
 
 KDE Plasma has been updated to [6.6.3](https://kde.org/announcements/plasma/6/6.6.3/), KDE Frameworks to 6.24.0 and KDE Gear to 25.12.3.
 
@@ -100,7 +99,6 @@ A few key updates this month include:
 - riftbar 0.1.8
 
 On top of this, several packages have been rebuilt for better performance, support or defaults. The default terminal in our Sway package set has been swapped from alacritty to foot as this is the default terminal proposed by Sway itself. Elephant has had upstream support for moss included and this version has now been added to our own repository. Niri has seen a few upstream improvements backported into our repository also.
-
 
 ## Infrastructure and Tooling Updates
 
@@ -155,7 +153,6 @@ We have built the control file using the KDL format as part of our wider transit
 
 To those wondering why we didn't just add a boulder build flag for this, the reason is that we have a few other future use cases in mind for this feature that are also projected to benefit from a control file, hence settling on the current design.
 
-
 ## Wider Project Updates
 
 ### Recipe repository REUSE compliance
@@ -168,10 +165,9 @@ For anyone doing local packaging work, you will need to ensure you update your l
 
 In addition, a new CI process has been created to check for this REUSE compliance for package recipes. This will ensure compliance with our licensing standards into the future rather than letting the files deviate over time again.
 
-
 ### Framework hardware sponsorship
 
-![Framework](framework.jpg)
+![Framework](./framework.webp "AerynOS' sponsored Framework 16 laptop out and about in Wales")
 
 Back in August 2024, Framework provided the project (then SerpentOS) with an AMD Ryzen 7840u based Framework 13. At the time, this was helpful for Ikey (our project founder and former project lead) to have a separate and dedicated laptop for working on the project following the appropriate hardware enablement.
 
@@ -183,7 +179,6 @@ Unfortunately, when Ikey stepped away from the project, we lost access to the Fr
 
 As a team, we like the repairable nature of Framework hardware and appreciate them supporting an up-and-coming distro such as ours!
 
-
 ## ISO refresh
 
 We are releasing our newest Alpha ISO, AerynOS 2026.03, which includes the updates we've worked on since the start of March, and which features the 6.18.20 kernel.
@@ -193,7 +188,6 @@ As usual, this is a Live GNOME ISO that merely serves as a delivery vehicle for 
 We did notice an issue in our 2026.02 ISO whereby it would not boot from Ventoy USB sticks. The issue reoccured with our 2026.03 ISO and we believe we have identified the issue. We have raised an issue with Ventoy and hopefully will have this resolved soon.
 
 The link for our 2026.03 ISO can be found on our [download](/download/) page.
-
 
 ## Next Steps
 
@@ -224,7 +218,6 @@ This month we have been steadily building towards phase2 of our Versioned Repos 
 
 This will set us up nicely from an "install once, update forever" perspective, as we will always be able to add new features to our tooling without requiring fresh installs or manual upgrade interventions on user systems.
 
-
 ## Supporting the project
 
 Outside of financial donations through Stripe and Ko-fi mentioned above, we are always looking for people to get involved with development and packaging efforts and welcome anyone curious about AerynOS to join us in our Zulip server!
@@ -233,18 +226,10 @@ If any hardware vendors are interested in sponsoring the project either financia
 
 If you wish to discuss other sponsorship details, please reach out to us at contact@aerynos.com.
 
-<div style="display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 50px">
-<a style="font-weight: bold;
-          color: white;
-          background-color: #626f47ff;
-          padding: 10px 20px;
-          text-decoration: none;
-          text-align:center;
-          border-radius: 5px"
-   href=/sponsor/>Sponsor AerynOS</a>
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
 </div>
 
 ## Thank You!

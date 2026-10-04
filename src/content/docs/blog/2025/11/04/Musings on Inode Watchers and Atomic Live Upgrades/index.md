@@ -1,0 +1,80 @@
+---
+title: "Musings on Inode Watchers and Atomic Live Upgrades"
+date: 2025-11-04T09:00:00Z
+authors: [joebonrichie]
+tags: [development]
+license: "CC-BY-ND-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
+---
+
+This blog post will focus on inode watcher applications as well as the difficulties they present for live atomic updates for our `moss` package manager.
+
+### What is Moss?
+
+For those not in the know `moss` is an atomic package manager that allows for live updates i.e. not needing to reboot to apply updates.
+
+Although `moss` presents itself as a traditional package manager, under the hood, it works quite fundamentally differently.
+
+When you install a package with moss, it actually downloads and extracts the package to a Content Addressable Store (CAS) in `/.moss/assets`. It then constructs a new virtual filesystem in memory comparing the current installed state to the new desired installed state containing the additional package. From the CAS it then constructs a `/usr` tree in `/.moss/root/staging` containing the additional package using hardlinks into the CAS. Then, using the `renameat2` Linux kernel syscall with the `RENAME_EXCHANGE` flag set, moss atomically promotes the current `/.moss/root/staging` tree to be the new `/usr` tree, and simultaneously demotes the current `/usr` tree back to being an inactive, numbered filesystem transaction (fstx) tree in `/.moss/root/<fstx id>`. Finally, moss then updates the bootloader configuration to reference the five newest numbered filesystem transactions for rollback purposes.
+
+:::note
+This explanation leaves out a couple of details such post-install triggers and boot management.
+:::
+
+Compared to other atomic distributions on the market, the ability to live-update without needing to reboot is an important usability requirement for us, such that the user experience remains friendly to downstream users.
+
+### Enter Inode Watchers
+
+Although quite a novel approach, allowing atomic updates of a live system leaves us with an interesting problem: After any moss transaction activating a new `/usr` tree, any running applications holding an underlying inode to a filesystem path will continue to watch the file in the now archived state.
+
+For example:
+
+```
+$ inotifywait -m /usr/bin/le-foo &
+# moss remove 'binary(le-foo)'
+```
+
+In this case, if you hold an inode to a path that is deleted after the the `/usr` tree is atomically swapped as part of a moss transaction, you will continue to hold the inode to the file in the archived state e.g. `/.moss/root/<fstx id>/bin/le-foo`. This is due to the fact that the underlying file in the CAS that was referenced from the previous `/usr` tree was not removed from the system; it still exists in the now archived previous `/usr` tree.
+
+:::note
+Note that moss encodes all packaged files to start with an implicit `/usr` prefix. Hence the `/usr/bin/le-foo` file becomes `/.moss/root/<fstx id>/bin/le-foo` in the archived fstx id directory.
+:::
+
+For any running applications whose functionality depends on these inode watchers, it can leave the system in a weird state as the application has no real way to know that the "real path" has now changed from `/usr/<something>` to `/.moss/root/<fstx id>/<something>`.
+
+The most obvious example in which this presents to users is in our GNOME Edition. GNOME Shell uses a inode watcher on `/usr/share/applications/` to watch for any changed `.desktop` files as applications get installed or removed. This design works pretty well for a traditional installation, and reduces the number of expensive `stat` calls required to see what applications are available to launch. However, notably this design does not work with the design of `moss`, in that when applications are freshly installed in GNOME they simply do not show up in the application launcher as GNOME Shell instead continues to hold the inode to the archived path. e.g. `/.moss/root/<fstx id>/usr/share/applications/`, once a mutating moss operation is performed.
+
+Whilst we could patch GNOME Shell instead to `stat` for new changes in `/usr/share/applications/`, patching every application that has issues with picking up file-system changes is not feasible across the ecosystem.
+
+### Alternative Approaches?
+
+One suggested alternative has been to explore so called "mount-tucking" and EROFS images.
+
+Mount-tucking is a fairly new addition to the Linux kernel where you can mount a new image _beneath_ a currently mounted image for a path.
+
+For example
+```
+# mount my-image.img /mnt
+# mount --beneath my-new-image.img /mnt
+# umount /mnt
+```
+
+In this example, once `/mnt` is unmounted it will unmount `my-image.img` and leave `my-new-image.img` mounted in its place. If any files from `my-image.img` are currently open, then a lazy unmount of the `/mnt` path is required.
+
+When combined with EROFS (extended read-only filesystem), we can construct a lightweight, metadata-only EROFS `/usr` tree image which then links into the underlying CAS to form the new `/usr` tree instead, then mount it beneath the currently running `/usr` tree lightweight EROFS image. Lastly, we can then lazy unmount the current running `/usr` image so the new image will apply in its place. As an additional benefit, this approach ensures that the `/usr` tree is also immutable whilst still remaining atomic.
+
+:::note
+This does not protect the underlying files in `/.moss`, which are referenced from the EROFS metadata-image, from mutation. Protecting `/.moss` will require additional changes that are outside the scope of this blog post.
+:::
+
+However, this approach has now been explored, and the fundamental problem remains that any running applications holding an inode to a changed file will simply not see any change.
+
+### Are We Stuck with Needing To Reboot?
+
+Possibly.
+
+The Linux kernel does not offer any mechanism to forcibly "revoke" inodes. If it did we would potentially build up a list of changed files, find their inodes, and then "hint" that they have changed after the `/usr` trees are swapped. Any running applications that were then watching the inodes could pick up the changes.
+
+For this particular problem, ideas are starting to run thin. Whilst it is important to us that live atomic updates remain possible instead of requiring the user to reboot, solving this problem currently has us scratching our heads.
+
+TL;DR: More research needed.

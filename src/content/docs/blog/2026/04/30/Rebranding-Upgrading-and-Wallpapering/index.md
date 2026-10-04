@@ -2,12 +2,13 @@
 title: "Rebranding, Upgrading, and Wallpapering: AerynOS’ April glow-up!"
 date: 2026-04-30T12:00:00Z
 authors: [nomadiccore, ermo]
+cover:
+  alt: Image captured by a drone camera of wintery snowy fields with a river meandering through the middle
+  image: ./winter.webp
 tags: [news]
 license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2026 aerynOS Developers"
 ---
-
-![Image captured by a drone camera of wintery snowy fields with a river meandering through the middle](winter.jpg)
 
 No, this isn’t a suspicious phishing attempt! AerynOS has officially gone through a rebrand 🎉
 
@@ -29,6 +30,7 @@ In addition, we’ve continued our [reuse compliance work](https://github.com/Ae
 
 Lastly, we have expanded our kernel configurations and now offer an LTS, stable and gaming kernel, though switching away from the stable kernel isn't yet a simple process.
 
+<!-- excerpt -->
 
 ## What’s new in the distro
 
@@ -71,21 +73,19 @@ Package / stack updates for this iteration include:
 
 ... along with sundry additions and updates.
 
-
 ## Infrastructure and Tooling Updates
 
 ### boulder cache subcommands with clean and size options
 
-![Screenshot showing boulder cache size command with output](boulder_cache_size.png)
+![Screenshot showing boulder cache size command with output](./boulder_cache_size.webp "Terminal output of boulder cache size command")
 
 This month, Joey has added additional subcommands for boulder to calculate cache sizes (both for boulder and moss). Additionally, a `boulder cache clean` command was added that will delete the cache to help free up space on a user's system.
 
 This will be particularly helpful for our packagers who after building packages will have increasing amounts of space taken up by the boulder cache. The team itself frequently moves between our `unstable` and `volatile` repositories so having the ability to delete the moss cache will also be helpful to ensure predictable outcomes.
 
-
 ### boulder recipe automation
 
-![Screenshot of a terminal session after running `boulder recipe update` on the yq package recipe, resulting in the automatic update of the corresponding `stone.yaml` recipe file](boulder_up.png)
+![Screenshot of a terminal session after running `boulder recipe update` on the yq package recipe, resulting in the automatic update of the corresponding `stone.yaml` recipe file](./boulder_up.webp "Terminal output of boulder recipe update command")
 
 Using our self built [`ent`](https://github.com/AerynOS/ent) tool (which integrates with [Anitya](https://release-monitoring.org/) for release monitoring), we’ve taken another step toward automating package maintenance by combining it with our `boulder recipe update` command. When invoking this command, boulder will:
 
@@ -100,15 +100,13 @@ There’s also JSON output support, which will be useful as we expand our automa
 
 For simple package updates, this helps consolidate some of our mundane workflow steps and help make packaging a more streamlined affair on AerynOS, letting packagers focus on logic and problem solving, not administrative minutiae.
 
-
 ### Faster `moss state remove`
 
-![Screenshot of a terminal session after running `sudo moss state remove 56-77`, resulting in a confirmation prompt and log of the deleted state directories](moss_state_remove.png)
+![Screenshot of a terminal session after running `sudo moss state remove 56-77`, resulting in a confirmation prompt and log of the deleted state directories](./moss_state_remove.webp "Terminal output of moss state remove command")
 
 State removal is now faster thanks to parallelization, and it finally provides real-time feedback via a progress bar.
 
 Behind the scenes, moss intelligently handles our deduplicated CAS storage, which is why removal order might look a little unusual, it’s working out which files are safe to delete across shared states.
-
 
 ### Improved `moss search`
 
@@ -120,7 +118,6 @@ A new contributor, *otherJL0*, has made some great improvements to our `moss sea
 
 This is especially useful for packaging workflows as our packagers can get a better understanding of which packages provide a given binary or library.
 
-
 ### Continuation of our Versioned Repository feature set
 
 We’ve continued work on phase 2 of our Versioned Repositories feature, and a [draft PR](https://github.com/AerynOS/os-tools/pull/765) with the basic workflow and new configuration format has been opened for moss. The vessel repository manager companion work has been mapped out, but no PR has yet been opened for this.
@@ -130,7 +127,6 @@ As mentioned in previous posts, the key goal of phase 2 is to enable moss to upg
 In practical terms, this moves us closer to a true install-once, update-forever model, where we can evolve the capabilities of the system over time, without leaving users on older moss versions behind.
 
 We hope to land the phase 2 related feature PRs in the near future.
-
 
 ## Wider Project Updates
 
@@ -146,10 +142,9 @@ Design-wise, we’ve divided the three points of the triquetra into two colours:
 
 We’re really excited about this fresh new look, and the fact that it’s something the whole community helped us shape. We’ve spent the month rolling it out across the operating system and our web presence, and we’re happy with how it all ties together.
 
-
 ### New Wallpapers: Bringing Nature to Your Desktop
 
-![Screenshot of a newly installed virtual machine instance of AerynOS, Gnome edition showing the about this system page with the new default AerynOS wallpaper](Gnome.png)
+![Screenshot of a newly installed virtual machine instance of AerynOS, Gnome edition showing the about this system page with the new default AerynOS wallpaper](./Gnome.webp "AerynOS 2026.05 installed on GNOME with our new custom wallpaper")
 
 Next to the new logomark, we’ve also worked with community member Gabriel Janich (aka *ziegenmelker5*) to bring some stunning new wallpapers to AerynOS. Gabriel has an amazing collection of photos, and choosing just a handful to feature was no easy task!
 
@@ -157,15 +152,13 @@ In the end, we selected seven that we felt best represented the spirit of AerynO
 
 We hope these new wallpapers, paired with the fresh logo, help make your AerynOS experience even more enjoyable as you dive into the project in the coming days and months.
 
-![Screenshot of a newly installed virtual machine instance of AerynOS, Cosmic edition showing the about this system page with the new default AerynOS wallpaper](Cosmic.png)
-
+![Screenshot of a newly installed virtual machine instance of AerynOS, Cosmic edition showing the about this system page with the new default AerynOS wallpaper](./Cosmic.webp "AerynOS 2026.05 installed on Cosmic with our new custom wallpaper")
 
 ### Python stack upgrade
 
 We mentioned last month that we planned a Python stack upgrade. Due to diligent prior preparation work by Reilly, this stack upgrade landed in a fairly seamless manner with only minor fixes required over the course of a day. The process saw Python being upgraded from 3.11 to 3.14.4 as of this writing.
 
 Our python stack isn't currently very large (only around 200 packages) which also played a role in the fairly seamless nature of this update. From what we can tell, the updated has enabled our early adopters to continue using Python packages without any regressions.
-
 
 ### Kernel updates
 
@@ -176,7 +169,6 @@ We have packaged two alternative kernel options, though we have yet to finish th
 3) `linux-gaming` (7.0): Also follows the latest stable release, but with patches for handheld gaming and miscellaneous performance optimisations.
 
 Switching away from our linux-stable kernel to either of the other two alternative options isn’t a smooth process just yet. Improving that experience is on our roadmap.
-
 
 ## ISO refresh
 
@@ -198,7 +190,6 @@ That said -- and assuming we succeed in landing the Versioned Repos, phase2 feat
 
 In parallel to that, we hope to spend some time getting our systemd-preset story straight from a packaging perspective, which will give us the ability to enable services as a packaging operation. This will be especially useful when leveraged via our declarative system-model capabilities.
 
-
 ## Supporting the project
 
 Over the last year, the project has been through a significant period of change. As detailed in our [October 2025 blog post](https://aerynos.com/blog/2025/10/31/#donations), we had to update our sponsorship accounts to receive future sponsorship funds once it became clear our previous project leader had permanently stepped away from the project.
@@ -214,22 +205,13 @@ Ideally we would like to grow our monthly income (and therefore surplus). Doing 
 3. Consider purchasing hardware for compatibility testing
 4. Fund future initiatives for the betterment of the project
 
-<div style="display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 50px">
-<a style="font-weight: bold;
-          color: white;
-          background-color: #626f47ff;
-          padding: 10px 20px;
-          text-decoration: none;
-          text-align:center;
-          border-radius: 5px"
-   href=/sponsor/>Sponsor AerynOS</a>
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
 </div>
 
 If you wish to discuss other sponsorship opportunities, such as hosting or hardware sponsorship, please reach out to us at [contact@aerynos.com](mailto:contact@aerynos.com).
-
 
 ## Thank You!
 

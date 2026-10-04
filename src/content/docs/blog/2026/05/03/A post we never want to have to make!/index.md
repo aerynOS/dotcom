@@ -2,12 +2,13 @@
 title: "A post we never want to have to make!"
 date: 2026-05-03T23:00:00Z
 authors: [nomadiccore, ermo]
+cover:
+  alt: An image showing the word "Sorry" with three exclamation marks
+  image: ./sorry.jpg
 tags: [news]
 license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2026 aerynOS Developers"
 ---
-
-![An image showing the word "Sorry" with three exclamation marks](sorry.jpg)
 
 This is the post we never want to make, where we made errors with our previous ISO release and are having to take steps to fix the issue, including releasing an updated ISO.
 
@@ -24,6 +25,7 @@ Thanks to user feedback, we were able to narrow down, identify and resolve the i
 
 Following additional testing with a wider audience on our Zulip server, we have updated the links on our download page to our new ISO so any users downloading the latest ISO won't see these issues.
 
+<!-- excerpt -->
 
 ## How we view the project and our roles in creating it
 
@@ -35,7 +37,6 @@ There is an ethos within the team that we take seriously our craft, that being t
 
 In retrospect, we're glad that in the year that we have collectively had stewardship of the project, this is the first and only time we have had to rush out a new ISO to fix an issue. We hope to not have this occur again in the future.
 
-
 ## NVIDIA driver issues for certain GPUs
 
 In the background, we have been offering a "best effort" approach to supporting NVIDIA GPUs. This is primarily because nobody on the core team are actually using NVIDIA GPUs, and because NVIDIA's approach to open source leaves a lot to be desired from a package- and distro-maintenance point of view.
@@ -43,7 +44,6 @@ In the background, we have been offering a "best effort" approach to supporting 
 For an alpha tag distribution that is primarily focused on dogfooding itself, NVIDIA GPU support has been &mdash; and remains &mdash; fairly low priority.
 
 That said, Reilly identified an issue with our build ordering that caused the NVIDIA module to fail to work for GPUs that require GSP firmware. With this knowledge, we have implemented a manual fix for now. The underlying issue was already known to the team, we just hadn't caught that it presented an issue for this particular case. Fixing that issue in our infrastructure tooling is therefore moving up on our list of priorities.
-
 
 ## Why have monthly ISOs anyway?!
 
@@ -91,7 +91,6 @@ Added:
 - oxidize: A tool for atomically changing themes in supported WMs
 - yt-dlp 2026.03.17
 
-
 ## oxidize Window Manager theming
 
 <div class="aspect-ratio">
@@ -123,7 +122,6 @@ This work builds on top of the great work Christian and a number of other dedica
 
 Of course, for those wishing to configure their Window Manager experience from scratch, this option is of course available to you as well.
 
-
 ## ISO refresh
 
 With this blog post, we already have a new 2026.05.2 ISO available on our [download](/download/) page.
@@ -140,29 +138,19 @@ That said -- and assuming we succeed in landing the Versioned Repos, phase2 feat
 
 In parallel to that, we hope to spend some time getting our systemd-preset story straight from a packaging perspective, which will give us the ability to enable services as a packaging operation. This will be especially useful when leveraged via our declarative system-model capabilities.
 
-
 ## Supporting the project
 
 Outside of financial donations through Stripe and Ko-fi mentioned above, we are always looking for people to get involved with development and packaging efforts and welcome anyone curious about AerynOS to join us in our Zulip server!
 
 If any hardware vendors are interested in sponsoring the project either financially or through hardware sponsorship, this would be warmly received.
 
-<div style="display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 50px">
-<a style="font-weight: bold;
-          color: white;
-          background-color: #626f47ff;
-          padding: 10px 20px;
-          text-decoration: none;
-          text-align:center;
-          border-radius: 5px"
-   href=/sponsor/>Sponsor AerynOS</a>
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
 </div>
 
 If you wish to discuss other sponsorship opportunities, such as hosting or hardware sponsorship, please reach out to us at [contact@aerynos.com](mailto:contact@aerynos.com).
-
 
 ## Thank You!
 

@@ -2,14 +2,13 @@
 title: "February 2026 project update"
 date: 2026-02-28T12:00:00Z
 authors: [nomadiccore, ermo]
+cover:
+  alt: A man forging metal, signifying aerynOS being forged on month at a time
+  image: ./Being-forged.webp
 tags: [news]
 license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2026 aerynOS Developers"
 ---
-
-# AerynOS: February 2026 project update
-
-![Being Forged](Being-forged.jpg)
 
 February has been a busy month for the project with a lot of activity around our tooling and infrastructure. We have merged a number of smaller improvements, which have both led to an increase in useful features, correctness and maintainability. Moss has become significantly quicker in usage, boulder has seen improvements to help automate recipe creation & updates to a set standard, and our summit dashboard has seen improvements to better represent build queues live and dynamically in graphical form.
 
@@ -21,11 +20,11 @@ We have also seen packagers becoming more active in helping flesh out the recipe
 
 During the last week of February, we have shared with our packaging community that we will likely be more focused on maintaining our existing set of packages and becoming more selective on adding new packages in the coming months, whilst our tooling capabilities mature to where they need to be for efficiently managing long term growth.
 
+<!-- excerpt -->
+
 ## What’s new in the distro
 
 Package / stack updates for this iteration include:
-
-
 
 - COSMIC 1.0.8
 - GNOME 49.4
@@ -62,7 +61,7 @@ Package / stack updates for this iteration include:
 
 ### Cosmic
 
-![Cosmic Install](Cosmic_Screenshot.png)
+![Cosmic Install](./Cosmic_Screenshot.webp "AerynOS 2026.02 installed with Cosmic Desktop")
 
 With Cosmic Desktop landing frequent updates, the AerynOS team have landed on a nice rhythm for packaging and landing these point releases into our own repository shortly thereafter.
 
@@ -78,7 +77,7 @@ If you do become aware of any issues, as with any other DE, you can report these
 
 ### Gnome
 
-![Gnome Install](Gnome_Screenshot.png)
+![Gnome Install](./Gnome_Screenshot.webp "AerynOS 2026.02 installed with GNOME")
 
 Similarly with the GNOME stack, the team are in a nice rhythm of packaging updates as upstream updates come through.
 
@@ -96,7 +95,7 @@ Plus many more fixes.
 
 ### KDE Plasma
 
-![KDE Install](KDE_Screenshot.png)
+![KDE Install](./KDE_Screenshot.webp "AerynOS 2026.02 installed with KDE Plasma")
 
 KDE Plasma has been updated to [6.6.1](https://kde.org/announcements/plasma/6/6.6.1/), KDE Frameworks to 6.23.0 and KDE Gear to 25.12.2. With this update, Plasma Login Manager has been promoted to become the default KDE install option in lichen, with SDDM being the backup alternative.
 
@@ -154,7 +153,6 @@ This dependency graph is live and dynamic so will update itself as it works thro
   top: 0;
 }
 </style>
-
 
 ### Boulder `--verify` flag for manifest checks
 
@@ -223,7 +221,6 @@ We see this as the benefit of open source projects and as part of our commitment
 
 If you are interested or experienced in website design and want to help us out, join our [Zulip](https://aerynos.zulipchat.com) server and get to know the team.
 
-
 ### Documentation
 
 Work is continuing on the [documentation](https://aerynos.zulipchat.com/) site with a focus this month on our FAQ section.
@@ -262,7 +259,6 @@ The downsides we have noted with Stripe donation links so far, is that donators 
 Additionally, one area Ko-fi is justifying their 5% fee is the engagement aspect of being able to send us a message when making a donation and for us as a project to provide updates through Ko-fi.
 
 At this stage, we believe our donors would prefer as much of their donation as possible to come through directly to the project, but will continue offering both options so as to enable supporters to make their own choice in this regard.
-
 
 ## ISO refresh
 
@@ -308,7 +304,6 @@ This is the final step towards realising the core tenet of tooling-based "Instal
 
 When completed, this will in turn enable us to begin to tackle some long-standing issues in our tooling and our recipes repository, that we have until now been unable to rectify without significant disruption to installed systems.
 
-
 ## Supporting the project
 
 Outside of financial donations through Stripe and Ko-fi mentioned above, we are always looking for people to get involved with development and packaging efforts and welcome anyone curious about AerynOS to join us in our Zulip server!
@@ -317,18 +312,10 @@ If any hardware vendors are interested in sponsoring the project either financia
 
 If you wish to discuss other sponsorship details, please reach out to us at contact@aerynos.com.
 
-<div style="display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 50px">
-<a style="font-weight: bold;
-          color: white;
-          background-color: #626f47ff;
-          padding: 10px 20px;
-          text-decoration: none;
-          text-align:center;
-          border-radius: 5px"
-   href=/sponsor/>Sponsor AerynOS</a>
+<div style="display: flex; justify-content: center; align-items: center; padding: 20px 50px;">
+  <a style="font-weight: bold; color: white; background-color: #626f47ff; padding: 10px 20px; text-decoration: none; text-align: center; border-radius: 5px;" href="/sponsor/">
+    Sponsor aerynOS
+  </a>
 </div>
 
 ## Thank You!

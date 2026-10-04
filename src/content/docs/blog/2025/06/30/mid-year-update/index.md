@@ -27,6 +27,8 @@ For us, this cycle has been particularly demanding, as we have completed an MVP 
 
 We have covered the reasons for this transition [previously](https://aerynos.com/blog/2023/09/06/oxidised-moss/), and it's fair to say that we are already feeling the benefits of easy and native reuse of code in our tooling repositories and welcoming more Rust contributors into our community.
 
+<!-- excerpt -->
+
 ### Why now?
 
 Earlier this year, our existing DLang build infrastructure started showing signs of instability and required more and more manual intervention to successfully land packages. 
@@ -47,7 +49,6 @@ Our [infra](https://github.com/AerynOS/infra) is comprised of the Summit, Avalan
 - **Vessel:** Package repository manager. Summit tells Vessel which packages and other build artefacts to expect from a build task that Avalanche has completed, and then Avalanche pushes those packages and build artefacts to Vessel, which then saves them in the appropriate place and re-indexes the repository with the new packages, so users can install/update them.
 
 </details>
-
 
 We have some cool features planned in AerynOS that we envision will make package maintenance a lot easier to manage through smart use of automation.
 
@@ -113,7 +114,7 @@ Once this script has been sufficiently productized, the next time existing users
 
 The exact number will vary from system to system depending on how many other packages are installed from the repository but for context, on a base AerynOS GNOME install, this is around 500 packages.
 
-In the meantime, we have created a manual guide on how to transition existing installs to the new repository in our GitHub Discussions forum [here](https://github.com/orgs/AerynOS/discussions/53). The process is fairly simple, but if you do have any issues transitioning manually, do get in touch via a comment under the GitHub Discussions [post](https://github.com/orgs/AerynOS/discussions/53) or via [Matrix](https://matrix.to/#/#aerynos:matrix.org).
+In the meantime, we have created a manual guide on how to transition existing installs to the new repository in our GitHub Discussions forum [here](https://github.com/orgs/AerynOS/discussions/53). The process is fairly simple, but if you do have any issues transitioning manually, do get in touch via a comment under the GitHub Discussions [post](https://github.com/orgs/AerynOS/discussions/53) or via Matrix[^1].
 
 ### Content Delivery Network for Packages and ISOs
 
@@ -172,7 +173,7 @@ Alternatively, you can wait until the automatic transition script is functional 
 
 If you want to engage with the team, feel free to drop by our GitHub [Discussions](https://github.com/orgs/AerynOS/discussions), raise issues across our various repositories or if you're interested in contributing, feel free to raise PRs where you think our code can be improved or where you want to submit recipes for our repo.
 
-We also have our matrix space that you can access via this [link](https://matrix.to/#/#aerynos:matrix.org):
+We also have our matrix[^1] space that you can access:
 - The Development room in particular is a great place for discussions around our code.
 - The General room is a great place to drop by and get to know the team.
 - The Packaging room is where you want to be if you're interested in building packages for yourself and/or submitting them to the repository.
@@ -184,3 +185,6 @@ Concurrently to our work around the infrastructure re-write and repository rebui
 The team has been refactoring our existing Rust code, mainly focused on our os-tools (Moss and Boulder) and we are working on several additional improvements that we want to get over the finish line before our next ISO release.
 
 We will be sharing details of this work in upcoming blog posts over the next few weeks.
+
+---
+[^1]: aerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.

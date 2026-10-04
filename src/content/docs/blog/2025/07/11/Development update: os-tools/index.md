@@ -25,24 +25,23 @@ Overall, this work will help users when they come across unexpected errors and a
 
 The JSON output feature, in contrast, is largely targeted at convenient machine parsing of structured output for automation and integration purposes, which we are banking on will come in handy for future development work currently in the planning stages.
 
+<!-- excerpt -->
 
 ## Introducing NomadicCore
 
-Before going any further, you may have noticed my name as one of the authors of our mid-year update blog post. If you hang around our Matrix rooms, you will likely already know me but I thought it prudent to provide a formal introduction.
+Before going any further, you may have noticed my name as one of the authors of our mid-year update blog post. If you hang around our Matrix[^1] rooms, you will likely already know me but I thought it prudent to provide a formal introduction.
 
-I first became aware of SerpentOS about three years ago but only joined the Matrix chat rooms in September 2023. I'm not actually a developer or have any coding experience, however, I am interested in open source projects and Linux distributions that can help me get the most out of my hardware. I liked what I saw with SerpentOS and over the course of 2024, started getting involved, trying to help out where I could.
+I first became aware of SerpentOS about three years ago but only joined the Matrix[^1] chat rooms in September 2023. I'm not actually a developer or have any coding experience, however, I am interested in open source projects and Linux distributions that can help me get the most out of my hardware. I liked what I saw with SerpentOS and over the course of 2024, started getting involved, trying to help out where I could.
 
 Earlier this year, I ended up formally joining the team, around the time of the AerynOS rebrand, taking more of a support/communications role and providing feedback from an "average user" perspective of what I think might be important.
 
-My focus will mainly be around working on our documentation, writing blog posts and engaging on our various social media platforms and Matrix rooms. I'm looking forward to getting stuck in and helping support a Linux distribution I want to use on my various devices.
-
+My focus will mainly be around working on our documentation, writing blog posts and engaging on our various social media platforms and Matrix[^1] rooms. I'm looking forward to getting stuck in and helping support a Linux distribution I want to use on my various devices.
 
 ## A deeper dive into our os-tools work
 
 Since their port to Rust, our os-tools have been working well enough. However, we are self-aware enough to know that our initial porting efforts left room for improvement, both in code quality and performance.
 
 The following subsections outline some of the os-tools work we have been doing throughout Q2.
-
 
 ### Refactor work
 
@@ -57,7 +56,6 @@ Along with this refactor work, tarkah, Jonas and ermo are also improving the doc
 One aspect of managing our tooling is ensuring that our codebase remains up to date. Part of this effort is also to ensure that we are updating our code's dependencies to their own respective latest versions to benefit from bug fixes and performance improvements. Whilst this is an on-going task, some of our dependencies had been allowed to get a little stale. Through multiple commits, Jonas has systematically been updating the dependencies in our os-tools repo.
 
 Part of this upgrade work also involved being able to [lock dependencies](https://github.com/AerynOS/os-tools/pull/504) for Rust packages as a way to ensure robustness of the Moss and Boulder builds we use in production.
-
 
 ### Moss: Parallel blitting
 
@@ -79,7 +77,6 @@ While tarkah's [fix](https://github.com/AerynOS/os-tools/pull/514) to Moss was r
 
 Consequently, we synced this bug-fix to the Moss version in the old repository to ensure that users will be able to seamlessly upgrade to the new rolling `unstable` repository.
 
-
 ### Moss: Add index output directory option
 
 As we were preparing the process for syncing the packages in our `volatile` build-server repository to our new downstream rolling `unstable` repository on our public-facing server, we ran into an issue with the existing `moss index` code path.
@@ -96,13 +93,11 @@ This in turns made it possible to make sure that the new rolling `unstable` repo
      - volatile = https://build.aerynos.dev/volatile/x86_64/stone.index [10]
      - local = file:///home/ermo/.cache/local_repo/x86_64/stone.index [100]
 
-
 ### Boulder: Fix up phase timing in end-of-build report
 
 When Boulder successfully completes a package build, it emits a report detailing how long each phase of the build process took.
 
 ermo noticed that the output was wrong when the time exceeded an hour. For example `136m` would be formatted as a rather silly-looking `1h76m` instead of `2h16m`. He fixed this in the following [commit](https://github.com/AerynOS/os-tools/pull/502).
-
 
 ### Boulder: Improve cache hit rates when updating packages
 
@@ -111,7 +106,6 @@ Boulder is designed to cache files and hash them as part of its build process. B
 Given the way boulder previously cached files, in named directories based on the package source names, there was a high likelihood that new caches would have to be built because the source file names contain version numbers, which by design will always change.
 
 Reilly [implemented](https://github.com/AerynOS/os-tools/pull/483) a change to boulder so that our ccache entries will persist over version number updates improving the hit rate and therefore performance on boulder package builds.
-
 
 ### Boulder: Tweak how we use sh-compatible shells
 
@@ -125,11 +119,9 @@ Having said that, there are certain packages that just expect and/or are hardcod
 
 This gives our tooling the "dash as /bin/sh" `./configure` speed improvements by default, yet allows packagers to still successfully invoke `./configure` _et al._ with bash, where doing so is necessary for the build to complete.
 
-
 ### Boulder: Update build macros
 
 On reviewing Boulder's build macros, we found some low hanging fruit improvements to make to our cmake, ninja, and meson macros, which we [landed](https://github.com/AerynOS/os-tools/pull/451) back in April. Implementing and improving the various build macros available in AerynOS makes it easier and more convenient for packagers to package up applications with Boulder; either for their own personal use or for submission into the official repositories.
-
 
 ### Boulder: Use bsdtar-static for unpacking
 
@@ -137,18 +129,15 @@ At Reilly's initiative, we moved our decompression solution away from GNU tar to
 
 With this move, we have also [added](https://github.com/AerynOS/os-tools/pull/535) the ability to decompress tgz based source packages as part of the boulder build process.
 
-
 ## Other notable work
 
 Some of the work we have done has been aimed more at how we use our os-tools rather than the os-tools themselves.
-
 
 ### Update build triple and fix up ARM AArch targets
 
 With our recent transition from SerpentOS to AerynOS, we needed to update our build triple accordingly. This step has been [completed](https://github.com/AerynOS/os-tools/pull/450) in the background whilst allowing for seamless updates from older SerpentOS systems onto AerynOS based systems. This is part of a wider rebranding effort that is still on-going through our documentation site, repo READMEs and anywhere else we have an official presence.
 
 In this same area, whilst AerynOS currently only supports `x86_64` based devices, there is a desire to be able to target other system types longer term. One of our contributors has been experimenting with RISC-V so we have added [preliminary support](https://github.com/AerynOS/os-tools/pull/448) for this to aid their testing. Don't expect to see AerynOS on RISC-V any time soon, but it's great to see our distro becoming a sandbox for fun and experimenting on alternative systems.
-
 
 ### Emul32 ELF Machine type migration
 
@@ -159,7 +148,6 @@ Reilly took point in [implementing](https://github.com/AerynOS/os-tools/pull/493
 The end goal was to flush out the packages containing references to the `x86` Emul32 ISA through the recent rebuild of our whole recipes repository. This was accomplished by first ensuring that all packages exposed _both_ `x86` and `386` provider patterns, and then subsequently dropping the code that wrote the `x86` provider patterns during the second full repo rebuild, ensuring that packages only contained the `386` provider patterns.
 
 In the end, this worked out nicely for us.
-
 
 ## Current and near-future os-tools focus
 
@@ -181,6 +169,9 @@ As already covered in this blog, we have been reviewing all open issues and PRs 
 
 We are open to and actively looking for contributors who might be interested in looking through our code and providing feedback.
 
-If you would like to try your hand at contributing, look out for issues marked "good first issue" and get in touch on [Matrix](https://matrix.to/#/#aerynos:matrix.org).
+If you would like to try your hand at contributing, look out for issues marked "good first issue" and get in touch on Matrix[^1].
 
 We hope to see you there!
+
+---
+[^1]: aerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.
