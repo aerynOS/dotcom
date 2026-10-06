@@ -192,7 +192,7 @@ In parallel to that, we hope to spend some time getting our systemd-preset story
 
 ## Supporting the project
 
-Over the last year, the project has been through a significant period of change. As detailed in our [October 2025 blog post](https://aerynos.com/blog/2025/10/31/#donations), we had to update our sponsorship accounts to receive future sponsorship funds once it became clear our previous project leader had permanently stepped away from the project.
+Over the last year, the project has been through a significant period of change. As detailed in our [October 2025 blog post](/blog/2025/10/31/october-2025-project-update/#donations), we had to update our sponsorship accounts to receive future sponsorship funds once it became clear our previous project leader had permanently stepped away from the project.
 
 This left us in a position where we had to build up our sponsor income from scratch having lost previous sponsors. We are very grateful that many sponsors (old and new) have joined or stayed with us on this journey and our income is again able to cover our fixed project costs with a little surplus each month.
 

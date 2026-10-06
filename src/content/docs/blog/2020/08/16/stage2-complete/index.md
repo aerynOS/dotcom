@@ -45,7 +45,7 @@ Our initial focus is `x86_64` hardware with UEFI, and as we gain access to more 
 
 This will make it much easier in future to create custom spins of Serpent OS for different configurations or targets, without derailing the core project. It should therefore be the simplest thing in the world to fork Serpent OS to one's liking or needs.
 
-If you want to support our work, you can jump onto our IRC channel (`#serpentOS` on freenode)[^1] or support us via the [Funding page](/funding).
+If you want to support our work, you can jump onto our IRC channel (`#serpentOS` on freenode)[^1] or support us via the [Funding page](/sponsor).
 
 ---
 [^1]: aerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.

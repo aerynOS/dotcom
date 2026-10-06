@@ -1,0 +1,64 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+actions:
+
+    - meson:
+        description: Run meson with the default options in a subdirectory
+        command: |
+            test -e ./meson.build || ( echo "%%meson: The ./meson.build script could not be found" ; exit 1 )
+            meson setup %(options_meson) "%(builddir)"
+        dependencies:
+            - binary(cmake)
+            - binary(meson)
+            - binary(pkgconf)
+
+    - meson_unity:
+        description: Run meson with unity build enabled
+        command: |
+            test -e ./meson.build || ( echo "%%meson: The ./meson.build script could not be found" ; exit 1 )
+            meson setup --unity on %(options_meson) "%(builddir)"
+        dependencies:
+            - binary(cmake)
+            - binary(meson)
+            - binary(pkgconf)
+
+    - meson_build:
+        description: Build the meson project
+        command: |
+            meson compile --verbose -j "%(jobs)" -C "%(builddir)"
+        dependencies:
+            - binary(meson)
+
+    - meson_install:
+        description: Install results of the build to the destination directory
+        command: |
+            DESTDIR="%(installroot)" meson install --no-rebuild -C "%(builddir)"
+        dependencies:
+            - binary(meson)
+
+    - meson_test:
+        description: Run meson test
+        command: |
+            meson test --no-rebuild --print-errorlogs --verbose -j "%(jobs)" -C "%(builddir)"
+        dependencies:
+            - binary(meson)
+
+definitions:
+
+    # Default meson options as passed to meson
+    - options_meson: |
+        --buildtype="plain" \
+        --prefix="%(prefix)" \
+        --libdir="lib%(libsuffix)" \
+        --bindir="%(bindir)" \
+        --sbindir="%(sbindir)" \
+        --libexecdir="lib%(libsuffix)/%(name)" \
+        --includedir="%(includedir)" \
+        --datadir="%(datadir)" \
+        --mandir="%(mandir)" \
+        --infodir="%(infodir)" \
+        --localedir="%(localedir)" \
+        --sysconfdir="%(sysconfdir)" \
+        --localstatedir="%(localstatedir)" \
+        --wrap-mode="nodownload"

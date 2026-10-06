@@ -1,22 +1,17 @@
 ---
 title: aerynOS
-description: Experience the future of Linux today
-head:
-  - tag: title
-    content: aerynOS
-
-# want to use custom layout for this page
-
-# disable docs sidebar
+description: Documentation for all projects under the aerynOS umbrella.
+banner:
+  content: |
+    Consider sponsoring aerynOS! Check out our
+    <a href="/sponsor">funding page </a>
+    for more details
+license: "CC-BY-SA-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
 template: splash
-
-# disable pagination
-next: false
-prev: false
-
-# hide default h1
-hideTitle: true
+editUrl: false
 ---
+
 import { Badge } from '@astrojs/starlight/components';
 
 import Asciinema from "@/components/ui/Asciinema.astro";
@@ -39,7 +34,7 @@ import BoxSectionOutro from '@/components/splash/BoxSectionOutro.astro';
     <LinkButton href="/download" variant="primary" icon="fa6-solid:download">Get Started</LinkButton>
     <LinkButton href="/about" variant="secondary" icon="fa6-solid:circle-arrow-right">Learn More</LinkButton>
     <LinkButton href="/sponsor" variant="secondary" iconPlacement="end" icon="fa6-solid:heart">Support Us</LinkButton>
-    <LinkButton href="https://aerynos.dev/" variant="secondary" iconPlacement="end" icon="fa6-solid:circle-arrow-right">Documentation</LinkButton>
+    <LinkButton href="/aerynos" variant="secondary" iconPlacement="end" icon="fa6-solid:circle-arrow-right">Documentation</LinkButton>
   </div>
 
   ![aerynos_alpha](@/images/editions/aerynOS_KDE_August26.webp)

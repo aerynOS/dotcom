@@ -1,0 +1,94 @@
+# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+actions:
+    - qmake_qt5:
+        description: Invokes Qt5 with the correct default values
+        example: |
+            %qmake_qt5 -other-qmake-flag
+        command: |
+            _ccache_arg=""
+            if [[ " ${PATH[*]} " =~ "ccache" ]]; then
+                _ccache_arg="CONFIG+=ccache"
+            fi
+            qmake %(options_qmake_qt5) ${_ccache_arg}
+        dependencies:
+            - binary(qmake)
+
+    - cmake_qt6:
+        description: Perform cmake with the default options for Qt6 builds
+        example: |
+            %cmake_qt6 -DQt_Feature_So_and_So=ON
+        command: |
+            _ccache_arg="-DQT_USE_CCACHE=OFF"
+            if [[ " ${PATH[*]} " =~ "ccache" ]]; then
+                _ccache_arg="-DQT_USE_CCACHE=ON"
+            fi
+            cmake %(options_cmake_qt6) ${_ccache_arg}
+        dependencies:
+            - binary(cmake)
+            - binary(ninja)
+
+    - cmake_kf6:
+        description: Perform cmake with the default options for KF6/Qt6 builds. This includes KDE Frameworks, Plasma, and KDE Gear
+        example: |
+            %cmake_kf6 -DSO_AND_SO=ON
+        command: |
+            cmake %(options_cmake_kf6)
+        dependencies:
+            - binary(cmake)
+            - binary(ninja)
+            - cmake(ECM)
+
+    # DEPRECATED
+    - qt_user_facing_links:
+        description: Setup user-facing binaries (DEPRECATED)
+        example: |
+            %qt_user_facing_links
+        command: |
+            function qt_user_facing_links() {
+                %install_dir %(installroot)/%(bindir)
+                pushd %(installroot)
+                while read _line; do
+                    read -r _source _dest <<< ${_line}
+                    ln -srv %(installroot)/${_source} %(installroot)/${_dest}
+                done < %(workdir)/%(builddir)/user_facing_tool_links.txt
+                popd
+            }
+            qt_user_facing_links
+
+definitions:
+    - options_qmake_qt5: |
+        CONFIG+=release \
+        QMAKE_CFLAGS_RELEASE="${CFLAGS}" \
+        QMAKE_CXXFLAGS_RELEASE="${CXXFLAGS}" \
+        QMAKE_LFLAGS="${LDFLAGS}"
+
+    # Default options for Qt6 builds
+    - options_cmake_qt6: |
+        %(options_cmake_ninja) \
+        -DCMAKE_INSTALL_LIBEXECDIR=%(libdir)/qt6 \
+        -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON \
+        -DCMAKE_MESSAGE_LOG_LEVEL=STATUS \
+        -DINSTALL_ARCHDATADIR=%(libdir)/qt6 \
+        -DINSTALL_BINDIR=%(libdir)/qt6/bin \
+        -DINSTALL_DATADIR=share/qt6 \
+        -DINSTALL_DOCDIR=share/doc/qt6 \
+        -DINSTALL_EXAMPLESDIR=%(libdir)/qt6/examples \
+        -DINSTALL_INCLUDEDIR=include/qt6 \
+        -DINSTALL_LIBDIR=%(libdir) \
+        -DINSTALL_LIBEXECDIR=%(libdir)/qt6 \
+        -DINSTALL_MKSPECSDIR=%(libdir)/qt6/mkspecs \
+        -DINSTALL_PUBLICBINDIR=bin \
+        -DQT_BUILD_EXAMPLES=ON \
+        -DQT_FEATURE_rpath=OFF
+
+    # Default options for KF6/Qt6 builds
+    - options_cmake_kf6: |
+        %(options_cmake_ninja) \
+        -DCMAKE_INSTALL_LIBEXECDIR=%(libdir)/kf6 \
+        -DCMAKE_INSTALL_LIBEXECDIR_kf6:PATH=%(libdir)/kf6 \
+        -DKDE_INSTALL_LIBEXECDIR:PATH=%(libdir)/kf6 \
+        -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
+        -DBUILD_QCH=ON \
+        -DBUILD_TESTING=OFF

@@ -1,8 +1,59 @@
 ---
 title: Download
 description: Grab the latest release now 🚀
+template: splash
+banner:
+  content: |
+    Consider sponsoring aerynOS! Check out our
+    <a href="/sponsor">funding page </a>
+    for more details
 tableOfContents: false
 ---
-import Editions from "@/components/ui/Editions.astro";
 
-<Editions/>
+import LinkButton from "@/components/ui/LinkButton.astro";
+
+
+![GNOME 2026.08](@/images/editions/aerynOS_Gnome_August26.webp "aerynOS 2026.08 GNOME edition")
+
+# aerynOS 2026.08
+
+aerynOS with [GNOME Desktop](https://www.gnome.org/). Solid GTK integration in a clean, functional package that gets out of your way. We built this to actually work - no bloat, no buzzwords, just a damn good desktop that lets you get things done.
+
+We use this Gnome Edition to serve as a vehicle for our alpha `lichen` live installer which is able to install all of our GNOME, KDE Plasma, Cosmic and a 'Terminal Only' versions of aerynOS. It will always pull the latest packages from our repository at the time of installation.
+
+You can use the 'Terminal Only' version to assemble your own Desktop Experience with MangoWC, Niri or Sway.
+
+:::tip
+***Ventoy*** is currently [not compatible with aerynOS](https://github.com/ventoy/Ventoy/issues/3550). Use tools such as Etcher or `dd` with a separate USB stick instead.
+:::
+
+:::caution
+Our alpha `lichen` installer intentionally does not support dual boot scenarios at this stage. To install aerynOS, your PC needs to be `x86_64-v2` capable (Intel 1st gen Core/AMD FX-4/6/8xxx and up), have working UEFI firmware, and have an entire disk reserved for aerynOS.
+:::
+
+<LinkButton
+  href="https://cdn.aerynos.dev/isos/AerynOS-2026.08-GNOME-live-x86_64.iso"
+  variant="secondary"
+  icon="tabler:download"
+  iconPlacement="end"
+>
+  Download now
+</LinkButton>
+
+<LinkButton
+  href="magnet:?xt=urn:btih:4d2ecd5a735023482beb9c620eee1c800799efd0&xt=urn:btmh:12208f2e631f97971e30d8d440c4c55e9c81d370228597aec011650dccbf59db351f&dn=AerynOS-2026.08-GNOME-live-x86_64.iso&xl=2566914048&tr=udp%3A%2F%2Ffosstorrents.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentracker.io%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=http%3A%2F%2Ffosstorrents.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&ws=https%3A%2F%2Fcdn.aerynos.dev%2Fisos%2FAerynOS-2026.08-GNOME-live-x86_64.iso"
+  variant="secondary"
+  icon="tabler:magnet"
+  iconPlacement="end"
+>
+  Torrent magnet
+</LinkButton>
+
+<LinkButton
+  href="https://cdn.aerynos.dev/isos/AerynOS-2026.08-GNOME-live-x86_64.iso.sha256sum"
+  variant="secondary"
+  icon="tabler:checks"
+  iconPlacement="end"
+>
+  Verify checksum
+</LinkButton>

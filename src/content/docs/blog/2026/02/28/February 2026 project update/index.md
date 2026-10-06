@@ -162,18 +162,20 @@ This will come in handy when doing larger-scale rebuilds.
 
 ### Moss blitting speeds
 
-A combination of recent updates within the AerynOS project, alongside what we expect to be improvements within the Linux Kernel, have led to a drastic improvement in [blitting](https://aerynos.com/blog/2021/08/10/a-rolling-boulder-gathers-no-moss/#blitting) speeds as part of the AerynOS atomic update process.
+A combination of recent updates within the AerynOS project, alongside what we expect to be improvements within the Linux Kernel, have led to a drastic improvement in [blitting](/blog/2021/08/10/a-rolling-boulder-gathers-no-moss/#blitting) speeds as part of the AerynOS atomic update process.
 
 We ran a fresh battery of tests on a test system to represent how blitting performance is impacted based on different drive types and filesystems.
 
-``` System Specs
+### System Specs
+
+```text
 CPU: Intel i7-13700T
-Memory: Samsung DDR05 16gb 4800 MT/s (2x 8gb sticks)
-HDD: Seagate ST1000LM035-1RK172 1tb (Sata 6Gb/s)
-SSD: SanDisk SDSSDH32000G 2tb (Sata 6Gb/s)
-NVMe: Western Digital SN 810 512gb (Gen4 NVMe)
+Memory: Samsung DDR5 16GB 4800 MT/s (2x 8GB sticks)
+HDD: Seagate ST1000LM035-1RK172 1TB (SATA 6Gb/s)
+SSD: SanDisk SDSSDH32000G 2TB (SATA 6Gb/s)
+NVMe: Western Digital SN810 512GB (Gen4 NVMe)
 Operating System: AerynOS 2026.01
-DE: Cosmic 1.0.6
+DE: COSMIC 1.0.6
 Kernel: 6.18.9-126.desktop
 Date: 16/02/2026
 ```
@@ -199,7 +201,7 @@ It is important to stress that the numbers above specifically relate to how quic
 
 ### Trigger speeds
 
-Hidden from this table above is how long it takes for our [triggers](https://aerynos.com/blog/2025/03/29/aerynos-the-os-as-infrastructure/#-transaction-triggers) to complete. On the slowest variation above with the SATA3 HDD, the trigger step could take up to 7 minutes, however on the Gen4 NVMe it would be done in about 2 seconds.
+Hidden from this table above is how long it takes for our [triggers](/blog/2025/03/29/aerynos-the-os-as-infrastructure/#-transaction-triggers) to complete. On the slowest variation above with the SATA3 HDD, the trigger step could take up to 7 minutes, however on the Gen4 NVMe it would be done in about 2 seconds.
 
 The team is looking at how to improve trigger performance, as any improvements in this area are the last real hurdle to having moss updates feel subjectively fast and smooth across a variety of less than ideal scenarios, such as older hardware and/or in virtual machines.
 

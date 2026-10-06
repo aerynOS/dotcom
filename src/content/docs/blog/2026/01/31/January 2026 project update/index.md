@@ -130,7 +130,7 @@ As a reminder, we do not include MangoWC, Niri or Sway as options to install dir
 :::note[Why not use our system-model?]
 Our new system-model approach can be used as a way of significantly simplifying the process of setting up a new AerynOS install by declaratively stating which packages you want installed on your system from a given repository (currently either Unstable or Volatile) and even being able to lock your environment to any given fixed-in-time stream update tag.
 
-For more information about our system-model approach, please refer to the our previous [2025 in retrospect blog post](https://aerynos.com/blog/2026/01/2025-in-retrospect/#system-model)
+For more information about our system-model approach, please refer to the our previous [2025 in retrospect blog post](/blog/2026/01/02/2025-in-retrospect/#system-model)
 :::
 
 ## Infrastructure and Tooling Updates
