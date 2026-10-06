@@ -9,7 +9,7 @@ license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2020 aerynOS Developers"
 ---
 
-It seems like only yesterday we announced to the world a [Great Experiment](https://serpentos.com/blog/2020/07/01/the-great-experiment/). It was in fact 2 months ago, and a whole lot of work has happened since that point. A few take-homes are immediately clear, the primary one being the need to be a community-oriented Linux distribution.
+It seems like only yesterday we announced to the world a [Great Experiment](/blog/2020/07/01/the-great-experiment/). It was in fact 2 months ago, and a whole lot of work has happened since that point. A few take-homes are immediately clear, the primary one being the need to be a community-oriented Linux distribution.
 
 To quote ourselves 2 months ago:
 

@@ -1,5 +1,11 @@
 ---
 title: Moss
+banner:
+  content: |
+    Consider sponsoring aerynOS! Check out our
+    <a href="/sponsor">funding page </a>
+    for more details
+template: splash
 tableOfContents: false
 ---
 
@@ -14,6 +20,6 @@ In practice, this means that for every **transaction**, we can efficiently creat
 
 In order to achieve this, we mandated that any package build must only contain files in `/usr`, which also means all packages in aerynOS are **stateless**. That also adds some complexities such as running transactional scoped "triggers" in namespace, and separating from so-called "system triggers".
 
-Additionally we required a type-safe binary format for storing our packages, emitted by `boulder`. This creates `.stone` archives that are internally deduplicated, use `zstd` compression and `xxhash` for content addressing. For more information, please see the [stone format documentation](https://aerynos.dev/developers/stone/).
+Additionally we required a type-safe binary format for storing our packages, emitted by `boulder`. This creates `.stone` archives that are internally deduplicated, use `zstd` compression and `xxhash` for content addressing. For more information, please see the [stone format documentation](/developers/stone/).
 
 With that said, we think we've done a pretty good job at keeping these internals tidy and presenting a classical feeling package manager that doesn't sacrifice on user choice or require a steep learning curve, all while providing next generation features like atomic updates and content addressable storage, natively.

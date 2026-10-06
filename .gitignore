@@ -2,7 +2,6 @@
 dist/
 # generated types
 .astro/
-.idea/
 
 # dependencies
 node_modules/
@@ -20,6 +19,3 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-.Trash*
-.parcel-cache
-package-lock.json

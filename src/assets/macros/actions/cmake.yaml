@@ -1,0 +1,79 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+actions:
+
+    - cmake:
+        description: Perform cmake with the default options in a subdirectory
+        command: |
+            cmake %(options_cmake_ninja)
+        dependencies:
+            - binary(cmake)
+            - binary(ninja)
+
+    - cmake_make:
+        description: Perform cmake with the default options using make as the build server
+        command: |
+            cmake %(options_cmake_make)
+        dependencies:
+            - binary(cmake)
+            - binary(make)
+
+    - cmake_unity:
+        description: Perform cmake with unity build enabled
+        command: |
+            cmake -DCMAKE_UNITY_BUILD=ON %(options_cmake_ninja)
+        dependencies:
+            - binary(cmake)
+
+    - cmake_build:
+        description: Build the cmake project
+        command: |
+            cmake --build "${BUILDDIR:-%(builddir)}" --verbose --parallel "%(jobs)"
+        dependencies:
+            - binary(cmake)
+
+    - cmake_install:
+        description: Install results of the build to the destination directory
+        command: |
+            DESTDIR="%(installroot)" cmake --install "${BUILDDIR:-%(builddir)}" --verbose
+        dependencies:
+            - binary(cmake)
+
+    - cmake_test:
+        description: Run testsuite with ctest
+        command: |
+            ctest --test-dir "${BUILDDIR:-%(builddir)}" --verbose --parallel "%(jobs)" --output-on-failure --force-new-ctest-process
+        dependencies:
+            - binary(ctest)
+
+definitions:
+
+    # Default cmake options as passed to cmake
+    # - _RELEASE variables are added AFTER environmental variables are parsed
+    #   and default to `-O3 -DNDEBUG`. Strip the `-O3` so we can manage that with
+    #   our flags.
+    # - Turn on verbose makefiles so we can make sure our flags are being used
+    # - Turn off stripping by default since Boulder does that
+    - options_cmake: |
+        -B "%(builddir)" \
+        -DCMAKE_VERBOSE_MAKEFILE=ON \
+        -DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
+        -DCMAKE_CXX_FLAGS_RELEASE="-DNDEBUG" \
+        -DCMAKE_Fortran_FLAGS_RELEASE="-DNDEBUG" \
+        -DCMAKE_BUILD_TYPE="Release" \
+        -DCMAKE_INSTALL_DO_STRIP=OFF \
+        -DCMAKE_INSTALL_LIBDIR="lib" \
+        -DCMAKE_INSTALL_LIBEXECDIR=%(libexecdir) \
+        -DCMAKE_INSTALL_PREFIX=%(prefix) \
+        -DCMAKE_LIB_SUFFIX=%(libsuffix)
+
+    # Use cmake with ninja as the build server
+    - options_cmake_ninja: |
+        -G Ninja \
+        %(options_cmake)
+
+    # Use cmake with make as the build server
+    - options_cmake_make: |
+        -G \"Unix Makefiles\" \
+        %(options_cmake)

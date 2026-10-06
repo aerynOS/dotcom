@@ -1,26 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 [default]
-#locale = "en-gb"
-
 extend-ignore-re = [
-    # Ignore lines that end with `# spellchecker:disable-line`
-    "(?Rm)^.*(#|//)\\s*spellchecker:disable-line$",
-    # Ignore the line after `# spellchecker:ignore-next-line`:
-    "(#|//)\\s*spellchecker:ignore-next-line\\n.*",
-    # Ignore blocks between `# spellchecker:off` and `# spellchecker:on`
-    "(?s)(#|//)\\s*spellchecker:off.*?\\n\\s*(#|//)\\s*spellchecker:on",
-    "rela\\.dyn",
-    "\\\"Aer\\\"",
-    "\\\"+git\\\"",
-    "ba",
-    "ND",
-]
-extend-ignore-identifiers-re = [
-    # Ignore identifiers that look like SSL cipher suites:
-    "\\bTLS_[A-Z0-9_]+(_anon_[A-Z0-9_]+)?\\b",
+    # Ignore blocks between `spellchecker:off` and `spellchecker:on`
+    "spellchecker:off.*?\\n*.*spellchecker:on",
 ]
 
 [default.extend-words]
+aer = "aer"
+indexs = "indexs"
+ND = "ND"
 Collet = "Collet"
+rela = "rela"
+ba = "ba"
+
+[files]
+extend-exclude = ["/package-lock.json"]

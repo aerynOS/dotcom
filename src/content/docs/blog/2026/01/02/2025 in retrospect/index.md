@@ -32,7 +32,7 @@ We know many people will be following along, waiting for our beta and/or stable 
 
 ## What's in a name
 
-The first and biggest change we made this year was changing our name [from Serpent OS to AerynOS](https://aerynos.com/blog/2025/02/14/evolve-this-os/). We are aware that, to some, this move was somewhat controversial. Our stance has been simple: A name takes on the meaning you give it. 
+The first and biggest change we made this year was changing our name [from Serpent OS to AerynOS](/blog/2025/02/14/evolve-this-os/). We are aware that, to some, this move was somewhat controversial. Our stance has been simple: A name takes on the meaning you give it. 
 
 Over time, we have continued to work to deliver on our goals for AerynOS. In return, people have become less focused on the name and more focused on what we are setting out to do, and what we are continuously delivering.
 

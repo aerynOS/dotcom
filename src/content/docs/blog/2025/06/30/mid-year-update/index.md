@@ -25,7 +25,7 @@ When delivering a Linux distribution, its infrastructure and associated processe
 
 For us, this cycle has been particularly demanding, as we have completed an MVP (Minimum Viable Product) port of our infrastructure tooling code to Rust, meaning that all core AerynOS tooling has now fully transitioned away from DLang.
 
-We have covered the reasons for this transition [previously](https://aerynos.com/blog/2023/09/06/oxidised-moss/), and it's fair to say that we are already feeling the benefits of easy and native reuse of code in our tooling repositories and welcoming more Rust contributors into our community.
+We have covered the reasons for this transition [previously](/blog/2023/09/06/oxidised-moss/), and it's fair to say that we are already feeling the benefits of easy and native reuse of code in our tooling repositories and welcoming more Rust contributors into our community.
 
 <!-- excerpt -->
 
@@ -136,7 +136,7 @@ The next part of this blog post is going to be a brief outline of where we are g
 
 With the transition to the new infrastructure and the new `unstable` repository, we have been freed up to begin planning out the necessary steps to be able to deliver versioned repositories and versioned Moss format upgrades.
 
-These topics have been mentioned in a previous blog [post](https://aerynos.com/blog/2025/02/06/hello-2025/#-versioned-repositories).
+These topics have been mentioned in a previous blog [post](/blog/2025/02/06/hello-2025/#-versioned-repositories).
 
 ### How do versioned repositories add value?
 
@@ -171,7 +171,7 @@ Alternatively, you can wait until the automatic transition script is functional 
 
 ### Where to get in touch with us
 
-If you want to engage with the team, feel free to drop by our GitHub [Discussions](https://github.com/orgs/AerynOS/discussions), raise issues across our various repositories or if you're interested in contributing, feel free to raise PRs where you think our code can be improved or where you want to submit recipes for our repo.
+If you want to engage with the team, feel free to drop by our GitHub Discussions[^2], raise issues across our various repositories or if you're interested in contributing, feel free to raise PRs where you think our code can be improved or where you want to submit recipes for our repo.
 
 We also have our matrix[^1] space that you can access:
 - The Development room in particular is a great place for discussions around our code.
@@ -188,3 +188,4 @@ We will be sharing details of this work in upcoming blog posts over the next few
 
 ---
 [^1]: aerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.
+[^2]: aerynOS now uses a [Discourse](https://aerynos.discourse.group/) for its forums.

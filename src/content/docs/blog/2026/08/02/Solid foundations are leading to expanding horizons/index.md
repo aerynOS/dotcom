@@ -158,7 +158,7 @@ Please note the following important changes:
 
 ### Experimenting with Codeberg
 
-The AerynOS team hasn't been impressed with the direction of GitHub for some time now. We talked about this in our [January 2026 blog post](https://aerynos.com/blog/2026/01/31/january-2026-project-update/#github-vs-codeberg) and we have been exploring Codeberg as an alternative git forge in the background.
+The AerynOS team hasn't been impressed with the direction of GitHub for some time now. We talked about this in our [January 2026 blog post](/blog/2026/01/31/january-2026-project-update/#github-vs-codeberg) and we have been exploring Codeberg as an alternative git forge in the background.
 
 Over the course of the last few months, the team has moved our new "in development" website branch over to Codeberg in its own [repository](https://codeberg.org/AerynOS/dotcom-hugo). You can follow along with the new website development there including raising new issues and/or submitting your own PRs.
 
@@ -202,7 +202,7 @@ The vulnerability disclosures have somewhat slowed down but in any case, we will
 
 ## ISO refresh
 
-In our [last blog post](https://aerynos.com/blog/2026/05/03/a-post-we-never-want-to-have-to-make/#why-have-monthly-isos-anyway) we highlighted that we will be moving away from monthly ISO releases as these had mostly served their purpose.
+In our [last blog post](/blog/2026/05/03/a-post-we-never-want-to-have-to-make/#why-have-monthly-isos-anyway) we highlighted that we will be moving away from monthly ISO releases as these had mostly served their purpose.
 
 Given the updates to our os-tooling as part of our Versioned Repositories phase 2 work, it is now an appropriate time to release a new ISO, **AerynOS 2026.08**, incorporating the latest updates without users having to manually update their way through the repository update process.
 
@@ -253,7 +253,7 @@ Whether you're interested in package maintenance, UI/UX, documentation, or testi
 
 ## Supporting the project
 
-Over the last year, the project has been through a significant period of change. As detailed in our [October 2025 blog post](https://aerynos.com/blog/2025/10/31/#donations), we had to update our sponsorship accounts to receive future sponsorship funds once it became clear our previous project leader had permanently stepped away from the project.
+Over the last year, the project has been through a significant period of change. As detailed in our [October 2025 blog post](/blog/2025/10/31/#donations), we had to update our sponsorship accounts to receive future sponsorship funds once it became clear our previous project leader had permanently stepped away from the project.
 
 This left us in a position where we had to build up our sponsor income from scratch having lost previous sponsors. We are very grateful that many sponsors (old and new) have joined or stayed with us on this journey and our income is again able to cover our fixed project costs with a little surplus each month.
 
