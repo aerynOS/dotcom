@@ -11,7 +11,7 @@ In our recent mid-year blog post, we mentioned that it would be the first in a s
 
 ## Short overview
 
-To recap, our os-tools consist of [Moss](https://aerynos.com/blog/2023/12/19/end-of-year-summary/#moss) and [Boulder](https://aerynos.com/blog/2023/12/19/end-of-year-summary/#boulder). Whilst also originally written in DLang, initial ports of these were built in Rust during the latter half of 2023. Though we made the odd improvement here and there during 2024, through Q2 2025 we set out to review the code, develop an improvement plan and then put that into action.
+To recap, our os-tools consist of [moss](/blog/2023/12/19/end-of-year-summary/#moss) and [boulder](/blog/2023/12/19/end-of-year-summary/#boulder). Whilst also originally written in DLang, initial ports of these were built in Rust during the latter half of 2023. Though we made the odd improvement here and there during 2024, through Q2 2025 we set out to review the code, develop an improvement plan and then put that into action.
 
 The **TL;DR** is:
 
@@ -45,7 +45,7 @@ The following subsections outline some of the os-tools work we have been doing t
 
 ### Refactor work
 
-Both [tarkah](https://aerynos.com/blog/2023/12/19/end-of-year-summary/#introducing-tarkah) and new contributor, [Jonas Platte](https://github.com/jplatte), have been working on refactoring our existing codebase. To increase the available insight and diagnostic information, we have decided to align around the use of the `tracing` crate given that important parts of our code base are asynchronous, for which `tracing` is particularly suited.
+Both [tarkah](/blog/2023/12/19/end-of-year-summary/#introducing-tarkah) and new contributor, [Jonas Platte](https://github.com/jplatte), have been working on refactoring our existing codebase. To increase the available insight and diagnostic information, we have decided to align around the use of the `tracing` crate given that important parts of our code base are asynchronous, for which `tracing` is particularly suited.
 
 For error handling, Jonas suggested that we move away from `thiserror` towards `snafu`. Whilst `thiserror` suited our requirements during our initial porting work, `snafu` offers some nice quality of life features and forces us to be more explicit about handling different types of errors, which we hope will yield better longer term maintainability. Moving over to `snafu` requires a little more upfront work to get high quality error output, but we believe that the reward will be worth it once the transition is completed across all of our code base.
 
@@ -59,13 +59,13 @@ Part of this upgrade work also involved being able to [lock dependencies](https:
 
 ### Moss: Parallel blitting
 
-Long-time contributor Joey Riches identified a parallelization improvement in Moss's [blitting](https://aerynos.com/blog/2021/08/10/a-rolling-boulder-gathers-no-moss/#blitting) process which was merged after several months of local testing.
+Long-time contributor Joey Riches identified a parallelization improvement in Moss's [blitting](/blog/2021/08/10/a-rolling-boulder-gathers-no-moss/#blitting) process which was merged after several months of local testing.
 
 In our testing, the code showed significant speedups across all three of our supported file systems (XFS, ext4 and F2FS). The previous single-threaded blitting made using ext4 and F2FS particularly slow, to the point that we did not recommend users use either filesystem as the basis of an AerynOS install.
 
 However, blitting speeds with the new parallel approach -- particularly with a "cold" kernel VFS cache -- have significantly improved. Whilst ext4 and F2FS are still not as performant as XFS for our use case, they are at least more serviceable as the basis of an AerynOS install than they used to be. By way of an example, I saw a ~2x blitting speed improvement on my Gen4 NVMe SSD using XFS with the new parallel blitting code.
 
-It's worth restating that, to our knowledge, the moss approach to [atomic updates](https://aerynos.com/blog/2025/03/29/aerynos-the-os-as-infrastructure/#%EF%B8%8F-atomic-updates), is the only one of its kind (at least in the Linux space) where users do not have to rely on containerization or A/B system swaps to deliver package updates. Eliminating download speeds as a variable, Moss is capable of atomically installing/updating hundreds of packages on your system in a matter of seconds to tens of seconds on SSD drives, and the installed/upgraded applications are ready to use next time the application is opened. No reboots and no messing with container permissions necessary.
+It's worth restating that, to our knowledge, the moss approach to [atomic updates](/blog/2025/03/29/aerynos-the-os-as-infrastructure/#%EF%B8%8F-atomic-updates), is the only one of its kind (at least in the Linux space) where users do not have to rely on containerization or A/B system swaps to deliver package updates. Eliminating download speeds as a variable, Moss is capable of atomically installing/updating hundreds of packages on your system in a matter of seconds to tens of seconds on SSD drives, and the installed/upgraded applications are ready to use next time the application is opened. No reboots and no messing with container permissions necessary.
 
 Given that boulder also needs to blit files when it creates buildroots, the code has also had a positive impact on reducing package build times. This will be more evident on larger package builds and will have a cumulative impact, the more package work you end up doing.
 

@@ -1,6 +1,0 @@
----
-import { getCollection } from "astro:content";
-import EditionInfo from "./EditionInfo.astro"
-const editions = await getCollection("edition");
----
-{editions.map((edition) => <EditionInfo edition={edition} />)}

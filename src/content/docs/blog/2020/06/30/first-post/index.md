@@ -1,7 +1,6 @@
 ---
 title: "First Post"
-date: 2020-06-30T16:24:32+01:00
-draft: false
+date: 2020-06-30T19:39:56+01:00
 authors: [ikey]
 tags: [news]
 license: "CC-BY-ND-4.0"

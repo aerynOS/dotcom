@@ -26,7 +26,7 @@ Chances are you know tarkah for his contributions to [iced-rs](https://github.co
 
 ## Rust Progress
 
-I think it is fair to say that people collectively facepalmed when we announced our plans to [adopt Rust](https://serpentos.com/blog/2023/09/06/oxidised-moss/) - assuming this would be a huge set back. We're really happy to report this is **not** the case, and we've made tremendous progress in this area.
+I think it is fair to say that people collectively facepalmed when we announced our plans to [adopt Rust](/blog/2023/09/06/oxidised-moss/) - assuming this would be a huge set back. We're really happy to report this is **not** the case, and we've made tremendous progress in this area.
 
 ### moss
 
@@ -76,7 +76,7 @@ Generally speaking, when you `moss sync` you will be seeing new packages, howeve
 
 The moss tool is now completely asynchronous, making efficient use of both coroutines and OS threads to perform as much work possible in the shortest space of time. This allows us to download, fetch, check and unpack many packages at the same time without being blocked on network or disk, greatly speeding up the fetch part of a transaction.
 
-This is achieved by building on the famous [tokio](https://tokio.rs/) runtime and [:material-github: reqwest](https://github.com/seanmonstar/reqwest) crates, among others.
+This is achieved by building on the famous [tokio](https://tokio.rs/) runtime and [reqwest](https://github.com/seanmonstar/reqwest) crates, among others.
 
 ### boulder
 
@@ -87,7 +87,7 @@ Boulder is the tool we use to generate installable `.stone` packages from a YAML
 
 Leveraging a series of intelligent patterns and helpers, boulder can analyse and collect the build artefacts into the correct subpackages and automatically discover most runtime dependencies, thus vastly decreasing the workload for the developer.
 
-<a class="btn btn-primary me-3 mb-4" href="https://aerynos.dev/packaging/recipes/">
+<a class="btn btn-primary me-3 mb-4" href="/packaging/recipes/">
     Learn More <i class="fas fa-arrow-alt-circle-right ms-2"></i>
 </a>
 :::
@@ -120,9 +120,9 @@ I get it. "All this rewriting - how will you ever make progress" ? It's a fair q
 
 ### Build infrastructure
 
-For a long time, we've had our [:material-view-dashboard: dashboard](https://dash.serpentos.com) up and running for our build infrastructure. Sure, we're going to rewrite it beyond the "Proof of concept" stage when required - but for now it still serves us well. Admittedly there is a deep issue within the `druntime` causing thread leaks over time, but we have it restarting via `systemd` every 24 hours as a bandaid. Needless to say, we're big fans of memory safety now.
+For a long time, we've had our [dashboard](https://dash.aerynos.dev) up and running for our build infrastructure. Sure, we're going to rewrite it beyond the "Proof of concept" stage when required - but for now it still serves us well. Admittedly there is a deep issue within the `druntime` causing thread leaks over time, but we have it restarting via `systemd` every 24 hours as a bandaid. Needless to say, we're big fans of memory safety now.
 
-Our current deployment watches git repos in our [:material-github: snekpit](https://github.com/snekpit) collection, and automatically forms build queues from the pending builds, ordering them by dependency. Using two of ermo's beefy builders, the packages are automatically built and deployed to our repository. Our workflow means that maintainers only have to merge a pull request for builds to appear in the `volatile` repository.
+Our current deployment watches git repos in our [snekpit](https://github.com/snekpit) collection, and automatically forms build queues from the pending builds, ordering them by dependency. Using two of ermo's beefy builders, the packages are automatically built and deployed to our repository. Our workflow means that maintainers only have to merge a pull request for builds to appear in the `volatile` repository.
 
 ### Legacy tooling
 
@@ -155,7 +155,7 @@ A YAML-based trigger recipe has been baked up, which deliberately avoids the use
     let pattern = "/usr/lib/modules/(version:*)/*".parse::<fnmatch::Pattern>()?;
 ```
 
-Our new [:material-github: fnmatch](https://github.com/serpent-os/moss-rs/tree/main/crates/fnmatch) crate, heavily inspired by Python fnmatch, compiles specially format glob strings to Regex, extending with capture groups for named variables. In YAML, it looks a bit like this:
+Our new [fnmatch](https://github.com/serpent-os/moss-rs/tree/main/crates/fnmatch) crate, heavily inspired by Python fnmatch, compiles specially format glob strings to Regex, extending with capture groups for named variables. In YAML, it looks a bit like this:
 
 ```yaml
 handlers:
@@ -175,9 +175,9 @@ Once we roll out the trigger support, we unblock the packaging of critical items
 
 ### Boot management
 
-Our plan is to build on my prior work in the Solus boot management design and [:material-github: clr-boot-manager](https://github.com/clearlinux/clr-boot-manager), addressing some long standing shortcomings. Most importantly, our new module will not need to inspect or manage the OS filesystem as `moss` will be able to provide all of the relevant information (full accounting for all used paths in **all** transactions).
+Our plan is to build on my prior work in the Solus boot management design and [clr-boot-manager](https://github.com/clearlinux/clr-boot-manager), addressing some long standing shortcomings. Most importantly, our new module will not need to inspect or manage the OS filesystem as `moss` will be able to provide all of the relevant information (full accounting for all used paths in **all** transactions).
 
-Initially we will focus on UEFI and supporting the [:material-github: Discoverable Partitions Specification](https://github.com/uapi-group/specifications/blob/main/specs/discoverable_partitions_specification.md) by way of `XBOOTLDR` partitions, the `ESP` and the [Boot Loader Interface](https://systemd.io/BOOT_LOADER_INTERFACE/). Currently we have no plans to support `Unified Kernel Images` as the approach taken by CBM (and soon, moss) alleviates the data concerns of dealing with `vfat`. However, as and when UKIs gain configurable, standardised behaviour for `cmdline` control we will investigate their use. Until that point please note we prebuild our `initrd` images and ship them directly in our packages, as Solus has done so for years already.
+Initially we will focus on UEFI and supporting the [Discoverable Partitions Specification](https://github.com/uapi-group/specifications/blob/main/specs/discoverable_partitions_specification.md) by way of `XBOOTLDR` partitions, the `ESP` and the [Boot Loader Interface](https://systemd.io/BOOT_LOADER_INTERFACE/). Currently we have no plans to support `Unified Kernel Images` as the approach taken by CBM (and soon, moss) alleviates the data concerns of dealing with `vfat`. However, as and when UKIs gain configurable, standardised behaviour for `cmdline` control we will investigate their use. Until that point please note we prebuild our `initrd` images and ship them directly in our packages, as Solus has done so for years already.
 
 The net gain for taking control of boot management will be the deduplication and garbage collection of assets installed to either the `ESP` or `XBOOTLDR` partitions, along with generation of boot entries relevant to Serpent OS: Transaction specific entries allowing us to directly boot back to older installs in case upgrades go wrong.
 

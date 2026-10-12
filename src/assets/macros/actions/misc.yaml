@@ -1,0 +1,95 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+actions:
+
+    - export_docbook_catalogs:
+        description: Ensure that builds using docbook can find XML catalogs locally
+        example: |
+            environment: |
+                %export_docbook_catalogs
+            builddeps:
+                - (... remember to add docbook related packages here ...)
+        command: |
+            [[ -d /usr/share/defaults/docbook ]] || \
+            { echo "No /usr/share/defaults/docbook dir found, exiting..." && exit 1 ;}
+            _catalogs=()
+            for c in $(find /usr/share/defaults/docbook -type f -name 'catalog')
+            do
+                _catalogs+=("file://${c}")
+            done
+            XML_CATALOG_FILES=${_catalogs[@]}; export XML_CATALOG_FILES
+            unset _catalogs
+
+    - gtk_update_icon_cache:
+        description: Pregenerate icon cache at build time
+        example: |
+            %gtk_update_icon_cache
+        command: |
+            for i in %(installroot)%(datadir)/icons/*/; do
+                gtk-update-icon-cache -f $i
+            done
+        dependencies:
+            - binary(gtk-update-icon-cache)
+
+    - install_bin:
+        description: Install files to %(bindir)
+        example: |
+            %install_bin nano
+        command: |
+            install -Dm00755 -t %(installroot)%(bindir)
+
+    - install_dir:
+        description: Create a new empty directory with the default permissions
+        example: |
+            %install_dir %(installroot)%(datadir)/pkgname/docs
+        command: |
+            install -dm00755
+
+    - install_exe:
+        description: Macro to install a file with default executable permissions
+        example: |
+            %install_exe executable-file %(installroot)%(libexec)/%(name)/executable-file
+        command: |
+            install -Dm00755
+
+    - install_file:
+        description: Macro to install a file without executable permissions
+        example: |
+            %install_file %(pkgdir)/helper.file %(installroot)%(datadir)/%(name)/pkgfile
+        command: |
+            install -Dm00644
+
+    - patch:
+        description: Patch the upstream sources using an input patch file.
+        example: |
+            %patch %(pkgdir)/some.patch
+
+            # If you need to override the default -p1, add it after the patch file
+            %patch %(pkgdir)/some.patch -p3
+        command: |
+            patch --force --forward --remove-empty-files --no-backup-if-mismatch -p1 -i
+        dependencies:
+            - binary(patch)
+
+    - tmpfiles:
+        description: Create a tmpfiles.d file for the package with given content
+        command: |
+            create_tmpfiles(){
+                if [ -z "%(libsuffix)" ]; then
+                    mkdir -p %(installroot)%(tmpfilesdir)
+                    echo "$@" >> %(installroot)%(tmpfilesdir)/%(name).conf
+                fi
+            }
+            create_tmpfiles
+
+    - sysusers:
+        description: Create a sysusers.d file for the package with given content
+        command: |
+            create_sysusers(){
+                if [ -z "%(libsuffix)" ]; then
+                    mkdir -p %(installroot)%(sysusersdir)
+                    echo "$@" >> %(installroot)%(sysusersdir)/%(name).conf
+                fi
+            }
+            create_sysusers

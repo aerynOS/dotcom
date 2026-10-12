@@ -30,7 +30,7 @@ After much discussion we finally integrated support for *triggers* in `moss`. Th
 In order for triggers to be *useful*, they need to be shipped in packages installed on client machines. These are easy-to-write `yaml` files that live in either `/usr/share/moss/triggers/sys.d` or within
 `/usr/share/moss/triggers/tx.d`, depending on their scope.
 
-<a class="btn btn-primary me-3 mb-4" href="https://aerynos.dev/packaging/recipes/triggers/">
+<a class="btn btn-primary me-3 mb-4" href="/packaging/recipes/triggers/">
   Learn More <i class="fas fa-arrow-alt-circle-right ms-2"></i>
 </a>
 :::
@@ -48,7 +48,7 @@ We're now happily using systemd `userdb` user and group drop-in records via `nss
 :::note[Find out more about system users]
 In order to make management of users easier, we employ a specific systemd mechanism that makes drop-in user and group records automatically "appear" to applications that use the proper libc APIs. These are JSON format files that live in `/usr/lib/userdb` and are exposed to applications via `nss`.
 
-<a class="btn btn-primary me-3 mb-4" href="https://aerynos.dev/packaging/recipes/system-accounts/">
+<a class="btn btn-primary me-3 mb-4" href="/packaging/recipes/system-accounts/">
   Learn More <i class="fas fa-arrow-alt-circle-right ms-2"></i>
 </a>
 :::

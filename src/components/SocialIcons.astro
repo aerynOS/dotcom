@@ -1,0 +1,17 @@
+---
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+import Icon from '$lib/Icon.astro'; // or wherever you import from
+---
+
+<div class="starlight-social-icons">
+  <Default><slot /></Default>
+
+  <a
+    href="https://aerynos.zulipchat.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Zulip"
+  >
+    <Icon name="simple-icons:zulip" />
+  </a>
+</div>

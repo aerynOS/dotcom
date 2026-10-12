@@ -58,15 +58,13 @@ Long story short, money from GitHub Sponsors[^1] (You guys! ❤️) is now payin
 
 ### El Cheapo Web Hosting
 
-Looking at our project's use of static generators - we decided to review our hosting for web content. Long story short, we deemed it entirely unnecessary. We're now using GitHub pages to deploy this
-website and our [documentation site](https://docs.serpentos.com) via GitHub actions. Don't worry, we use git, we have backups, and we manage the infrastructure using `IaC` practices.
+Looking at our project's use of static generators - we decided to review our hosting for web content. Long story short, we deemed it entirely unnecessary. We're now using GitHub pages to deploy this website and our [documentation site](/aerynos) via GitHub actions. Don't worry, we use git, we have backups, and we manage the infrastructure using `IaC` practices.
 
 ## Clarifying our baseline target
 
 Lately there have been some questions in both Serpent and Solus as to what our baseline will be. In Serpent OS, this will be at minimum `x86_64-v2`, with `x86_64-v3x` packages automatically offered if the system base criteria are met.
 
-This decision has been made to offer the widest baseline compatibility without compromising heavily on system performance (Such that `x86_64-generic` is unsupported in Serpent OS). We will continue
-offering both `v2` and `v3x` until it is no longer feasible from a storage/financial perspective. Source derivatives (Including Solus) are free to chart their own course here, if necessary, and still benefit from tight upstream integration.
+This decision has been made to offer the widest baseline compatibility without compromising heavily on system performance (Such that `x86_64-generic` is unsupported in Serpent OS). We will continue offering both `v2` and `v3x` until it is no longer feasible from a storage/financial perspective. Source derivatives (Including Solus) are free to chart their own course here, if necessary, and still benefit from tight upstream integration.
 
 ### Towards Next Month
 

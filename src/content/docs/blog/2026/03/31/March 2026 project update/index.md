@@ -108,7 +108,7 @@ As part of our content delivery strategy, we had already moved to using a CDN fo
 
 The Volatile repository is primary used for those who do their own packaging and/or submit packages to our repository. This change helps speed up downloads for those users as they disproportionately engage with our repositories for packaging purposes.
 
-We have updated our documentation accordingly, so if you do any packaging work on AerynOS, please refer to the updated documentation on our [dotdev](https://aerynos.dev/packaging/workflow/) site.
+We have updated our documentation accordingly, so if you do any packaging work on AerynOS, please refer to the updated documentation [site](/packaging/workflow/).
  
 ### moss: Search for binaries
 

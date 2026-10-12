@@ -7,7 +7,7 @@ license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2025 aerynOS Developers"
 ---
 
-Taking a break from our usual release-oriented updates, I thought it was high time to dive into what AerynOS actually *is* and what sets it apart from other distros. Fair warning, this is a meaty, in depth post, and still only scratches the surface. If you're interested in the future of Linux distributions, read on. It may also help to visit our work-in-progress [documentation site](https://aerynos.dev) for more information.
+Taking a break from our usual release-oriented updates, I thought it was high time to dive into what AerynOS actually *is* and what sets it apart from other distros. Fair warning, this is a meaty, in depth post, and still only scratches the surface. If you're interested in the future of Linux distributions, read on. It may also help to visit our work-in-progress [documentation site](/aerynos) for more information.
 
 ## 🧱 The OS As Infrastructure
 

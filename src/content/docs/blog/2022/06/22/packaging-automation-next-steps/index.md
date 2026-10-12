@@ -56,7 +56,7 @@ The next steps are honest-to-goodness exciting for us. Or should I say.. exiting
 
 Work formally begins now on Bootstrap Bill (Turner). Whilst we did successfully bootstrap Serpent OS and construct the `Protosnek` repository, the process for that is **not** reproducible as `boulder` has gone through massive changes in this time.
 
-The new [project](https://gitlab.com/serpent-os/core/bill) will leverage `boulder` and a newly designed bootstrap process to eliminate all host contamination and bootstrap Serpent OS from `stone.yml` files, emitting an _immutable_ bootstrap repository.
+The new [project](https://gitlab.com/serpent-os/core/bill)[^2] will leverage `boulder` and a newly designed bootstrap process to eliminate all host contamination and bootstrap Serpent OS from `stone.yml` files, emitting an _immutable_ bootstrap repository.
 
 Layering support will land in `moss` and `boulder` to begin the infrastructure projects.
 
@@ -66,4 +66,6 @@ The aim is to complete `bill` in a very short time so we can bring some initial 
 
 At this point all of the tooling we have will come together to allow us all to very quickly iterate on packaging, polish up `moss` and race towards installed systems with online updates.
 
+---
 [^1]: Since this blog post, we no longer use OpenCollective. For funding, please see our [Funding Page](/sponsor) and for ISOs, please see our [Download Page](/download).
+[^2]: We no longer use GitLab and keep our codebase on [GitHub](https://github.com/aerynos)

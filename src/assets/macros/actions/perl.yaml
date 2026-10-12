@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+actions:
+    - perl_setup:
+        description: Create a Makefile with ExtUtils::MakeMaker from stdlib to be used with %make and %make_install macros
+        command: |
+            perl Makefile.PL PREFIX="%(prefix)" NO_PACKLIST=1 NO_PERLLOCAL=1 INSTALLDIRS=vendor DESTDIR="%(installroot)"
+        dependencies:
+            - binary(perl)
+
+    - perl_module_setup:
+        description: Create a build script with Module::Build as an alternative to ExtUtils::MakeMaker for projects that use it
+        command: |
+            perl Build.PL installdirs=vendor create_packlist=0
+        dependencies:
+            - binary(perl)
+            - perl-module-build
+
+    - perl_module_build:
+        description: Build a perl module with Module::Build
+        command: |
+            perl Build installdirs=vendor create_packlist=0
+        dependencies:
+            - binary(perl)
+            - perl-module-build
+
+    - perl_module_install:
+        description: Install a perl module with Module::Build
+        command: |
+            perl Build destdir="%(installroot)" install
+        dependencies:
+            - binary(perl)
+            - perl-module-build

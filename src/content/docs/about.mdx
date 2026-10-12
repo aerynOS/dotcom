@@ -1,28 +1,29 @@
 ---
 title: About
 description: About aerynOS
+lastUpdated: 2026-10-12T12:00:00Z
+banner:
+  content: |
+    Consider sponsoring aerynOS! Check out our <a href="/sponsor">funding page </a> for more details
+template: splash
+license: "CC-BY-SA-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
 ---
-import { CardGrid } from '@astrojs/starlight/components';
-import Asciinema from "@/components/ui/Asciinema.astro";
-import Card from "@/components/ui/Card.astro";
-
-<Card>
-  aerynOS is a modern Linux distribution using atomic updates, cutting-edge tooling and rock-solid reliability. Built by industry veterans with decades of experience, it represents the next evolution in Linux distributions - delivering a safe and efficient system 🐍
-</Card>
-
-Our fully atomic system leverages the [LLVM](https://llvm.org/) toolchain and GNU libstdc++ by default, delivering superior diagnostics and package diversity. We're not afraid to challenge convention - thoughtfully replacing traditional components with modern alternatives that prioritize safety and reliability.
-
-We closely follow the work of organizations dedicated to making software safer, including the [Prossimo project](https://www.memorysafety.org/) and their Memory Safety initiative, the [Tweede Golf](https://tweedegolf.nl/en) team, and the [Trifecta Tech Foundation](https://trifectatech.org/). By monitoring and adopting innovations from these pioneers, we can integrate proven solutions like memory-safe replacements for critical system components.
-
-As we continuously evaluate and adopt the best solutions, our architectural decisions enable powerful features like atomic updates that can safely transform your entire system, complete with built-in deduplication and instant rollbacks.
-
-This is the future of Linux distribution design, built on a foundation of experience and innovation.
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
 
 
-## Daily Driver
-Want a rolling release distribution that just works? We're building aerynOS to be the system that gets out of your way and lets you focus on what matters. Our atomic updates mean you can keep rolling forward without the usual headaches - no manual interventions, no update anxiety. When we say rolling release, we mean it should be as simple as running an update and getting back to work. Join us on this journey as we continuously improve and refine the experience.
+> **Develop modern, ergonomic tooling and processes that in turn enable efficient delivery of an atomic, reliable, predictable, and performant Operating System, which is a joy to use and maintain for its developers, packagers, and users alike.**
+>
+> — <cite>aerynOS Mission Statement</cite>
+
+## Current state: alpha quality
+
+aerynOS offers an alpha quality rolling release distro. This is the distro that staff and early testers are using to "dogfood" the codebase and to iteratively improve it towards an eventual general release distribution that can be classified as daily drivable. 
 
 ![aerynos_alpha](@/images/editions/aerynOS_KDE_August26.webp)
+
+We currently have roughly 1800 packages in our package repository. Whilst this is slowly growing, it is a conscious decision to keep the repository size small until our foundational tooling is more developed. Having said that, we do try and offer a passable experience for more technically minded Linux users.
 
 ## Features
 
@@ -33,17 +34,130 @@ Want a rolling release distribution that just works? We're building aerynOS to b
   </Card>
 
   <Card title="Choice of Modern Desktops" icon="fa6-solid:desktop">
-    Choose between the clean, intuitive [GNOME](https://www.gnome.org/) desktop environment or the innovative [COSMIC](https://cosmic.system76.com/) desktop. Both combine visual appeal with powerful functionality for an efficient workflow.
+    A choice of many different desktop environments from [Budgie](https://buddiesofbudgie.org/), [Cosmic](https://system76.com/cosmic), [GNOME](https://system76.com/cosmic) and [KDE Plasma](https://kde.org/plasma-desktop/). In addition we have many different Wayland environments such as [Gamescope](https://github.com/ValveSoftware/gamescope), [Hyprland](https://hypr.land/), [Jay](https://github.com/mahkoh/jay), [Labwc](https://labwc.github.io/), [Mangowm](https://mangowm.github.io/), [Miricle-WM](https://miracle-wm.org/), [Miriway](https://github.com/Miriway/Miriway), [Niri](https://niri-wm.github.io/niri/), [Sway](https://swaywm.org/) and [Weston](https://wayland.pages.freedesktop.org/weston/).
 
   </Card>
 
   <Card title="Developer Ready" icon="fa6-solid:code">
-    Get productive fast with built-in tools like [Zed Editor](https://zed.dev/), [Ptyxis](https://gitlab.gnome.org/chergert/ptyxis) terminal, and [Starship](https://starship.rs/) prompt. We've carefully curated and configured a development environment that just works.
+    To support our primarily developer focused userbase, we have packaged up various different tooling such as [Zed](https://zed.dev/) along with the LLM free variant, [Gram](https://gram-editor.com/). We also have many different command line tools packaged and available in the repository. These include [emacs](https://www.gnu.org/software/emacs/), [fresh](https://getfresh.dev/), [helix](https://helix-editor.com/), [kakoune](https://kakoune.org/), [micro](https://micro-editor.github.io/), [vim](https://www.vim.org/) and [vscode](https://code.visualstudio.com/).
   </Card>
 </CardGrid>
 
-## For Contributors
 
-Want to be part of something amazing? aerynOS is a community-driven project where everyone can make a meaningful impact. Our powerful yet simple boulder recipes make packaging accessible to newcomers, while our clean stateless design and predictable `/usr` layout helps you understand exactly how changes will impact the system. Whether you're interested in packaging, development, documentation, testing, or community support - check out our [docs](https://aerynos.dev) to see how easy it is to join our growing community and help shape the future of Linux distributions. 🛠️
+## How the pieces fit together
 
-<Asciinema id="674948" />
+aerynOS is the collective output of brand new tooling and associated processes, engineered from the ground up to deliver a Linux distribution that focuses on reliability, up front predictability, proven performance and efficiency.
+
+Our ground up approach has enabled us to provide atomic updates without requiring reboots or having to utilise containers for package delivery. Part of our design philosophy is to deliver "just enough" flexibility and customisability to end users, without becoming a meta-distribution, and without compromising on predictability or reliability.
+
+```mermaid
+mindmap
+root((aerynOS))
+  Configuration
+    id1("`**Imperative:** By default, aerynOS emulates an imperative approach for package management. However, each /usr state corresponds to a declarative system-model.kdl file, which is exposed in /usr/lib/system-model.kdl`")
+    id2("`**Declarative:** Optionally able to use our system-model approach to declaratively control package installs.`")
+  Update Cycle
+    id3("`**Rolling-Release:** aerynOS implements a repository structure that supports multiple rolling update streams that each move at their own pace, and multiple tagged, fixed, historical versions.`")
+    id4("`**Fixed-Point:** Using our system-model feature, users can opt to fix to any tagged release of our Unstable repository.`")
+  Root Filesystem
+    id5("`**XFS:** Our default recommendation with the best performance our distributions' specific tooling.`")
+    id6("`**ext4:** Possible to use but has limitations in the number of moss states can be stored.`")
+    id7("`**F2FS:** F2FS is currently the least performant FS when it comes to how aerynOS constructs different atomic /usr states.`")
+    id8("`**TBC:** Additional filesystems will be considered in the future.`")
+```
+
+
+## Meet the team
+
+The aerynOS team is a diverse group of individuals from different backgrounds, geographic locations and skill-sets. We treat each other with respect and understanding, and we work together to create a positive and inclusive environment. In all areas, we encourage contributors and staff to play around, experiment and make mistakes in order to "fail forward"; in aerynOS, making mistakes / derps / booboos / oopsies is considered nature's most efficient learning tool.
+
+Whenever we recruit new team members, we start by sharing our foundational values with them:
+
+> ***Be kind, foster joy, listen, care.***
+>
+> — <cite>aerynOS Foundational Values</cite>
+
+## Active staff members
+
+<CardGrid>
+  <Card title="ermo">
+    <Image src="/images/authors/ermo.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **Project Steward and Co-founder**  
+    Focuses on setting the direction for the project.  
+    [GitHub](https://github.com/ermo)
+  </Card>
+
+  <Card title="tarkah">
+    <Image src="/images/authors/tarkah.webp" alt="khaga87" class="avatar-img" width={80} height={80} />
+    **Staff Developer and Rust enthusiast**  
+    Primary code developer with significant Rust knowledge.  
+    [GitHub](https://github.com/tarkah)
+  </Card>
+
+  <Card title="khaga87">
+    <Image src="/images/authors/khaga87.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **Project Comms and Community Engagement**
+    A focus on community engagement including social media and blog posts. Formerly known as NomadicCore.
+    [GitHub](https://github.com/khaga87)
+  </Card>
+
+  <Card title="Reilly Brogan">
+    <Image src="/images/authors/reilly.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **Distro Engineer**  
+    Specializes in solving difficult problems across the distribution stack.
+    [GitHub](https://github.com/ReillyBrogan)
+  </Card>
+
+  <Card title="Bryan Hyland">
+    <Image src="/images/authors/bryan.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **Staff Developer and Rust enthusiast**  
+    Rust developer focusing on new installer and boot code
+    [GitHub](https://github.com/bhh32)
+  </Card>
+
+  <Card title="CookieSource">
+    <Image src="/images/authors/cookiesource.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **Documentation Editor**  
+    Enjoys working on documentation and community support.
+    [GitHub](https://github.com/cookiesource)
+  </Card>
+
+  <Card title="Jonas Platte">
+    <Image src="/images/authors/jonas.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **Staff Developer and Rust enthusiast**  
+    Supporting the project with Rust code review. 
+    [GitHub](https://github.com/jplatte)
+  </Card>
+</CardGrid>
+
+## Retired staff members
+
+<CardGrid>
+  <Card title="Ikey">
+    <Image src="/images/authors/ikey.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **Project Founder**  
+    Created the project and subsequently retired from the project in April 2025
+    [GitHub](https://github.com/ikeycode)
+  </Card>
+
+  <Card title="sunnyflunk">
+    <Image src="/images/authors/sunnyflunk.webp" alt="khaga87" class="avatar-img" width={80} height={80} />
+    **Co-founder, former Distribution Engineer and Performance Specialist**  
+    Former distribution engineer with significant knowledge on performance optimisation.  
+    [GitHub](https://github.com/sunnyflunk)
+  </Card>
+
+  <Card title="ulaas">
+    <Image src="/images/authors/ulaas.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **Co-founder, former Project Manager**  
+    Former project manager in the early years of the project.
+    [GitHub](https://github.com/ulaas)
+  </Card>
+
+  <Card title="der-eismann">
+    <Image src="/images/authors/der-eismann.webp" alt="ermo" class="avatar-img" width={80} height={80} />
+    **former DevOps Engineer**  
+    Developer who supported the project development in the early years.
+    [GitHub](https://github.com/der-eismann)
+  </Card>
+</CardGrid>

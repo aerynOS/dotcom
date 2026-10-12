@@ -1,0 +1,60 @@
+---
+title: Downloading aerynOS
+lastUpdated: 2026-10-02T15:00:00Z
+description: Downloading the aerynOS ISO file and verifying the checksums
+sidebar:
+  order: 3
+license: "CC-BY-SA-4.0"
+copyright: "Copyright © 2025 aerynOS Developers"
+---
+
+## Downloading the ISO
+
+1. Visit the [aerynOS download page](/download/).
+2. Use the direct download or bittorrent option to get the latest release.
+3. Download the checksum file
+
+## Verifying the Checksums
+
+Before creating a bootable USB drive, it's important to verify the checksums to ensure the integrity of the downloaded ISO file.
+
+:::tip
+aerynOS utilizes a GNOME based live environment for installation. Our installer `lichen` is a netinstaller that can be used to install GNOME, KDE Plasma, Cosmic or a terminal-only environment based on your requirements.
+:::
+
+### Linux
+
+1. Open a terminal window and navigate to the directory where the ISO file is located along with the checksums.
+
+```bash
+cd ~/Downloads
+```
+
+2. Run the following command to verify the checksums:
+
+```bash
+sha256sum -c <checksum_file>
+```
+You should see a message indicating that the checksums match if the ISO file is valid.
+
+```bash
+aerynOS-2026.01-GNOME-live-x86_64.iso: OK
+```
+
+If the checksums do not match, download the ISO file again and repeat the verification process.
+
+### Windows
+
+1. Open a Command Prompt window and navigate to the directory where the ISO file is located along with the checksums.
+
+```cmd
+cd C:\Users\<username>\Downloads
+```
+
+2. Run the following command to verify the checksums:
+
+```cmd
+certutil -hashfile aerynos-<version>.iso SHA256
+```
+
+This will give you the checksum of the file, compare this to the checksum found inside the checksum file.

@@ -1,3 +1,6 @@
+@import "starlight-ui-tweaks/styles";
+
+
 /*
 
 https://starlight.astro.build/guides/css-and-tailwind/#color-theme-editor
@@ -36,24 +39,7 @@ https://starlight.astro.build/guides/css-and-tailwind/#color-theme-editor
 	--sl-breakpoint-lg: 100rem;
 }
 
-/*
-
-force the splash screens to be full width without any padding to allow for full width background images/colors
-
-content blocks in splash pages should use 'splash sections' like <BoxSection> or the wrapper <SplashContent>
-*/
-html:not([data-has-sidebar]) {
-  --original-sl-content-width: var(--sl-content-width);
-  --sl-content-width: 100% !important;
-}
-html:not([data-has-sidebar]) .content-panel {
-  padding: 0;
-}
 /* -- */
-
-
-
-
 
 .button-grid {
   display: grid;
@@ -77,9 +63,6 @@ html:not([data-has-sidebar]) .content-panel {
   text-align: center;
 }
 
-
-
-
 .box-section {
   display: flex;
   flex-direction: column;
@@ -93,7 +76,6 @@ html:not([data-has-sidebar]) .content-panel {
     padding: 4rem;
   }
 }
-
 
 [data-theme='light'] .box-section {
   background: var(--sl-color-gray-6);
@@ -123,7 +105,6 @@ html:not([data-has-sidebar]) .content-panel {
   align-items: center;
   justify-content: top;
   margin:0!important;
-
   text-align: center;
 }
 

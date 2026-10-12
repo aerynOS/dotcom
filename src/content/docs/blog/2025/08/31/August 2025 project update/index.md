@@ -149,7 +149,7 @@ Once this lands in our repository, we will take another step towards making Aery
 
 ### Documentation improvements
 
-Outside of the code development, there is a renewed focus on our documentation [site](https://aerynos.dev/). This is a continuing and incremental exercise with improvements coming across the board.
+Outside of the code development, there is a renewed focus on our documentation [site](/aerynos). This is a continuing and incremental exercise with improvements coming across the board.
 
 Over the last few months, we have improved the FAQ page, added more information on how to update packages on an AerynOS system and added additional information around the Desktop Environments we offer. We have also added specific background detail about how AerynOS is different to other distributions on our Philosophy page.
 
@@ -169,7 +169,7 @@ For the os-tooling, we are adding structured logging for better insight and repo
 
 ## Download AerynOS
 
-The link for our latest iso can be found at our [download](https://aerynos.com/download/) page.
+The link for our latest iso can be found at our [download](/download) page.
 
 ---
 [^1]: aerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.

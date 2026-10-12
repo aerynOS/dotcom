@@ -126,7 +126,7 @@ These changes aren't necessarily visible to users directly, but they help improv
 
 One of the largest pieces of work in the recipes repository over the last month has been our global package rebuild. We last conducted this exercise around May to June last year when we transitioned from our old Dlang-based infrastructure to our newer Rust-based infrastructure.
 
-We had planned to do repository-wide rebuilds on a slightly more frequent basis and had actually mentioned it in our [February project update](https://aerynos.com/blog/2026/02/28/february-2026-project-update/#invasive-toolchain-and-full-repo-rebuilds), however other development work took priority. We have now rebuilt all packages across the repository to establish a much more consistent ABI baseline as our current tooling does not automatically ensure ABI sanity as a feature; this is currently managed through ingrained knowledge in our core packagers. This is particularly important as we continue evolving aerynOS's underlying system libraries and toolchain. Rather than having a mixture of packages built against different generations of dependencies, we want to reach a point where the repository has a well-defined and coherent baseline.
+We had planned to do repository-wide rebuilds on a slightly more frequent basis and had actually mentioned it in our [February project update](/blog/2026/02/28/february-2026-project-update/#invasive-toolchain-and-full-repo-rebuilds), however other development work took priority. We have now rebuilt all packages across the repository to establish a much more consistent ABI baseline as our current tooling does not automatically ensure ABI sanity as a feature; this is currently managed through ingrained knowledge in our core packagers. This is particularly important as we continue evolving aerynOS's underlying system libraries and toolchain. Rather than having a mixture of packages built against different generations of dependencies, we want to reach a point where the repository has a well-defined and coherent baseline.
 
 With over 1700 recipes each producing one or more packages, there has been a lot of churn in the repository, which also serves as another stress test for our infrastructure. We are happy to say that it has passed with flying colours.
 
@@ -172,7 +172,7 @@ You can find the Discourse server [here](https://aerynos.discourse.group/). Sign
 
 ![Comparison image showing our new logo brand colours on both a light and dark background](./rebrand.webp "Comparison of the new logo on light and dark backgrounds")
 
-During our [April blog post](https://aerynos.com/blog/2026/04/30/rebranding-upgrading-and-wallpapering-aerynos-april-glow-up/) we launched our new logomark, moving away from our older LLM-created A symbol. As the project continues to evolve, and as new members with design expertise join our community, we are continuing to refine our branding.
+During our [April blog post](/blog/2026/04/30/rebranding-upgrading-and-wallpapering/) we launched our new logomark, moving away from our older LLM-created A symbol. As the project continues to evolve, and as new members with design expertise join our community, we are continuing to refine our branding.
 
 One of the more visible changes is a transition from `AerynOS` to `aerynOS`. We are working through our various repositories to ensure consistency with the new spelling but this will take some time. Most of the high-visibility areas, such as our website, have already been transitioned.
 
@@ -184,7 +184,7 @@ This is a relatively small piece of work compared with the engineering happening
 
 We have ramped up progress on our website redesign over on [Codeberg](https://codeberg.org/aerynOS/dotcom) in the last month. Whilst not yet ready to launch, it is nearing "completion", although we may end up launching the site in stages.
 
-The goal is to eventually deliver a single site that covers what both our [dotcom](aerynos.com) and [dotdev](aerynos.dev) currently cover. However, we may split this into two transitions, with the main site transitioning first and our dotdev documentation site moving over at a later stage once we have done a full review of the documentation and brought it in line with the current state of the project.
+The goal is to eventually deliver a single site that covers what both our [dotcom](/) and dotdev[^1] currently cover. However, we may split this into two transitions, with the main site transitioning first and our dotdev documentation site moving over at a later stage once we have done a full review of the documentation and brought it in line with the current state of the project.
 
 One important point to note is that we have created a new repository for this work. We had originally created a brand new repository for the Hugo/Hextra redesign but that meant that we had not copied over authorship history from the existing website. We have now forked our existing website and subsequently overlaid our new Hugo/Hextra work on top to maintain as much of the git history as we can.
 
@@ -231,3 +231,6 @@ We are always open to engagement with hardware vendors and infrastructure partne
 We are very grateful for your support, be it financial or via project contributions in the form of carefully written bug reports, code contributions, design contributions, documentation updates, general feedback, package updates and overall enthusiasm around the project.
 
 We hope that you will continue showing enthusiasm for our project, and that you will want to get involved in whichever way, shape, or form works for you!
+
+---
+[^1]: aerynOS has now combined our dotcom and dotdev sites into a single site.
