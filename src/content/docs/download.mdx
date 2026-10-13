@@ -14,19 +14,17 @@ import LinkButton from "@/components/ui/LinkButton.astro";
 
 ![GNOME 2026.08](@/images/editions/aerynOS_Gnome_August26.webp "aerynOS 2026.08 GNOME edition")
 
-# aerynOS 2026.08
-
-aerynOS with [GNOME Desktop](https://www.gnome.org/). Solid GTK integration in a clean, functional package that gets out of your way. We built this to actually work - no bloat, no buzzwords, just a damn good desktop that lets you get things done.
-
-We use this live environment to serve as a vehicle for our alpha `lichen` live installer which is able to install all of our Desktop Environments and Wayland Compositor environments. It will always pull the latest packages from our repository at the time of installation.
-
-:::tip
-We advise using Etcher, KDE ISO Image Writer or a similar GUI tool or `dd` to write the aerynOS ISO to a separate USB stick.
-:::
+# Latest version: `aerynOS 2026.08`
 
 :::caution
-Our alpha `lichen` installer intentionally does not support dual boot scenarios at this stage. To install aerynOS, your PC needs to be `x86_64-v2` capable (Intel 1st gen Core/AMD FX-4/6/8xxx and up), have working UEFI firmware, and have an entire disk reserved for aerynOS.
+Our alpha `lichen` installer intentionally does not support dual boot scenarios at this stage. 
 :::
+
+We provide a live environment with [GNOME Desktop](https://www.gnome.org/) as a vehicle for our alpha `lichen` live installer which is able to install all of our Desktop Environments and Wayland Compositor environments. It will always pull the latest packages from our repository at the time of installation.
+
+We advise using [Etcher](https://etcher.balena.io/), [KDE ISO Image Writer](https://apps.kde.org/en-gb/isoimagewriter/) or `dd` to write the aerynOS ISO to a separate USB stick. Other tools may work but are not guaranteed. [MultiOS-USB](https://github.com/Mexit/MultiOS-USB) is also known to work for writing multiple ISOs to the same usb stick.
+
+For a full guide to installing aerynOS including prerequisite requirements, downloading and installing the ISO to a USB stick, please refer to our [documentation](/users/getting-started/).
 
 <LinkButton
   href="https://cdn.aerynos.dev/isos/AerynOS-2026.08-GNOME-live-x86_64.iso"

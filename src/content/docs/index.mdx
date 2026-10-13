@@ -1,7 +1,7 @@
 ---
 title: "Performance-oriented Linux-based OS"
-description: An independent performance-oriented Linux-based OS currently in alpha.
-lastUpdated: 2026-10-12T12:00:00Z
+description: An independent Linux distribution built from the ground up, with purpose-built tooling for package management and atomic system updates.
+lastUpdated: 2026-10-13T08:00:00Z
 banner:
   content: |
     Consider sponsoring aerynOS! Check out our <a href="/sponsor">funding page </a> for more details
@@ -13,67 +13,84 @@ head:
   - tag: style
     content: "h1 { display: none !important; }"
 ---
-
-import { Badge } from '@astrojs/starlight/components';
-
 import Asciinema from "@/components/ui/Asciinema.astro";
-import Icon from "@/components/ui/Icon.astro";
-import Card from "@/components/ui/Card.astro";
-import LinkButton from '@/components/ui/LinkButton.astro';
-import { Image } from 'astro:assets';
-import myImage from 'src/images/logo.svg';
-
-import SplashContent from '@/components/splash/SplashContent.astro';
-import BoxSection from '@/components/splash/BoxSection.astro';
-import BoxSectionBox from '@/components/splash/BoxSectionBox.astro';
-import BoxSectionOutro from '@/components/splash/BoxSectionOutro.astro';
+import BoxSection from "@/components/splash/BoxSection.astro";
+import BoxSectionBox from "@/components/splash/BoxSectionBox.astro";
+import BoxSectionOutro from "@/components/splash/BoxSectionOutro.astro";
+import SplashContent from "@/components/splash/SplashContent.astro";
+import LinkButton from "@/components/ui/LinkButton.astro";
 
 <SplashContent>
-<h1>aerynOS</h1>
-  <p>aerynOS is an independent performance-oriented Linux-based operating system that diverges significantly from traditional distributions whilst still aiming to provide a familiar and comfortable environment. The code-base is currently in an alpha "technical preview" stage, which means that it is not yet ready for widespread use. However, we are committed to eventually providing a stable and reliable operating system that will be easy to use and customize.</p>
+  <h1>aerynOS</h1>
+
+  <p>aerynOS is an independent Linux distribution being built from the ground up with its own tooling. We are developing an atomic operating system with declarative system management and rollback capabilities that will reduce the risk of system failure from unsuccessful updates.</p>
+
+  <p>Whilst we are actively developing aerynOS towards a stable, general-purpose Linux distribution, it is currently in an <strong>alpha technical preview</strong> state. During this present stage of development, we can't guarantee a seamless user experience. We welcome testers and early adopters but caution that you will likely need to be technically minded and willing to self serve answers to the rough edges you might encounter?</p>
 
   <div class="button-grid">
-    <LinkButton href="/download" variant="primary" icon="fa6-solid:download">Get Started</LinkButton>
-    <LinkButton href="/about" variant="secondary" icon="fa6-solid:circle-arrow-right">Learn More</LinkButton>
-    <LinkButton href="/sponsor" variant="secondary" iconPlacement="end" icon="fa6-solid:heart">Support Us</LinkButton>
-    <LinkButton href="/aerynos" variant="secondary" iconPlacement="end" icon="fa6-solid:circle-arrow-right">Documentation</LinkButton>
+    <LinkButton href="/download" variant="primary" icon="fa6-solid:download">Try aerynOS</LinkButton>
+    <LinkButton href="/about" variant="secondary" icon="fa6-solid:circle-info">About the Project</LinkButton>
+    <LinkButton href="/aerynos" variant="secondary" icon="fa6-solid:book-open">Documentation</LinkButton>
+    <LinkButton href="/sponsor" variant="secondary" icon="fa6-solid:heart">Support Us</LinkButton>
   </div>
 
-  ![aerynos_alpha](@/images/editions/aerynOS_KDE_August26.webp)
+  ![aerynOS running KDE Plasma](@/images/editions/aerynOS_KDE_August26.webp)
+
+  <p><strong>Alpha technical preview</strong> — aerynOS is under active development and is not yet recommended for daily driving by users who require a stable, production-ready operating system.</p>
 </SplashContent>
 
 <BoxSection>
-  <BoxSectionBox icon="fa6-solid:bolt" title="Blazing Fast">
-    Experience desktop computing at lightning speed with our optimized system architecture and smart performance defaults.
+  <BoxSectionBox icon="fa6-solid:arrows-rotate" title="Atomic System Updates">
+    aerynOS uses atomic system transactions to apply changes as a single operation. Previous system states remain available allowing you to rollback as needed.
   </BoxSectionBox>
-  <BoxSectionBox icon="fa6-solid:shield-halved" title="Bulletproof Updates">
-    Never worry about broken updates again. Our atomic system ensures your computer stays reliable through every update.
+  <BoxSectionBox icon="fa6-solid:box-open" title="Purpose-built Tooling">
+    From building packages with [boulder](/tooling/boulder) to installing those packages and managing system states with [moss](/tooling/moss), we are developing our own bespoke in-house tools in Rust.
   </BoxSectionBox>
-  <BoxSectionBox icon="fa6-solid:user-check" title="Effortlessly Powerful">
-    Get straight to work with thoughtful defaults while retaining the full power of Linux at your fingertips.
+  <BoxSectionBox icon="fa6-solid:desktop" title="A Familiar Linux Desktop">
+    A Linux desktop should still feel like home. aerynOS offers a choice of desktop environments and Wayland compositors, alongside a growing collection of applications and developer tools.
   </BoxSectionBox>
 </BoxSection>
 
 <SplashContent>
-  ## The Future of Linux Updates
+## A different approach to system updates
 
-  Say goodbye to system-wide reboots for every little change. aerynOS brings you live atomic updates that apply instantly, while ensuring your system stays protected through atomic rollbacks if anything goes wrong.
+A big problem with traditional package managers is that they apply updates incrementally, so if the update fails part part way through, you can be left with a partially updated and broken system. aerynOS takes the atomic approach to package management. `moss` downloads and prepares the package update in one go and then atomically switches over to the new system state. If an update were to fail, the transaction would not complete and your system would be left untouched. We do this without immutable system images that require reboots for every system update.
 
-  <Asciinema id="gpwBAQCzOBfVLJq5"/>
+Things can still go wrong, so we keep all previous system states available to users to allow for roll backs. Via `moss`, you can roll back to any earlier system state. You can also roll back to one of the previous 5 system states at boot time. This provides an extra protection layer in case anything goes wrong. Check out the video below of an aerynOS system updating to a new system state via `moss`.
+
+<Asciinema id="gpwBAQCzOBfVLJq5"/>
 
 </SplashContent>
 
 <BoxSection>
-  <BoxSectionBox icon="fa6-solid:box-archive" title="moss" subTitle="Next-Gen Package Manager">
-    [Experience atomic updates](/tooling/moss) that swap your entire system safely in one go. No more partial updates or broken states - everything works, or nothing changes.
+
+  <BoxSectionBox icon="fa6-solid:box-archive" title="moss" subTitle="System and Package Management">
+    [`moss`](/tooling/moss) is our package and system state manager. We use a transaction-based approach that allows for new system states (or "transactions) to be constructed and then activated atomically reducing the risk of broken updates. 
+    
+    Previous system states remain available to the user so they can rollback as needed.
   </BoxSectionBox>
-  <BoxSectionBox icon="fa6-solid:trowel" title="boulder" subTitle="Rapid Build System">
-    [Build packages at lightning speed](/tooling/boulder) with our advanced caching system. Simple YAML recipes mean you spend less time packaging and more time creating.
+  <BoxSectionBox icon="fa6-solid:hammer" title="boulder" subTitle="Package Build System">
+      [`boulder`](/tooling/boulder) is our tool for building packages for aerynOS from yaml based recipe definitions. 
+      
+      When combined with our build infrastructure, it allows us to package up open source software and publish it to our repositories.
   </BoxSectionBox>
-  <BoxSectionBox icon="fa6-solid:hard-drive" title="blsforme" subTitle="Smart Boot Management">
-    [Boot management that thinks ahead](https://github.com/aerynOS/blsforme). Handles complex EFI configurations automatically so you never have to worry about boot issues again.
+  <BoxSectionBox icon="fa6-solid:hard-drive" title="blsforme" subTitle="Boot Management">
+    [`blsforme`](https://github.com/aerynOS/blsforme) is our custom Boot Loader Specification compliant management tool.
+    
+    It helps manage `ESP` and `XBOOTLDR` partitions and generally manage booting aerynOS systems. 
   </BoxSectionBox>
-  <BoxSectionOutro slot="outro">
-    Ready to see more? [Explore our complete toolkit](/tooling) and discover how aerynOS is reshaping the future of Linux.
-  </BoxSectionOutro>
 </BoxSection>
+
+<SplashContent>
+
+## Built in the open
+
+aerynOS is an open source project that thrives based on community effort. We are developing the distribution, our Rust based tooling and package recipes in the open, primarily over at GitHub. We share regular updates on our blog and communicate via Zulip and Discourse. We welcome people who want to test the distribution, report issues, improve documentation or contribute code or package recipes.
+
+<div class="button-grid">
+  <LinkButton href="/blog" variant="secondary" icon="fa6-solid:newspaper">Project Updates</LinkButton>
+  <LinkButton href="https://aerynos.zulipchat.com/" variant="secondary" icon="simple-icons:zulip">Join the Community</LinkButton>
+  <LinkButton href="https://aerynos.discourse.group/" variant="secondary" icon="simple-icons:discourse">Join the Forum</LinkButton>
+  <LinkButton href="https://github.com/aerynOS" variant="secondary" icon="simple-icons:github">GitHub</LinkButton>
+</div>
+</SplashContent>
