@@ -16,6 +16,8 @@ I remember back in the early 2000s on Gentoo when someone set up a server to pro
 
 Today things are quite different. The case for deltas has reduced for users as internet speeds have increased. Shrinking 20MB off a package size may be a second reduction for some, but 10 seconds for others. The largest issue is that deltas have typically pushed extra computational effort onto the users computer in compensation for the smaller size. With a fast internet connection that cost is a real burden where deltas take longer to install than simply downloading the full package.
 
+<!-- excerpt -->
+
 ## What's so Bad About the Old Method?
 
 The previous idea of using the full payload for deltas was very efficient in terms of distribution, but required changes in how `moss` handles packages to implement it. Having the previous payload available (and being fast) means storing the old payloads on disk. This increases the storage requirements for the base system, although that can be reduced by compressing the payloads to reduce disk usage (but increasing CPU usage at install time).

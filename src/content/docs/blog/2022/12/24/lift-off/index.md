@@ -20,6 +20,8 @@ As mentioned, we spent 2 years working on tooling and process. That's .. well. K
 
 I deferred final enabling of the infrastructure until January to rectify the chicken/egg scenario whilst allowing us to grow a base of contributors and an actual distro to work with. We're in a good position with minimal blockers so no concern there.
 
+<!-- excerpt -->
+
 ### A real software collection
 
 This is our term for the classical "package repository". We're using a temporary collection right now to store all of the builds we produce. In keeping with the `Avalanche` requirements, this is the **volatile** software collection. Changes a lot, hasn't got a release policy.

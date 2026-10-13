@@ -25,6 +25,8 @@ We've removed the old enumeration approach from the `Reader` class, instead requ
 
 Right now we can read and write our `MetaPayload` from and to the stream, allowing us to encode & decode the metadata associated with the package, with strong type information (i.e. `Uint64`, `String`, etc.)
 
+<!-- excerpt -->
+
 ## Next Steps
 
 We need to restore the `IndexPayload`, `LayoutPayload` and `ContentPayload` definitions. The first two are simply **data** payloads and will largely follow the design of the newly reimplemented `MetaPayload`. Then we restore `ContentPayload` support, and this will allow the next steps: unpack, install.

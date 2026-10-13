@@ -22,6 +22,8 @@ Moss does not aim to be a next generation package management solution, it instea
 
 In order to complete `stage3`, we provided linker stubs in `libwildebeest` to ensure we can build. Obviously this introduces runtime errors in systemd and our `stage3` isn't bootable, just chrootable. This will be resolved when systemd is properly packaged by moss in `stage4`.
 
+<!-- excerpt -->
+
 ## Docker Image
 
 We now have a test container available on Docker Hub. You can install and run the simple bash environment by executing the following command with a Docker-enabled user:

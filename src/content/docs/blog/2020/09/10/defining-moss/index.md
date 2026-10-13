@@ -27,6 +27,8 @@ This is typically achieved using a so-called `A/B switch`, which is what we will
 
 Primarily we'll update a single `/usr` symlink to point to the current OS image, with `/` being a read-only faux rootfs, populated with established mountpoints and symlinks. Mutation will be possible only via `moss` transactions, or in world-writable locations (`/opt`, `/usr/local`, `/etc` ...)
 
+<!-- excerpt -->
+
 ## Deduplication
 
 The moss binary package format will be deduplicated in nature, containing hash-keyed blobs in an `zstd` compressed payload. Unique blobs will be stored in a global cache, and hard-linked into their final location (i.e. `/moss/root/$number/usr/...`) to deduplicate the installed system too. This allows multiple system snapshots with minimal overhead, and the ability to perform an offline rollback.

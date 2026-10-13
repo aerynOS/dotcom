@@ -20,6 +20,8 @@ Containers have a multitude of uses for a Linux distro, but our immediate use ca
 
 The next step is integrating `moss-container` into `boulder`, so that builds become reproducible across machines, and makes it much easier for users to run builds on their host machines.
 
+<!-- excerpt -->
+
 ## moss Now Understands Repositories
 
 Previously (but not covered in the blogs) work was also done on `moss` so that it can understand and fetch `stone` packages from an online repo. This ties in nicely with the `moss-container` work and is a requirement for finishing up a proper build process for Serpent OS. We are now one step closer to having a full distribution cycle from building packages and pushing those packages as system updates!

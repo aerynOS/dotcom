@@ -26,6 +26,8 @@ To detract from casual use it is necessary to manually partition the disk before
 
 You will need a working network connection, so make sure you're connected before starting the installer!
 
+<!-- excerpt -->
+
 ## Technologies involved
 
 This will of course appear to be a very rough (crap) prealpha ISO. Underneath the surface it is using the [moss](https://github.com/serpent-os/moss) package manager, our very own package management solution written in Rust. Quite simply, every single transaction in moss generates a new filesystem tree (`/usr`) in a staging area as a full, stateless, OS transaction.

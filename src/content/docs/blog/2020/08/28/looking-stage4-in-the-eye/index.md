@@ -16,6 +16,8 @@ Well, we've made an awful lot of progress in these last few days. It wasn't that
 
 Our [libc-support](https://github.com/ikeycode/libc-support) project has been growing, thanks primarily to the contributions of [Jouni Roivas](https://github.com/jroivas). We now have initial working versions of `getent` and `getconf`. The `getconf` program is considered feature-complete for our current requirements, and the focus is now on cleaning up `getent` making it more modular and easy to maintain in the long run.
 
+<!-- excerpt -->
+
 ## libwildebeest
 
 We began work on [libwildebeest](https://github.com/ikeycode/libwildebeest) to quickly unlock building `systemd`. Remember, our ambition with this project is to provide a sane, centralised way of maintaining source compatibility with various projects that rely on features currently only available in the GNU toolchain + runtime. This is our alternative vision to patching every single package that fails to build against our LLVM+musl toolchain, ensuring our work scales.

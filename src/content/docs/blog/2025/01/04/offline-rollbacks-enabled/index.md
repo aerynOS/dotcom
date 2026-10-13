@@ -14,8 +14,6 @@ If a picture tells a thousand words... well then this video .. Yknow what, sod i
 
 This has already landed in our volatile repository, so simply `sudo moss sync -u` and grab the latest updates. Any subsequent transactions will automatically generate the boot entries for you, no intervention required. Or mounting. Or anything. Just update and go. Srsly.
 
-<!-- excerpt -->
-
 :::note[Missing YouTube video]
 There used to be a YouTube video at this part of the blog, however our YouTube channel was unfortunately deleted outside of our control and we no longer have access to the video.
 :::
@@ -23,6 +21,8 @@ There used to be a YouTube video at this part of the blog, however our YouTube c
 We actually saw this as a golden standard for the feature, as it's a real-world scenario where you'd want to roll back to a known good state. The video shows the system booting and recovering in multiple ways, from complete system nuke (via glibc) and simpler scenarios like removal of the GNOME desktop environment.
 
 The intent is to ensure a user can quickly revert to the last transaction that worked in the instance an update goes awry, without needing to boot into a rescue environment or live CD.
+
+<!-- excerpt -->
 
 ### Like what we're doing?
 

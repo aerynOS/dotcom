@@ -19,6 +19,8 @@ It turns out that so far the experiment has been successful, and being forkable 
 
 ![Toolchain bootstrap](./Featured.webp "Toolchain bootstrap")
 
+<!-- excerpt -->
+
 ## An open community
 
 Over the past 2 months we've transformed from set of ideas into a transparent, community-first organisation with clear leadership and open goals. I've stepped into the Benevolent Dictator For Life position, and Peter has taken on daily responsibilities for the project running. Aydemir is now our treasurer on Open Collective[^1], and many individuals contribute to our project.

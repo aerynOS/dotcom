@@ -23,6 +23,8 @@ Lastly, you can support the project by becoming a sponsor. Your support helps co
   </a>
 </div>
 
+<!-- excerpt -->
+
 ## What is Serpent OS?
 
 Serpent OS is a heavily engineering-led Linux distribution seeking to redefine *how* we distribute Linux. It is a stateless OS that leverages atomic updates, cutting-edge tooling, and rock-solid reliability to deliver a safe and efficient system. Built by industry veterans with decades of experience, Serpent OS represents the next evolution in Linux distributions.

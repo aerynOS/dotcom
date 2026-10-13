@@ -21,6 +21,8 @@ Minimising the size of updates is particularly valuable where files are download
 
 From the users point of view, minimising file size and upgrade time are important priorities, but for a developer, the speed at which packages are created and indexed is vital to progression. Deltas are different to packages in that they aren't required immediately, so there's minimal impact in taking longer to minimise their size. By getting deltas right, we can trade-off the size of packages to speed up development, while users will not be affected and fetch only size optimised deltas.
 
+<!-- excerpt -->
+
 ## Test Case - QtWebEngine
 
 QtWebEngine provides a reasonable test case where the package is a mix of binaries, resources and translations, but above average in size (157.3MB uncompressed). The first trade-off for speed over size has already been made by incorporating `zstd` in moss over `xz`, where even with max compression `zstd` is already 5.6% larger than using `xz`. This is of course due to the amazing decompression speeds where `zstd` is magnitudes faster.

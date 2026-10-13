@@ -17,6 +17,8 @@ In response to feedback from the community, we're issuing a refresh of the Alpha
 
 ![Fractional scaling, much loved](./featured-background.webp "Fractional scalling now enabled by default")
 
+<!-- excerpt -->
+
 ## Clarification on moss boot management
 
 Frequently in Team Serpent we joke that `moss` is the "systemd of package managers". It actually does a whole lot more than is easily visible.. for example:

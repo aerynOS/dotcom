@@ -18,6 +18,8 @@ Oh yeah, that totally happened. So, we can now successfully build moss packages 
 
 Admittedly the code is super rough within `moss` and somewhat proof of concept, however we're able to extract the contents of the moss archive and rebuild the layout on disk.
 
+<!-- excerpt -->
+
 ## What makes extraction difficult?
 
 Well, quirky new format for one. A moss archive currently consists of 4 "payloads", or major sections:

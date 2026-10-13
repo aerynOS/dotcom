@@ -22,6 +22,8 @@ While we're quite happy to be an upstream for Linux distributions by way of rele
 
 With that said, I will still continue to use D in my own *personal* projects, and firmly believe that one day D will realise its true potential.
 
+<!-- excerpt -->
+
 ## Rewarding contributors
 
 Our priorities have shifted somewhat since the announcement of our shared venture with Solus, and we must make architectural decisions based on the needs of all stakeholders involved, including the existing contributor pool. Additionally, care should be taken to be somewhat populist in our choice of stacks in order to give contributors industry-relevant experience to add to their résumé (CV).

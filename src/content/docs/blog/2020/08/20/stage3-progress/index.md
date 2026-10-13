@@ -26,6 +26,8 @@ We're going to start working on a project to flesh out the `musl` runtime with s
 
 These will be maintained over at our [GitHub](https://github.com/serpent-os/libc-support)
 
+<!-- excerpt -->
+
 ## libwildebeest
 
 As a project we strive for correctness in the most pragmatic way. Some software, such as systemd, is heavily reliant on GNU GCC/GLibc extensions. In some software there are feasible alternatives when using `musl`, however in a good number of cases, functionality required to build certain

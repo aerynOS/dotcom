@@ -22,6 +22,8 @@ Just like `moss` it makes use of `tokio` for async right where we need it, and i
 
 ![Breakpoints, in recipes](BoulderBreakpoints.webp "Breakpoints in recipes")
 
+<!-- excerpt -->
+
 ## Triggers, integrated!
 
 After much discussion we finally integrated support for *triggers* in `moss`. These are actions that are executed at different stages of package management operations to finalize or "bake" some state based on the unified components of the installation.

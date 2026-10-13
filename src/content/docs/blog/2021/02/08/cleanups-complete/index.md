@@ -27,6 +27,8 @@ As it now stands, 1 lint issue (a non-issue, really) exists across all 4 project
 
 Granted, cleanups aren't all that sexy. Peter has been updating many parts of the bootstrap project, introducing systemd 247.3, LLVM 11.0.1, etc. We now have all 3 stages building correctly again for the x86_64 target.
 
+<!-- excerpt -->
+
 ## And then....
 
 Yikes, tough audience! So we've formed a new working TODO which will make its way online as a public document at some point. The first stage, cleanups, is done. Next is to restore feature development, working specifically on the extraction and install routines. From there, much work and cadence will be unlocked, allowing us to work towards an MVP.

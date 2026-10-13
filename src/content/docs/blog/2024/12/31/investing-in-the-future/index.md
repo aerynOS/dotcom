@@ -19,6 +19,8 @@ Since the Alpha 1 ISO (`0.24.5`), we've fixed a number of issues in relation to 
 
 We've been working hard to keep the cadence up, and we're now at a point where we can deliver new ISOs on a regular basis. Our main focus now is the tooling, in enabling a far more automatic delivery pipeline. The vision is having automated pull requests generated for package updates, automatically handling changes in dependencies and ABI, and ordered by build tier. This will significantly reduce the maintainer burden, in conjunction with planned security monitoring.
 
+<!-- excerpt -->
+
 ## Short term deliverables
 
 In the short term we're going to land the following features:

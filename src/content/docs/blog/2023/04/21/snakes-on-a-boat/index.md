@@ -26,6 +26,8 @@ Oh no, no. The most practical angle to view this from is that Serpent OS is free
 
 It is therefore critical that we continue development, and find the best approach for both projects, to make the transition to Solus 5 as seamless as possible. To that end we will still need to produce ISOs and have an active community of users and testers. During this transition period, despite being two separate projects, we're both heading to a common goal and interest.
 
+<!-- excerpt -->
+
 ### Finances
 
 We have an exciting journey ahead for all of us, and there are many moving parts involved. Until we're at the point of mutual merge, we will keep the entities and billing separate. Thus, funds to the Solus [OpenCollective](https://opencollective.com/getsolus) are intended for use within Solus, whereas we currently use GitHub Sponsors[^1] for our own project needs.

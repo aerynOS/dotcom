@@ -13,7 +13,6 @@ Wow, has it been a hectic few weeks, and it definitely shows: last time we blogg
 
 ![Look at all the buildiness](./Featured.webp "Look at all the buildiness")
 
-
 ## It lives!
 
 We're now able to build **the majority** of a moss package. Notice I've made a distinction there. So, we're able to run the build instructions, and use all the metadata, configuration and macros available. The only thing we're not actually doing is dumping the built files into a binary package.
@@ -33,6 +32,7 @@ We're able to do the build-system part _rather well_, now. Right now we support 
  - Recursive macro support in build scripts, defined on per-profile level
  - Architecture specific profiles support in stone.yml, i.e. `profiles -> aarch64 -> setup:` to avoid if/else spaghetti.
 
+<!-- excerpt -->
 
 ## Next on the agenda
 

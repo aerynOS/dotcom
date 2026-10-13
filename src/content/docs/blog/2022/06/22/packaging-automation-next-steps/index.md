@@ -24,6 +24,8 @@ We prefer a self documenting approach that can be machine validated rather than 
 
 ..Doesn't mean we can't make packaging **even easier** though.
 
+<!-- excerpt -->
+
 ## Build discovery
 
 Pointing boulder at an upstream source will perform a deep analysis of the sources to determine the build system type, build dependencies, metadata, licensing etc. Right now it's just getting ready to leave POC stage so it has a few warts, however it does have support for generating package skeletons for the following build systems:

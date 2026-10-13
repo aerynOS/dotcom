@@ -27,6 +27,8 @@ Here's an example of the sections of `libLLVM-13.so` with and without `RELR`. He
 |           |              |            |
 | Total     | 44,853,987   | 42,966,764 |
 
+<!-- excerpt -->
+
 ## Smaller, But at What Cost?
 
 While most of the discussion about `RELR` is around the size savings, there's been very little in terms of the performance numbers of enabling `RELR`. For most things, it's not going to make a noticeable difference, as it should only really impact loading of binaries. There's one rule we have and that's to measure everything! We care about every little detail where many 1-2% improvements can add up to significant gains.

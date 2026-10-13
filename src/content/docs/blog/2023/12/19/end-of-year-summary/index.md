@@ -24,6 +24,8 @@ Firstly, a quote from Cory:
 
 Chances are you know tarkah for his contributions to [iced-rs](https://github.com/iced-rs/iced), and to [Solus](https://getsol.us). His contributions to the [moss-rs](https://github.com/serpent-os/moss-rs) project have been absolutely critical, and his patience essential as we got ourselves quickly up to speed with Rust. It is entirely fair to say that our Rust efforts would not have been possible without him!
 
+<!-- excerpt -->
+
 ## Rust Progress
 
 I think it is fair to say that people collectively facepalmed when we announced our plans to [adopt Rust](/blog/2023/09/06/oxidised-moss/) - assuming this would be a huge set back. We're really happy to report this is **not** the case, and we've made tremendous progress in this area.

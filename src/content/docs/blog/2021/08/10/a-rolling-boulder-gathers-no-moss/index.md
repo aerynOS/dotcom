@@ -26,6 +26,8 @@ Well, persistence really. Thanks to `RocksDB` and our new `moss-db` project, we 
 
 Additionally, we remember the layouts within the LayoutDB so that we can eventually recreate said layout on disk.
 
+<!-- excerpt -->
+
 ## Precaching
 
 Before we actually commit to an install, we try to precache all of the stone files in our pool. So we unpack the content payload ("megablob"), split it into various unique files in the pool ready for use. At this point we also record the Layouts, but do not "install" the package to a system root.

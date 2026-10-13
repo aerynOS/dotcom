@@ -21,6 +21,8 @@ Some patching has taken place to prevent using `ld.gold` and instead use `lld` t
 
 ![A wild LDC appears](./Featured.webp "A wild LDC appears")
 
+<!-- excerpt -->
+
 ## Reworking the Payload implementation
 
 Originally our prototype moss format only contained a `ContentPayload` for files, and a `MetaPayload` for metadata, package information, etc. As a result, we opted for simple structs, basic case handling and an iterable `Reader` implementation.

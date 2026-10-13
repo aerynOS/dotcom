@@ -22,6 +22,8 @@ The steps for compiling code are generally quite straight-forward:
 
 This will build software compiled against packages installed on your system. It's a bit more complicated when packaging as we first set up an environment to compile in (Part 1). But even then you have many choices to make and each can have an impact on how long it takes to compile the code. Do you build with Link Time Optimizations (LTO) or Profile Guided Optimizations (PGO), do you build the package for performance or for the smallest size? Then there's packages that benefit considerably from individual tuning flags (like `-fno-semantic-interposition` with `python`). With so many possibilities, `boulder` helps us utilize them through convenient configuration options.
 
+<!-- excerpt -->
+
 ## What Makes boulder so Special?
 
 As I do a lot of packaging and performance tuning, `boulder` is where I spend most of my time. Here are some key features that `boulder` brings to make my life easier.

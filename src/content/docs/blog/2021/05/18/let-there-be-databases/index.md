@@ -20,6 +20,8 @@ So far we've implemented a "StateMetaDB", which stores metadata on every recorde
 
 Next on the list is the LayoutsDB (file manifests) and the CacheDB, for recording refcounts of every cached file in the OS pool.
 
+<!-- excerpt -->
+
 ## Integration with Serpent ECS
 
 An interesting trial we're currently implementing is to hook the DB implementation up to our Entity Component system from the Serpent Engine, in order to provide fast, cache coherent, in memory storage for the DB. It's implemented using many nice DLang idioms, allowing the full use of `std.algorithm` APIs:

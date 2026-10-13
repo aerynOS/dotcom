@@ -50,6 +50,8 @@ The `Meta` payload consists of a number of records, each with strongly defined t
     ubyte[1] padding = 0;
 ```
 
+<!-- excerpt -->
+
 ## TLDR that for me...
 
 Binary format that is self deduplicating at several layers, permitting fast transactional operations.

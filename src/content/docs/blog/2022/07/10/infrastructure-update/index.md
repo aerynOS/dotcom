@@ -18,6 +18,8 @@ During the development of the Serpent OS tooling we've been exploring the possib
 
 In practice that required an encapsulation API written in D around the C API, and our own wrapping on top of that. Naturally, it resulted in a very allocation-heavy implementation that just didn't sit right with us, and due to the absurd complexity of RocksDB was still missing quite a few features.
 
+<!-- excerpt -->
+
 ## Enter LMDB
 
 We're now using the [Lightning Memory-Mapped Database](https://www.symas.com/lmdb) as the driver implementation for moss-db. In short, we get rapid reads, ACID transactions, bulk inserts, you name it. Our implementation takes advantage of multiple database indexes (`MDB_dbi`) in LMDB to partition the database into internal components, so that we can provide "buckets", or collections. These internal DBs are used for bucket mapping to permit a key-compaction strategy - iteration of top level buckets and key-value pairs within a bucket.

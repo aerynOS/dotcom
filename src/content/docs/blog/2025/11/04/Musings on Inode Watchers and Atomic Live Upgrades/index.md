@@ -23,6 +23,8 @@ This explanation leaves out a couple of details such post-install triggers and b
 
 Compared to other atomic distributions on the market, the ability to live-update without needing to reboot is an important usability requirement for us, such that the user experience remains friendly to downstream users.
 
+<!-- excerpt -->
+
 ### Enter Inode Watchers
 
 Although quite a novel approach, allowing atomic updates of a live system leaves us with an interesting problem: After any moss transaction activating a new `/usr` tree, any running applications holding an underlying inode to a filesystem path will continue to watch the file in the now archived state.

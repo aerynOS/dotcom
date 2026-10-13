@@ -18,6 +18,8 @@ To test the efficiency our content payload, the natural choice was to compare it
 
 Of course it does (otherwise it would be a pretty crappy blog post!). When extracting a `.stone` package it creates two directories, `mossExtract` where the sha256sum named files are stored and `mossInstall` where those files are hardlinked to their full path name. The first day I created the tarball from `mossInstall` and the second day I realised that creating the tarball from `mossExtract` would provide the closest match to the content payload since it was a direct comparison. When compressing the tarballs to match the `.stone` compression level, the tarball compressed from `mossInstall` was 10% smaller, despite the uncompressed tarball being slightly larger.
 
+<!-- excerpt -->
+
 ## Compression Wants to Separate Apples and Oranges
 
 In simplistic terms, the way compression works is comparing data that it's currently reading versus data that it's read earlier in the file. `zstd` has some great options like `--long` that increases the distance in which these matches can be made at the cost of increased memory use. To limit memory use while making compression and decompression fast, it takes shortcuts that reduce the compression ratio. For optimal compression, you want files that are most similar to each other to be as close as possible. You won't get as many matches from a text file to an ELF file as you would from a similar looking text file.

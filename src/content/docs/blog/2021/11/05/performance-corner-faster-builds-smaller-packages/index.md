@@ -27,6 +27,8 @@ Payload: Content [Records: 2550 Compression: Zstd, Savings: 81.46%, Size: 236.72
 
 The build time is a little high, but a lot of that is due to a slow compiler on the host machine. But analysing and producing packages was also taking a lot longer than it needed to.
 
+<!-- excerpt -->
+
 ## The Death of moss-jobs in boulder
 
 In testing an equivalent build outside of `boulder`, the build stages were about 5% faster. Testing under `perf`, the jobs system was a bit excessive for the needs of `boulder`, polling for work when we already know the times when parallel jobs would be useful. Removing `moss-jobs` allowed for simpler codepaths using multiprocessing techniques from the core language. This work is integrated in `moss-deps` and the excess overhead of the build has now been eliminated.

@@ -26,6 +26,8 @@ Some key parts to setting up the build environment:
 
 While the focus of early optimization work has been on build time performance, there's more overhead to creating packages time than simply compiling code. Now the compiler is in a good place, we can explore the rest of the build process.
 
+<!-- excerpt -->
+
 ## Packaging is More than just Compile Time
 
 There's been plenty of progress in speeding up the creation of the build environment such as parallel downloads to reduce connection overhead and using `zstd` for the fast decompression of packages. But there's more that we can do to provide an optimal experience to our packagers.

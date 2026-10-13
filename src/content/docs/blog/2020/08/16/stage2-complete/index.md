@@ -27,6 +27,8 @@ For cross-compilation, we'll be relying on `qemu-static` to complete `2.5` and `
 
 This is a major milestone for the project, as it is an early indication that we're self hosting.
 
+<!-- excerpt -->
+
 ## Multiple Architecture Support
 
 At this point in time, we now have build support for two targets: `x86_64` and `ARMV8a`. Our intent is to support `haswell` and above, or `zen` and above, for the x86_64 target.

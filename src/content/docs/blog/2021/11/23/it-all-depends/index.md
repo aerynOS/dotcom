@@ -20,6 +20,8 @@ As such we encode dependencies into our (endian-aware, binary) format which is t
 
 Lastly, we'll always ensure there is no possibility for "partial update" woes. With these considerations, we have no need to support `>=` style dependencies, and instead rely on strict design goals and maintainer responsibility.
 
+<!-- excerpt -->
+
 ## First and foremost!
 
 The rapid move we're enjoying from concept, to prototype, and soon to be fully fledged Linux distribution, is only possible with the amazing community support. The last few months have seen us pull off some amazing feats, and we're now executing on our first public milestones. With your help, more and more hours can be spent getting us ready for release, and would probably help to insulate my shed office! (Spoiler: its plastic and electric heaters are expensive 😀)

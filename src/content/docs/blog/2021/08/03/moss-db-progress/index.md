@@ -54,6 +54,8 @@ And this is the new, shmexy way:
 
 It's quite easy to see the new API lends itself robustly to our needs, so that we may implement stateful, strongly typed databases for moss.
 
+<!-- excerpt -->
+
 ## Next Steps
 
 Even though some APIs in `moss-db` may still be lacking (remove, for example) we're happy that it can provide the foundation for our next steps. We now need to roll out the new `StateDB`, `MetaDB` and `LayoutDB`, to record system states, package metadata, and filesystem layout information, respectively.

@@ -22,6 +22,8 @@ The boot management code is currently landing over the coming days, and will be 
 
 We acknowledge this is an exchange of the pursuit of perfection for a pragmatic rapid iteration cycle and believe the best way forward is to open the doors wide, fixing issues on the job. The initial system will likely be rough and buggy, but it is an official starting point from which we can all build Serpent OS together.
 
+<!-- excerpt -->
+
 ## Moss + Boulder
 
 Our Rust tooling has now been in "production" use in our development environment and build servers for the last month without any major hiccup. We have recently discovered some minor issues in our `emul32` (32-bit) package generation which are being resolved, chiefly our move from the improperly named ISA `x86`, now updated to `386` affecting 32-bit dependency chains.

@@ -16,6 +16,8 @@ Despite a brief excursion out of the country for a first-in-a-lifetime holiday, 
 
 OK, we all know you want to know about the baremetal stuff, but c'mon, check out this changeset!
 
+<!-- excerpt -->
+
 ### Boulder
 
 We're officially at a point where the Rust boulder implementation has become our "blessed" build tool. This is actually a crate within the `moss` repository, allowing the two tools to share huge chunks of code. Our focus over the past few weeks has been to ensure we can drop the tool into our existing build network and "just work", while making it significantly faster.

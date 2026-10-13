@@ -26,6 +26,8 @@ It is important to note that in this comparison the Host distro has pulled in so
 
 Based on the results during testing, the performance of `clang` in Serpent OS still has room to improve and was just a quick tuning pass. At stages where I would have expected to be ahead already, the compile performance was only equal (but `cmake` and `configure` were still well ahead).
 
+<!-- excerpt -->
+
 ## GCC Matters Too!
 
 While `clang` is the default compiler in Serpent OS, there may be instances where the performance is not quite where it could be. It is common to see software have more optimized code paths where they are not tested with `clang` upstream. As an example, here's a couple of patches in flac ([1](https://github.com/xiph/flac/commit/67ea8badadd3e63b8e8af5fe837d075104569330), [2](https://github.com/xiph/flac/commit/d4a1b345dd16591ff6f17c67ee519afebe2f9792)) that demonstrate this being improved. Using `benchmarking-tools`, it is easy to see where `gcc` and `clang` builds are running different functions via `perf` results.

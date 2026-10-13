@@ -10,7 +10,6 @@ copyright: "Copyright © 2021 aerynOS Developers"
 
 Here we have another round of changes to make packages smaller and show just how much we care about performance and efficiency! Today we are focusing mainly on `moss-format` changes to reduce the size of its payloads. The purpose of these changes is to reduce the size of packages, DB storage for transactions and memory usage for `moss`. These changes were made just before we moved out of bootstrap, so we wouldn't have to rebuild the world after changing the format. Lets get started!
 
-
 ## Squeezing Out the Last Blit of Performance
 
 `Blitting` in Serpent OS is the process of setting up a root, using hardlinks of files installed in the `moss` store to construct the system `/usr` directory. Some initial testing showed `buildPath` using about 3% of the total events when installing a package with many files. As a system is made up of over 100,000 files, that's a lot of paths that need to be calculated! Performance is therefore important to minimize time taken and power consumed.
@@ -28,6 +27,8 @@ After:
    29,523,966 ( 0.91%)  /usr/include/dlang/ldc/std/utf.d:pure nothrow @safe immutable(char)[] std.path.buildPath
    12,814,283 ( 0.40%)  /usr/include/dlang/ldc/std/range/package.d:pure nothrow @safe immutable(char)[] std.path.buildPath
 ```
+
+<!-- excerpt -->
 
 ## Only Record What's Needed!
 

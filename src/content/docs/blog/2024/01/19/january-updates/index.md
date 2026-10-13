@@ -26,6 +26,8 @@ To reiterate a critical point, we require that our contributions are attributed 
 
 Additionally we picked MPL-2.0 over Zlib due to some distinct advantages in relation to patent trolls. In combination we believe both the project and our users will have the greatest protection from patent trolls and fiscally-motivated relicensing.
 
+<!-- excerpt -->
+
 ## As I Raise My Trigger Finger
 
 As you may recall from the last post, we announced our intention to add system triggers to moss. We also stated that our triggers must run in **isolation** thanks to the unique architecture of our package management. After much consideration, we've landed on a strategy that will work for us.

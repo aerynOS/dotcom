@@ -39,6 +39,8 @@ We've opted to group "Package Definition" behaviour into core structs, which are
             rundeps: Different rundeps
 ```
 
+<!-- excerpt -->
+
 ## Multiple architecture support
 
 In keeping with the grouping behaviour, we're baking multiple architecture configurations into the YML file. A common issue encountered with the older format was how to handle `emul32`:
