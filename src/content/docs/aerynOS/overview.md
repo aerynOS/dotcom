@@ -8,7 +8,7 @@ license: "CC-BY-SA-4.0"
 copyright: "Copyright © 2025 aerynOS Developers"
 ---
 
-aerynOS is a Linux-based operating system designed to eliminate years of technical baggage. It is an engineering led effort in that the distribution is produced entirely by the tooling we have developed. Every new feature, technology, or enabling is carefully considered, drawing on our own experiences and by studying the impact in similar decision spaces in other projects.
+aerynOS is a Linux-based, rolling release operating system designed to eliminate years of technical baggage. It is an engineering led effort in that the distribution is produced entirely by the tooling we have developed. Every new feature, technology, or enabling is carefully considered, drawing on our own experiences and by studying the impact in similar decision spaces in other projects.
 
 Despite being heavily engineering led, we are not averse to design. We aim to provide the best in class user experience atop a solid, innovative foundation, whilst ensuring we have the scope and scalability to meet the needs of the future.
 
@@ -16,6 +16,6 @@ In essence, we're producing a distribution based on sound technical principles, 
 
 If anything, aerynOS is "operating-system-as-infrastructure", providing a solid foundation for your daily computing needs. We're not just a distribution, we're a platform for the future.
 
-:::caution[We are still in alpha]
-Remember, aerynOS is still in development. Despite our goals, we must be clear that we've deemed ourselves to be alpha quality software.
+:::caution[We are still in Alpha]
+Remember, aerynOS is still in development. Despite our goals, we must be clear that the distribution is not yet production ready.
 :::
