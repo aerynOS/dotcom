@@ -9,7 +9,7 @@ copyright: "Copyright © 2025 aerynOS Developers"
 ---
 
 :::tip[aerynOS Mission Statement]
-Develop modern, ergonomic tooling and processes that in turn enable efficient delivery of an atomic, reliable, predictable, and performant Operating System, which is a joy to use and maintain for its developers, packagers, and users alike.
+To build modern, ergonomic, and high-performance tooling & infrastructure for distribution engineering. Use it to deliver an atomic operating system that is fast, predictable, reliable, and a joy to use and maintain.
 :::
 
 aerynOS is the collective output of brand new tooling and associated processes, engineered from the ground up to deliver a Linux distribution that focuses on reliability, up front predictability, proven performance and efficiency.
