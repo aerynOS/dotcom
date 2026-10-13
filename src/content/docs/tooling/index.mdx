@@ -8,28 +8,57 @@ tableOfContents: false
 ---
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
+As part of our mission statement, we first want <b>"to build modern, ergonomic and high-performance tooling and infrastructure for distribution engineering."</b> 
 
-Here at aerynOS, we love good tooling. Our language of choice is [Rust](https://rust-lang.org) for creating lightning quick tooling with high cadence feature work and minimal debt. Our belief is that by providing great tooling, the overall maintainer load is greatly reduced, allowing everyone to enjoy a greater developer and user experience.
+Simply put, we are building the tooling and infrastructure that will deliver, as an output, <b>"an atomic operating system that is fast, predictable, reliable and a joy to use and maintain."</b>
 
+Rather than relying entirely on existing distribution tooling, we are developing our own tools in-house, primarily in [Rust](https://rust-lang.org). 
+
+By taking a ground up approach, we are able to build the focused tooling we want and need to deliver the type of atomic distribution we want without any prior technical debt. 
+
+The code is therefore focused, maintainable and efficient leading to a better experience for our developers and eventually a better user experience also.
+
+## Core system tooling
+
+Our primary tooling that make the foundation of aerynOS:
 
 {/* <CardGrid stagger> */}
 
-  <Card title="<b>moss</b> - package management">
-    The star of the show is certainly moss, the package and system management tool. With **atomic updates** and **deduplication** at the core of the design, it delivers with performance and reliability.
+  <Card title="<b>moss</b> - Package and System State Manager">
+     `moss` manages the installation and removal of software through atomic transactions. Behind `moss` we have a deduplicated content-addressable store (CAS) that allows files to be shared between system states (transactions) which in turn allows for aerynOS to store all previous system states for easy rollbacks without requiring full system snapshots.
 
-    [read more](/tooling/moss)
+    [Learn more about moss](/tooling/moss)
   </Card>
 
-  <Card title="<b>boulder</b> - package building">
-    The build partner for moss is boulder, an extremely powerful, flexible and easy to use package build tool. Making use of a simple `YAML` format and enriched shell scripts, building consistent packages has never been easier.
+  <Card title="<b>boulder</b> - Package Building">
+    `boulder` turns `YAML` based package recipes into `.stone` packages for `moss` to install on aerynOS systems. It has been designed to include a consistent build environment, reusable packaging macros, dependency handling and caching to help our maintainers package and update our growing software repository.
 
-    [read more](/tooling/boulder)
+    [Learn more about boulder](/tooling/boulder)
   </Card>
 
 
-  <Card title="<b>blsforme</b> - boot management">
-    Nobody should need to manage their boot configuration manually. That's exactly why moss leverages the blsforme project to automatically manage the EFI System Partition (and `XBOOTLDR`..) and manage boot entries.
+  <Card title="<b>blsforme</b> - Boot Management">
+    Nobody should need to manage their boot configuration manually. That's exactly why `moss` leverages the blsforme project to automatically manage the EFI System Partition (and `XBOOTLDR`..) and manage boot entries.
 
-    [read more](https://github.com/aerynOS/blsforme)
+    [Learn more about blsforme](https://github.com/aerynOS/blsforme)
   </Card>
 {/* </CardGrid> */}
+
+## How it all fits together
+
+We are building our tooling so that they work together to become more than the sum of their individual parts:
+
+1. Our recipes repository contains the `YAML` based recipes that we use to describe how software is packaged for aerynOS.
+
+2. `boulder` uses these recipes to build the packages and outputs them as `.stone` package archives.
+
+3. Our build infrastructure coordinates our various builders that use `boulder` to build packages centrally in a controlled manner.
+
+4. Once built, packages are immediately published to our volatile repository. After a period of testing, packages are then promoted to our unstable repository. The repository makes package versions and their associated metadata available to the system.
+
+5. `moss` checks for available updates to the repositories it is subscribed to. When updates are available, it will download the corresponding `.stone` package archives, extract them to it's CAS and then create a new system state which it will swap to as part of it's atomic transaction.
+
+6. `blsforme` works within the wider context of an installed aerynOS system to handle boot management to ensure the system is bootable regardless of underlaying updates.
+
+:::note
+Whilst we currently use `YAML` based recipes, we are actively investigating a transition towards `KDL` based recipes.
