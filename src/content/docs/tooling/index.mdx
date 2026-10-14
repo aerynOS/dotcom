@@ -52,7 +52,7 @@ We are building our tools so that they work together to become more than the sum
 
 2. `boulder` uses these recipes to build and emit `.stone` package archives.
 
-3. Our build infrastructure coordinates our various builders that use `boulder` to build packages centrally in a controlled manner.
+3. Our build infrastructure coordinates which tasks from the centrally managed build queue are sent to which builders and in which order.
 
 4. Once built, packages are immediately published to our volatile repository. After a period of testing, packages are then promoted to our unstable repository. The repository makes package versions and their associated metadata available to the system.
 
