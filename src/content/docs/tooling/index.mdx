@@ -25,7 +25,7 @@ Our primary tooling that make the foundation of aerynOS:
 {/* <CardGrid stagger> */}
 
   <Card title="<b>moss</b> - Package and System State Manager">
-     `moss` manages the installation and removal of software through atomic transactions. Behind `moss` we have a deduplicated content-addressable store (CAS) that allows files to be shared between system states (transactions) which in turn allows for aerynOS to store all previous system states for easy rollbacks without requiring full system snapshots.
+     `moss` manages the installation and removal of software through atomic transactions. Behind `moss` we have a deduplicated content-addressable store (CAS) that enables files to be shared between system states (transactions) which in turn enables aerynOS to store as many previous system states for easy rollbacks as free disk space allows.
 
     [Learn more about moss](/tooling/moss)
   </Card>
