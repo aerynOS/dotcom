@@ -56,7 +56,7 @@ We are building our tools so that they work together to become more than the sum
 
 4. Once built, packages are immediately published to our volatile repository. After a period of testing, packages are then promoted to our unstable repository. The repository makes package versions and their associated metadata available to `moss`-based installs.
 
-5. `moss` checks for available updates to the repositories it is subscribed to. When updates are available, it will download the corresponding `.stone` package archives, extract them to it's CAS and then create a new system state which it will swap to as part of it's atomic transaction.
+5. `moss` checks for available updates to the repositories it is subscribed to. When updates are available, `moss` will download the corresponding `.stone` package archives, extract them to its CAS and then create a new system state which it will swap to as part of its atomic transaction.
 
 6. `blsforme` works within the wider context of an installed aerynOS system to handle boot management to ensure the system is bootable regardless of underlying updates.
 
