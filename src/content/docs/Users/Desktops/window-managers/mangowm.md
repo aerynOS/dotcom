@@ -20,10 +20,24 @@ sudo moss install mangowm
 
 ## Starting MangoWM
 
-After installation, select the MangoWM session from your display manager or start it from a TTY:
+After installation, select the MangoWM session from your display manager or start it from a [Kmscon TTY](https://github.com/kmscon/kmscon#gui-application).
 
 ```bash
-mango
+kmscon-launch-gui mango
+```
+
+## Autostarting MangoWM
+
+Put the following snippet into your `.bash_profile` inside your home directory, to autostart MangoWM as a non display manager user after [Kmscon TTY](https://github.com/kmscon/kmscon#gui-application) login. Make sure bash is configured as your **login shell**.
+
+```bash
+# ~/.bash_profile
+
+[ -f ~/.bashrc ] && . ~/.bashrc
+
+if [ -z "$WAYLAND_DISPLAY" ] && [ -z "$SSH_CONNECTION" ]; then
+    exec kmscon-launch-gui mango
+fi
 ```
 
 ## Configuration
