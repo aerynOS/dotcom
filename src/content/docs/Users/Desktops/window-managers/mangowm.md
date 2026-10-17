@@ -28,14 +28,21 @@ kmscon-launch-gui mango
 
 ## Autostarting MangoWM
 
-Put the following snippet into your `.bash_profile` inside your home directory, to autostart MangoWM as a non display manager user after [Kmscon TTY](https://github.com/kmscon/kmscon#gui-application) login. Make sure bash is configured as your **login shell**.
+aerynOS uses a stateless configuration approach that keeps system-managed defaults separate from user customizations. User-specific Bash configuration files should be placed in `~/.bashrc.d/`, where they are automatically sourced during shell initialization(Therefore, no shebang is required).
+These can carry any name, but must end in `.*sh`. Examples: `mango.sh`, `start.bash` or `mango_start.zsh`. This allows customizations such as starting MangoWM to be maintained independently, without modifying system-wide configuration files or replacing the default shell configuration.
 
 ```bash
-# ~/.bash_profile
+# mango_start.sh:
+# Starts MangoWM on kmscon login, but only if it is not already running.
+# TERM_SESSION_TYPE identifies the kmscon session.
+# Skip on existing Wayland sessions and SSH logins.
+# pgrep prevents starting a second MangoWM instance on another TTY.
 
-[ -f ~/.bashrc ] && . ~/.bashrc
-
-if [ -z "$WAYLAND_DISPLAY" ] && [ -z "$SSH_CONNECTION" ]; then
+if [ "$TERM_SESSION_TYPE" = "kms" ] &&
+   [ "$XDG_SESSION_TYPE" = "tty" ] &&
+   [ -z "$WAYLAND_DISPLAY" ] &&
+   [ -z "$SSH_CONNECTION" ] &&
+   ! pgrep -x mango >/dev/null 2>&1; then
     exec kmscon-launch-gui mango
 fi
 ```
