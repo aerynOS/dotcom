@@ -81,6 +81,14 @@ Moss snapshots the removal in a new state. Use `moss state list` to find the pre
 moss list installed
 ```
 
+## Software package info
+
+Information about a software package, such as the version and dependencies. (Works for both installed and non-installed packages)
+
+```bash
+moss info somepackage
+```
+
 
 ## Atomic and independent states
 
