@@ -7,7 +7,6 @@ sidebar:
 license: "CC-BY-SA-4.0"
 copyright: "Copyright © 2025 aerynOS Developers"
 ---
-import DirectoryList from '@components/DirectoryList.astro';
 
 The Stone format is a binary format designed to be type-safe and version-aware. It is used to package and distribute software in aerynOS, in fact both the packages themselves and the index file of repositories use the Stone format.
 
