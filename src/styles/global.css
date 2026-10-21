@@ -135,3 +135,26 @@ https://starlight.astro.build/guides/css-and-tailwind/#color-theme-editor
   height: 300px; /* Or desired height */
   /* border: 1px solid #ccc; */ /* Optional: to visualize container */
 }
+
+#scroll-to-top-button {
+  background-color: #465333; /* Scroll-to-top button: improve contrast from default yellow */
+  color: #ffffff;
+  border-color: #465333;
+}
+
+#scroll-to-top-button:hover {
+  background-color: #354027; /* Hover: Use a darker green while hovering over icon */
+  color: #ffffff;
+  border-color: #354027;
+}
+
+#scroll-to-top-button:active {
+  background-color: #2b3521; /* Active/clicked state */
+  color: #ffffff;
+  border-color: #2b3521;
+}
+
+#scroll-to-top-button:focus-visible {
+  outline: 3px solid var(--sl-color-text); /* Keyboard accessibility */
+  outline-offset: 3px;
+}
