@@ -28,17 +28,18 @@ kmscon-launch-gui mango
 
 ## Autostarting MangoWM
 
-aerynOS uses a stateless configuration approach that keeps system-managed defaults separate from user customizations. User-specific Bash configuration files should be placed in `~/.bashrc.d/`, where they are automatically sourced during shell initialization(Therefore, no shebang is required).
-These can carry any name, but must end in `.*sh`. Examples: `mango.sh`, `start.bash` or `mango_start.zsh`. This allows customizations such as starting MangoWM to be maintained independently, without modifying system-wide configuration files or replacing the default shell configuration.
+aerynOS uses a stateless configuration approach that keeps system-managed defaults separate from user customizations. User-specific Bash or Zsh configuration files should be placed in `~/.bashrc.d/` or `~/.zshrc.d/` respectively, where they are automatically sourced during shell initialization(Therefore, no shebang is required).
+These can carry any name, but must end in `.*sh`. Examples: `mango.sh` & `start.bash` or `mango_start.zsh` if you are using Zsh as your login shell. This allows customization's such as starting MangoWM to be maintained independently, without modifying system-wide configuration files or replacing the default shell configuration.
 
 ```bash
 # mango_start.sh:
-# Starts MangoWM on kmscon login, but only if it is not already running.
-# TERM_SESSION_TYPE identifies the kmscon session.
-# Skip on existing Wayland sessions and SSH logins.
-# pgrep prevents starting a second MangoWM instance on another TTY.
+# Starts MangoWM after Kmscon TTY login.
+# $- and TERM_SESSION_TYPE limit this to only interactive Kmscon sessions.
+# Also skips on already existing Wayland sessions and SSH logins.
+# pgrep prevents autostarting a second MangoWM instance on another TTY.
 
-if [ "$TERM_SESSION_TYPE" = "kms" ] &&
+if [[ $- == *i* ]] &&
+   [ "$TERM_SESSION_TYPE" = "kms" ] &&
    [ "$XDG_SESSION_TYPE" = "tty" ] &&
    [ -z "$WAYLAND_DISPLAY" ] &&
    [ -z "$SSH_CONNECTION" ] &&
