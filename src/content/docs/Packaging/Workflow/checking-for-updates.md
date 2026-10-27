@@ -15,7 +15,7 @@ This guide will walk you through the process using `ent`, a tool built by the ae
 `ent` is not installed on your system by default. To install `ent` using `moss`, use the following command:
 
 ```bash
-sudo moss install ent
+sudo moss pkg add ent
 ```
 ### How `ent` works
 

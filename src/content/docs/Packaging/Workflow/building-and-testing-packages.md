@@ -45,7 +45,7 @@ sudo moss sync -u
 Note, if you already have an older version of the package installed, you will be asked if you want to update to the new local version you have just built. If you have not yet installed this package, you would install it as normal using the command:
 
 ```bash
-sudo moss install "package name"
+sudo moss pkg add "package name"
 ```
 
 Once you have tested the package, you can make a submission for including the update in the repository.
