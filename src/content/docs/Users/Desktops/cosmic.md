@@ -17,9 +17,9 @@ aerynOS currently only offers one iso with a GNOME live environment. However, `l
 If you are already using GNOME, you are able to install Cosmic Desktop side by side and select which Desktop Environment to use in `GDM` at login. You do this by installing one of three package sets:
 
 ```bash
-sudo moss install pkgset-aeryn-cosmic-minimal
-sudo moss install pkgset-aeryn-cosmic-recommended
-sudo moss install pkgset-aeryn-cosmic-full
+sudo moss pkg add pkgset-aeryn-cosmic-minimal
+sudo moss pkg add pkgset-aeryn-cosmic-recommended
+sudo moss pkg add pkgset-aeryn-cosmic-full
 ```
 The names are fairly self explanatory:
 * Minimal: The minimum number of packages required for a Cosmic Desktop session
@@ -33,12 +33,12 @@ If you've installed COSMIC over the top of a GNOME install, you can still log in
 #### Installing cosmic-greeter
 
 ```bash
-sudo moss install cosmic-greeter
+sudo moss pkg add cosmic-greeter
 ```
 
 #### Removing gdm
 If you wish to remove `gdm`, you would use the following command:
 
 ```bash
-sudo moss remove gdm
+sudo moss pkg remove gdm
 ```
