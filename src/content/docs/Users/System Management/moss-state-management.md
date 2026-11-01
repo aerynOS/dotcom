@@ -78,7 +78,7 @@ Moss snapshots the removal in a new state. Use `moss state list` to find the pre
 
 
 ```bash
-moss list installed
+moss pkg list --installed
 ```
 
 ## Software package info
@@ -86,7 +86,7 @@ moss list installed
 Information about a software package, such as the version and dependencies. (Works for both installed and non-installed packages)
 
 ```bash
-moss info somepackage
+moss pkg info somepackage
 ```
 
 
