@@ -29,7 +29,7 @@ sudo moss sync --update
 Use keyword searches to discover software by name or summary.
 
 ```bash
-sudo moss search something
+moss search something
 ```
 
 Add `--installed` (`-i`) if you only want to search software that is already present on the system.
@@ -40,7 +40,7 @@ Add `--installed` (`-i`) if you only want to search software that is already pre
 Look up which package delivered a specific file when you troubleshoot or audit an installation.
 
 ```bash
-sudo moss search-file filename
+moss search-file filename
 ```
 
 `moss search-file` scans files from installed packages only.
@@ -104,7 +104,7 @@ Moss is based on the concept of atomic updates. Atomic in this context means "in
 1. List the active state to confirm what is running right now.
 
 ```bash
-moss state active
+moss state get-active
 ```
 
 2. Review the state history when you need context for a rollback.
@@ -130,7 +130,7 @@ sudo moss state activate 128
 3. Verify the change.
 
 ```bash
-moss state active
+moss state get-active
 ```
 
 Activating a state atomically swaps the currently active state's /usr directory with the new state's /usr directory, using the Linux kernel [`renameat2` syscall](https://www.man7.org/linux/man-pages/man2/rename.2.html).
@@ -167,14 +167,14 @@ If you want to keep a different number of states, the `-k` / `--keep` parameter 
 
 ```bash
 # Keep the five latest states, including the active state
-sudo moss state prune -k 5
+sudo moss state remove -k 5
 ```
 
 If you want to keep prune everything but the currently bootable states, use the `-p` or `--prune` parameter:
 
 ```bash
 # Remove everything but bootable states
-sudo moss state prune -p
+sudo moss state remove -p
 ```
 
 ## Fetch package .stone files for backup purposes
