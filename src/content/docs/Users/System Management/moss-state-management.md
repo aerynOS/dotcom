@@ -57,7 +57,7 @@ sudo moss repo update
 2. Install one or more packages.
 
 ```bash
-sudo moss install somepackage
+sudo moss pkg add somepackage
 ```
 
 Moss creates a new state automatically. Confirm success with `moss state active`.
@@ -68,7 +68,7 @@ Moss creates a new state automatically. Confirm success with `moss state active`
 Uninstall packages you no longer need.
 
 ```bash
-sudo moss remove somepackage
+sudo moss pkg remove somepackage
 ```
 
 Moss snapshots the removal in a new state. Use `moss state list` to find the previous state if you have to recover.
@@ -142,56 +142,58 @@ On successful activation of the new state, it is recommended to reboot the syste
 
 Over time, a system managed by moss will accumulate more and more states. Each state takes up space that is equivalent to the difference in packages between one state to another. If two states share a lot of package versions, the storage needed to keep the difference between states will be small.
 
-There are two ways to clean up retained states:
+There are a few ways to clean up retained states:
 
-- Prune, which removes all states except the N latest states
-- Remove, which is capable of removing individual states and ranges of states.
+- Remove, where you need to specify the state numbers you want to remove
+- Remove -k, where you remove all barring the last k number of states
+- Remove -p, where you remove all but the currently bootable states
 
-### Prune states
+### Removing states
 
 This will prune state history to keep only the 10 latest states, including the current active state:
 
 ```bash
-sudo moss state prune
+# Remove state number 5
+sudo moss state remove 5
+# Remove states 11, 12, 13 and 14
+sudo moss state remove 11-14
+# Remove states 5, 11, 12, 13, 14, 16, 20 and 21
+sudo moss state remove 5 11-14 16 20-21
 ```
+
+As you can see, `state remove` enables you to remove both individual states and ranges of states. Ranges are inclusive, meaning the start and end states of the specified range are also removed.
 
 If you want to keep a different number of states, the `-k` / `--keep` parameter will let you specify the number of states you wish to keep:
 
 ```bash
 # Keep the five latest states, including the active state
-sudo moss state prune --keep 5
-# or
 sudo moss state prune -k 5
 ```
 
-### Remove specific states
-
-Sometimes, it is useful to be able to remove one or more specific states. This can be accomplished with the `state remove` operation.
+If you want to keep prune everything but the currently bootable states, use the `-p` or `--prune` parameter:
 
 ```bash
-moss state remove 2 8-12 15 17-21
+# Remove everything but bootable states
+sudo moss state prune -p
 ```
-
-As you can see, `state remove` enables you to remove both individual states and ranges of states. Ranges are inclusive, meaning the start and end states of the specified range are also removed.
-
 
 ## Fetch package .stone files for backup purposes
 
 If you would like to keep an archive of stones, moss supports a fetch operation.
 
-Use `moss fetch` to download one or more package `.stone` files by name without installing them on the current system.
+Use `moss pkg fetch` to download one or more package `.stone` files by name without installing them on the current system.
 
 ```bash
-moss fetch somepackage
+moss pkg fetch somepackage
 ```
 
 Fetch multiple packages into a custom output directory:
 
 ```bash
-moss fetch package1 package2 --output-dir ~/stones
+moss pkg fetch package1 package2 --output-dir ~/stones
 ```
 
-`moss fetch` writes downloaded files to the current directory by default. Add `--verbose` when you need more detailed progress output. If a package cannot be resolved, refresh repository metadata and try again.
+`moss pkg fetch` writes downloaded files to the current directory by default. Add `--verbose` when you need more detailed progress output. If a package cannot be resolved, refresh repository metadata and try again.
 
 Note also that moss fetches .stones against currently active repository `stone.index` files.
 

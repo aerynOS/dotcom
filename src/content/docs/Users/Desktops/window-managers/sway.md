@@ -17,7 +17,7 @@ Sway can be installed as a standalone compositor or with an aerynOS-provided min
 ### Base installation
 
 ```bash
-sudo moss install sway
+sudo moss pkg add sway
 ```
 
 ### Optional aerynOS configuration and branding
@@ -25,8 +25,8 @@ sudo moss install sway
 Install the minimal preconfigured setup and aerynOS branding with:
 
 ```bash
-sudo moss install pkgset-aeryn-sway-minimal
-sudo moss install branding-aeryn-sway
+sudo moss pkg add pkgset-aeryn-sway-minimal
+sudo moss pkg add branding-aeryn-sway
 ```
 
 ## Starting Sway

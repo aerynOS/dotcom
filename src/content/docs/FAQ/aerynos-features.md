@@ -35,6 +35,6 @@ Tack on ```--help``` to see the options for verify.
 
 ### How do I clean out older install states in aerynOS?
 
-```sudo moss state prune```
+```sudo moss state remove -p```
 
 Tack on ```--help``` to see the options for prune.
