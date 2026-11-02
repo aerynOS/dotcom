@@ -51,7 +51,7 @@ gotoaosrepo
 If the helpers script has been correctly loaded, the `gotoaosrepo` command should switch to the directory containing the recipes/ git repository clone.
 
 
-### Setting up git hooks and linters
+### Setting up git config, hooks and linters
 
 The `just` command runner should have been installed as part of `build-essential`.
 
@@ -64,32 +64,17 @@ just init
 
 This will setup git hooks that will lint for the most common packaging errors upon git commit, as well as fill out commit message templates for you to edit as appropriate.
 
+It will also setup your repository git config so you can view `git diff`
+output for binary `manifest.*.bin` files in both `git diff` and
+`git log -p .` invocations. The recipe repo already contains the
+`.gitattributes` file that sets up the `moss` diff filter referenced
+here.
+
+And it will also add a `git gone` alias to your repository git config,
+such that executing `git gone` will remove any local branches that no
+longer exist upstream.
+
 See [Using git](/packaging/workflow/using-git/) for how those hooks work, the one-commit-per-package rule, and a reference of the git commands we use.
-
-### Setting up `git diff` auto-conversion of `manifest.*.bin` files
-
-This will make it so you can view `git diff` output for binary `manifest.*.bin` files in both `git diff` and `git log -p .` invocations.
-
-Edit the recipe repo `.git/config` file to contain the following below the `[core]` section:
-
-```ini
-[diff "moss"]
-    textconv = moss inspect
-    binary = true
-```
-
-The recipe repo already contains the `.gitattributes` file that sets up the `moss` diff filter referenced here.
-
-### Setting up the `git gone` alias
-
-This will make it so that executing `git gone` will remove any local branches that no longer exist upstream.
-
-Edit your `~/.gitconfig` file to contain the following:
-
-```ini
-[alias]
-    gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
-```
 
 ## Adding /etc/subuid and /etc/subgid entries
 
