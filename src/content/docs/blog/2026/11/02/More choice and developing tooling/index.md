@@ -1,7 +1,7 @@
 ---
 title: "More choice and developing tooling"
 date: 2026-11-02T18:00:00Z
-authors: [nomadiccore, ermo]
+authors: [khaga87, ermo]
 cover:
   alt: An image of a a hammer on a hot metal rod
   image: ./unsplash-hammer.webp
