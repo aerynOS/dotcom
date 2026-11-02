@@ -1,6 +1,6 @@
 ---
 title: "More choice and developing tooling"
-date: 2026-11-02T14:00:00Z
+date: 2026-11-02T18:00:00Z
 authors: [nomadiccore, ermo]
 cover:
   alt: An image of a a hammer on a hot metal rod
@@ -40,9 +40,9 @@ Firstly, some words from Jaredy89:
 
 And some words from K1ngfish3r:
 
-> I was one of the daily drivers of Clear Linux. (The very same that was run by Intel). My foray into diagnosing and fixing bugs came from my desire to game and do "relatively" gamer stuff on CL. I contributed several fixes as well as new packages and got to see CL gain some traction as something other than just as a bench topper on phoronix. What I didn't realize at the time I joined was that CL was already in a downward spiral. The signs were there yet I had chosen to ignore them as I fell in love with the design of the distro and the small community we had.
+> I daily drove Clear Linux (the very same that was run by Intel). My foray into diagnosing and fixing bugs came from my desire to game and do "relatively" gamer stuff on CL. I contributed several fixes as well as new packages and got to see CL gain some traction as something other than just a bench topper on phoronix. What I didn't realize at the time I joined was that CL was already in a downward spiral. The signs were there yet I had chosen to ignore them as I fell in love with the design of the distro and the small community we had.
 >
-> Alas, the EOL notice had finally come, and I had to make a switch. The closest distro which followed CL's ideas and principles were Solus and aerynOS. I picked aerynOS and my desire to game and and do "relatively" gamer stuff whilst contributing to this community has led me to become what I am today. Hope to keep contributing to this community for a long time.
+> Alas, the EOL notice had finally come, and I had to make a switch. The closest distro which followed CL's ideas and principles were Solus and aerynOS. I picked aerynOS and my desire to game and and do "relatively" gamer stuff whilst contributing to this community has led me to become what I am today. My current work mainly involves repo maintenance and (hopefully) fixing any bugs along the way. Hope to keep contributing to this community for a long time.
 
 Both Jaredy89 and K1ngfish3r started off as community members and eventually were promoted to Trusted Contributors and then Trusted Maintainers as they proactively stepped up to support our packaging efforts. We are really glad to have them both on board more formally as staff, with their presence having already been felt in the most positive of ways!
 
@@ -107,7 +107,15 @@ We've previously been cautious about adding capabilities that might give the imp
 
 ### The new lichen installer
 
-![A screenshot of our WIP new lichen installer](./lichen-installer.webp "Our new in progress lichen-installer that is available within our latest ISO")
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+  <iframe
+    src="https://exquisite.tube/videos/embed/qT8iUxm8wRvHfodK6cwE3U"
+    style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+    width="1280"
+    height="720"
+    frameborder="0"
+  ></iframe>
+</div>
 
 We have continued work on our updated `lichen-installer` and have now added it to our repository. We aren't yet at the point of using it as the default installer on our ISOs, so for our next ISO release, we are including both the current `lichen` and new `lichen-installer` to give early adopters the choice of which installer they would prefer to use. 
 
@@ -167,7 +175,7 @@ So even though `moss` supports being operated as if it were a traditional, imper
 
 Hence the very deliberate choice of verbs to describe the actions being performed, with the choices intended to aid in understanding what the subcommands do behind the scenes and why. We understand that this may require a bit of retraining, but we also assume that early adopters operating the `moss` CLI in its current state are the curious and inventive sort, who don't mind encountering and absorbing new and helpful abstractions if it helps them accurately and predictably control their system's installed state.
 
-Note that the new user facing CLI is still WiP itself with a few feature still unimplemented. However, it is sufficiently far along in its development that we are including it now, and we will continue to refine it going forward.
+Note that the new user facing CLI is still WiP itself with a few features still unimplemented. However, it is sufficiently far along in its development that we are including it now, and we will continue to refine it going forward.
 
 #### What else will this enable
 
