@@ -17,7 +17,7 @@ We maintain a `build-essential` metapackage that should contain the basics for g
 
 ```bash
 sudo moss sync -u
-sudo moss it build-essential
+sudo moss pad build-essential
 ```
 
 
