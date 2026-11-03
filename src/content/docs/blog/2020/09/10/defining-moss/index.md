@@ -57,7 +57,7 @@ Certain situations like a kernel update, or security fix to a core library, woul
 
 ## Until the next time
 
-Well, we've given a brief introduction to our aims with `moss` and associated tooling, and you can get more information by checking the moss [README.md](https://github.com/AerynOS/os-tools/blob/main/README.md).
+Well, we've given a brief introduction to our aims with `moss` and associated tooling, and you can get more information by checking the moss [README.md](https://github.com/aerynOS/os-tools/blob/main/README.md).
 
 The takeaway is we want a package-based software update mechanism that is reliable and trusted, and custom-built to handle Serpent OS intricacies, with a simple approach to building and maintaining the distribution.
 

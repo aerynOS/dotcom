@@ -67,4 +67,4 @@ I personally wish to thank the Serpent OS team as a whole for the commitment and
 
 ---
 [^1]: Since this blog post, fosshost no longer exists
-[^2]: AerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.
+[^2]: aerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.

@@ -8,7 +8,7 @@ license: "CC-BY-ND-4.0"
 copyright: "Copyright © 2020 aerynOS Developers"
 ---
 
-The core team have been hard at work lately implementing the [Moss package manager](https://github.com/AerynOS/os-tools/). We now have an initial version of the binary format that we're happy with, so we thought we'd share a progress update with you.
+The core team have been hard at work lately implementing the [Moss package manager](https://github.com/aerynOS/os-tools/). We now have an initial version of the binary format that we're happy with, so we thought we'd share a progress update with you.
 
 ![Development work on moss](./Featured.webp "Development work on moss")
 

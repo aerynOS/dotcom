@@ -124,4 +124,4 @@ We are aware of some known issues in the alpha release, and we're actively worki
 We're excited to share the alpha release with you and look forward to your feedback and contributions. Thank you for your continued support and interest in Serpent OS. We're committed to building a safe, efficient, and reliable system that empowers users to get the most out of their computing experience.
 
 ---
-[^1]: AerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.
+[^1]: aerynOS now uses a [Zulip server](https://aerynos.zulipchat.com/) for community discussion.
