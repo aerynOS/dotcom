@@ -1,0 +1,128 @@
+
+---
+import BlogMarkdownContent from 'starlight-blog/overrides/MarkdownContent.astro';
+
+const { id } = Astro.locals.starlightRoute;
+
+// Blog posts use /blog/<year>/<month>/<day>/<slug> routes.
+// Excludes the blog index and tag/author archives.
+const isBlogPost = /^blog\/\d{4}\/\d{2}\/\d{2}\//.test(id);
+
+// Generate the canonical URL used by Discourse to identify the article.
+const embedUrl = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<BlogMarkdownContent>
+  <slot />
+</BlogMarkdownContent>
+
+{isBlogPost && (
+  <section class="discourse-comments" aria-labelledby="discourse-comments-title">
+    <h2 id="discourse-comments-title">Discussion</h2>
+    <p class="discourse-comments-intro">
+      Join the conversation about this article on the aerynOS community forum.
+    </p>
+
+    <div
+      id="discourse-comments"
+      data-discourse-embed-url={embedUrl}
+      role="region"
+      aria-label="Comments hosted by aerynOS Discourse"
+    ></div>
+  </section>
+)}
+
+<script>
+  function initialiseDiscourseEmbed() {
+    const comments = document.querySelector<HTMLDivElement>(
+      '#discourse-comments',
+    );
+
+    // Only initialise when a discussion container exists and hasn't
+    // already been initialised.
+    if (!comments || comments.dataset.loaded === 'true') {
+      return;
+    }
+
+    const discourseUrl = 'https://aerynos.discourse.group/';
+    const embedUrl = comments.dataset.discourseEmbedUrl;
+
+    if (!embedUrl) {
+      comments.textContent = 'Discussion URL could not be determined.';
+      return;
+    }
+
+    comments.dataset.loaded = 'true';
+
+    const discourseWindow = window as typeof window & {
+      DiscourseEmbed?: {
+        discourseUrl: string;
+        discourseEmbedUrl: string;
+      };
+    };
+
+    discourseWindow.DiscourseEmbed = {
+      discourseUrl,
+      discourseEmbedUrl: embedUrl,
+    };
+
+    // Remove the previous embed script before loading the next article.
+    document
+      .querySelectorAll(
+        `script[src^="${discourseUrl}javascripts/embed.js"]`,
+      )
+      .forEach((existingScript) => existingScript.remove());
+
+    const script = document.createElement('script');
+    script.src = `${discourseUrl}javascripts/embed.js`;
+    script.async = true;
+
+    script.onerror = () => {
+      comments.replaceChildren();
+
+      const message = document.createElement('p');
+      message.textContent = 'Comments could not be loaded. ';
+
+      const link = document.createElement('a');
+      link.href = discourseUrl;
+      link.textContent = 'Visit the aerynOS forum';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+
+      message.appendChild(link);
+      comments.appendChild(message);
+
+      // Allow a retry on a subsequent page navigation.
+      delete comments.dataset.loaded;
+    };
+
+    document.head.appendChild(script);
+  }
+
+  // Handle the initial page load.
+  initialiseDiscourseEmbed();
+
+  // Handle subsequent Astro client-side navigation.
+  document.addEventListener('astro:page-load', initialiseDiscourseEmbed);
+</script>
+
+<style>
+  .discourse-comments {
+    margin-block: 3rem 2rem;
+    padding-block-start: 2rem;
+    border-top: 1px solid var(--sl-color-hairline);
+  }
+
+  .discourse-comments h2 {
+    margin-block: 0 0.5rem;
+  }
+
+  .discourse-comments-intro {
+    color: var(--sl-color-gray-2);
+  }
+
+  #discourse-comments {
+    min-height: 2rem;
+    margin-block-start: 1.5rem;
+  }
+</style>

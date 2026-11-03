@@ -20,6 +20,9 @@ export default defineConfig({
     icon(),
     starlight({
       title: 'aerynOS',
+      components: {
+        MarkdownContent: '@/components/starlight/MarkdownContent.astro',
+      },
       head: [
         {
           tag: 'link',
