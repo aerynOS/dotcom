@@ -10,14 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.42.7",
+    "@astrojs/starlight": "0.42.8",
     "@iconify-json/fa6-regular": "^1.2.4",
     "@iconify-json/fa6-solid": "^1.2.4",
     "@iconify-json/logos": "^1.2.17",
     "@iconify-json/octicon": "^1.2.40",
     "@iconify-json/simple-icons": "^1.2.100",
     "@iconify-json/tabler": "^1.2.42",
-    "astro": "7.4.2",
+    "astro": "7.4.5",
     "astro-asciinema": "^0.1.0",
     "astro-broken-links-checker": "^1.1.0",
     "astro-icon": "^1.2.0",
