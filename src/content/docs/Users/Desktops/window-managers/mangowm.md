@@ -15,7 +15,7 @@ copyright: "Copyright © 2026 aerynOS Developers"
 Install MangoWM with `moss`:
 
 ```bash
-sudo moss pkg add mangowm
+sudo moss package add mangowm
 ```
 
 ## Starting MangoWM

@@ -15,7 +15,7 @@ copyright: "Copyright © 2026 aerynOS Developers"
 Niri is available in the aerynOS repositories and can be installed with `moss`:
 
 ```bash
-sudo moss pkg add niri
+sudo moss package add niri
 ```
 
 ## Starting Niri

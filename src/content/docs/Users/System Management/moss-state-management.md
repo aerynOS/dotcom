@@ -8,7 +8,7 @@ license: "CC-BY-SA-4.0"
 copyright: "Copyright © 2025 aerynOS Developers"
 ---
 
-Moss keeps track of packaging-related operations that change the state of the /usr directory by creating a new filesystem transaction (fstx) for each associated moss operation, be it package installation, removal, or upgrades. 
+`moss` keeps track of packaging-related operations that change the state of the `/usr` directory by creating a new filesystem transaction (fstx) for each associated `moss` operation, be it adding or removing packages, or upgrading packages. 
 
 Use the commands below to manage your installed software packages, and keep your system current.
 
@@ -19,9 +19,11 @@ Keep the entire system current with a sync operation.
 
 ```bash
 sudo moss sync --update
+# This combines `sudo moss repository update` and then `sudo moss sync` into a single command
+# `sudo moss repository update` pulls fresh repository metadata where `sudo moss sync` will sync your system to the 
 ```
 
-`--update` (`-u`) pulls fresh repository metadata before applying upgrades. Moss records the result as a new state, so you can roll back if something goes wrong.
+`moss` records the result as a new state so you can roll back if something goes wrong.
 
 
 ## Search for packages
@@ -57,46 +59,46 @@ sudo moss repo update
 2. Install one or more packages.
 
 ```bash
-sudo moss pkg add somepackage
+sudo moss package add somepackage
 ```
 
-Moss creates a new state automatically. Confirm success with `moss state active`.
+`moss` creates a new state automatically. Confirm success with `moss state list` to confirm the last state was just successfully created.
 
 
 ## Remove software packages
 
-Uninstall packages you no longer need.
+To remove packages you no longer need:
 
 ```bash
-sudo moss pkg remove somepackage
+sudo moss package remove somepackage
 ```
 
-Moss snapshots the removal in a new state. Use `moss state list` to find the previous state if you have to recover.
+`moss` snapshots the removal in a new state. Use `moss state list` to find the previous state if you have to recover.
 
 
 ## List currently installed software packages
 
 
 ```bash
-moss pkg list --installed
+moss package list --installed
 ```
 
 ## Software package info
 
-Information about a software package, such as the version and dependencies. (Works for both installed and non-installed packages)
+Information about a software package, such as the version and dependencies. Works for both installed and non-installed packages.
 
 ```bash
-moss pkg info somepackage
+moss package info somepackage
 ```
 
 
 ## Atomic and independent states
 
-In the preceding examples, it was briefly mentioned that moss creates new "states".
+In the preceding examples, it was briefly mentioned that `moss` creates new "states".
 
-When using moss, state management is an important concept. This section details the fundamentals of moss state management.
+When using `moss`, state management is an important concept. This section details the fundamentals of moss state management.
 
-Moss is based on the concept of atomic updates. Atomic in this context means "independent units". Each time the user instructs moss to change the state of the system, moss creates a new, independent state. Because each state is independent, it allows moss to roll back to an earlier state, and roll forward to a later state.
+`moss` is based on the concept of atomic updates. Atomic in this context means "independent units". Each time the user instructs `moss` to change the state of the system, `moss` creates a new, independent state. Because each state is independent, it allows `moss` to roll back to an earlier state, and roll forward to a later state.
 
 
 ### Check the current active state
@@ -133,14 +135,14 @@ sudo moss state activate 128
 moss state get-active
 ```
 
-Activating a state atomically swaps the currently active state's /usr directory with the new state's /usr directory, using the Linux kernel [`renameat2` syscall](https://www.man7.org/linux/man-pages/man2/rename.2.html).
+Activating a state atomically swaps the currently active state's `/usr` directory with the new state's `/usr` directory, using the Linux kernel [`renameat2` syscall](https://www.man7.org/linux/man-pages/man2/rename.2.html).
 
 On successful activation of the new state, it is recommended to reboot the system, so that long-running services start with the expected binaries, libraries, and configurations.
 
 
 ### Clean up retained states
 
-Over time, a system managed by moss will accumulate more and more states. Each state takes up space that is equivalent to the difference in packages between one state to another. If two states share a lot of package versions, the storage needed to keep the difference between states will be small.
+Over time, a system managed by `moss` will accumulate more and more states. Each state takes up space that is equivalent to the difference in packages between one state to another. If two states share a lot of package versions, the storage needed to keep the difference between states will be small.
 
 There are a few ways to clean up retained states:
 
@@ -177,24 +179,24 @@ If you want to keep prune everything but the currently bootable states, use the 
 sudo moss state remove -p
 ```
 
-## Fetch package .stone files for backup purposes
+## Fetch package `.stone` files for backup purposes
 
-If you would like to keep an archive of stones, moss supports a fetch operation.
+If you would like to keep an archive of stones, `moss` supports a fetch operation.
 
-Use `moss pkg fetch` to download one or more package `.stone` files by name without installing them on the current system.
+Use `moss package fetch` to download one or more package `.stone` files by name without installing them on the current system.
 
 ```bash
-moss pkg fetch somepackage
+moss package fetch somepackage
 ```
 
 Fetch multiple packages into a custom output directory:
 
 ```bash
-moss pkg fetch package1 package2 --output-dir ~/stones
+moss package fetch package1 package2 --output-dir ~/stones
 ```
 
-`moss pkg fetch` writes downloaded files to the current directory by default. Add `--verbose` when you need more detailed progress output. If a package cannot be resolved, refresh repository metadata and try again.
+`moss package fetch` writes downloaded files to the current directory by default. Add `--verbose` when you need more detailed progress output. If a package cannot be resolved, refresh repository metadata and try again.
 
-Note also that moss fetches .stones against currently active repository `stone.index` files.
+Note also that `moss` fetches `.stones` against currently active repository `stone.index` files.
 
 You can list your currently active repository index with `moss repo list`.

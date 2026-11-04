@@ -12,13 +12,13 @@ copyright: "Copyright © 2026 aerynOS Developers"
 
 It's been a couple of months since our last update and there has been quite a lot going on. With the project having spent the last 18 months shoring up its foundations, we are now able to start shifting towards more open and collaborative development.
 
-We have landed our new `moss` [command-line structure](/blog/2026/11/01/more-choice-and-developing-tooling/#a-new-command-structure-for-moss), which is a pretty significant departure from old CLI organization. The commands for adding and removing both repositories and packages from the internal `system-model` have changed so early adopters will need to adjust their mental model of how `moss` operates. It's a "breaking change" we are making now whilst aerynOS is still in development and better aligns the command convention to how `moss` is intended to work.
+We have landed our new `moss` [command-line structure](/blog/2026/11/02/more-choice-and-developing-tooling/#a-new-command-structure-for-moss), which is a pretty significant departure from old CLI organization. The commands for adding and removing both repositories and packages from the internal `system-model` have changed so early adopters will need to adjust their mental model of how `moss` operates. It's a "breaking change" we are making now whilst aerynOS is still in development and better aligns the command convention to how `moss` is intended to work.
 
 Budgie Desktop is now offered as an option for aerynOS early adopters, including as an install time option within our installer(s). Whilst we are still heavily in development, we are now at a point where we can offer multiple different Desktop Environments and a dozen Wayland Compositor options for those that want to "Build You Own Desktop". 
 
-We have a new [2026.11](/download) ISO being released this month along side this blog post. It includes our existing installer but also a secondary option [`lichen-installer`](/blog/2026/11/01/more-choice-and-developing-tooling/#the-new-lichen-installer). Whilst it's not yet ready to be our default and only installer, is being added to the ISO for wider testing purposes. This newer installer takes care of drive partitioning and has a number of under the hood enhancements that will make aerynOS installation more robust. It is still Work in Progress and does not yet support disk encryption, dual booting or other features that might indicate aerynOS is daily driver ready. It does however pave the way for those features to be added in the future.
+We have a new [2026.11](/download) ISO being released this month along side this blog post. It includes our existing installer but also a secondary option [`lichen-installer`](/blog/2026/11/02/more-choice-and-developing-tooling/#the-new-lichen-installer). Whilst it's not yet ready to be our default and only installer, is being added to the ISO for wider testing purposes. This newer installer takes care of drive partitioning and has a number of under the hood enhancements that will make aerynOS installation more robust. It is still Work in Progress and does not yet support disk encryption, dual booting or other features that might indicate aerynOS is daily driver ready. It does however pave the way for those features to be added in the future.
 
-A smaller but important request was for [fwupd](/blog/2026/11/01/more-choice-and-developing-tooling/#firmware-updates-with-fwupd), which we have also now landed in our repository to ease hardware firmware updates for early adopters using aerynOS.
+A smaller but important request was for [fwupd](/blog/2026/11/02/more-choice-and-developing-tooling/#firmware-updates-with-fwupd), which we have also now landed in our repository to ease hardware firmware updates for early adopters using aerynOS.
 
 Lastly, we have also been doing housekeeping on our web presence. We have consolidated our websites to a single primary [aerynos.com](https://aerynos.com/) site and updating the content to better reflect our current project status. This is not the full website rebrand work, that is still happening in the background. However, we felt the existing website needed to be updated to better reflect the current position of aerynOS in the meantime.
 
@@ -192,6 +192,10 @@ We have already implemented command aliases for those who might not be happy at 
 *There are other aliases which can be found by using the `--help` option*
 
 We've also improved the help output and error handling around `moss` usage. The aim is to make using `moss` an overall more consistent and refined experience so giving better quality feedback when commands aren't entered quite right. A new `moss tree` command can also generate a full view of the command hierarchy, including examples and documentation, to make the available functionality easier to understand.
+
+:::note[Check our documentation site]
+Our documentation site is being updated to reflect the new commands available. Our [Manage Moss States and Packages](https://aerynos.com/users/system-management/moss-state-management/) page can provide additional help
+:::
 
 ## ISO refresh
 

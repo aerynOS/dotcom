@@ -15,7 +15,7 @@ copyright: "Copyright © 2026 aerynOS Developers"
 Hyprland is available in the aerynOS repositories and can be installed with `moss`:
 
 ```bash
-sudo moss pkg add hyprland
+sudo moss package add hyprland
 ```
 
 ## Starting Hyprland
