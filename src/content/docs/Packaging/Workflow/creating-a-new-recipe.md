@@ -174,11 +174,18 @@ git rev-parse --short=7 HEAD
 
 Find the license in upstream’s repository (often `COPYING`, `LICENSE`, or package metadata). Convert it to an [SPDX identifier](https://spdx.org/licenses/).
 
-Nano uses `GPL-3.0-or-later`. 
+Nano uses `GPL-3.0-or-later`. When a package has only one license, write it on a single line:
+
+```yaml
+license     : GPL-3.0-or-later
+```
+
+When it has more than one license, list each identifier:
 
 ```yaml
 license     :
     - GPL-3.0-or-later
+    - LGPL-2.1-or-later
 ```
 
 :::note[SPDX Licence identifier]
