@@ -1,6 +1,6 @@
 ---
 title : 'Updating an existing package recipe'
-lastUpdated: 2026-10-02T15:00:00Z
+lastUpdated: 2026-11-05T18:20:00Z
 description: "How to update an existing package recipe"
 sidebar:
   order: 7
@@ -44,19 +44,29 @@ Please note each time you do this, you will increase the release number by one, 
 
 ### Updating a package version
 
-If you need to update the package version itself, you can use the following command:
+From the package directory, `boulder up` looks up a newer release and updates `stone.yaml`. It is the short form of `boulder recipe update` with no version or upstream. Boulder reads the release information in `monitoring.yaml`, so that file needs to identify the upstream project.
 
 ```bash
-boulder recipe update --ver "version name" --upstream "upstream URL" stone.yaml -w
+boulder up
+```
+
+The command prints the newest version it found and the current version, then a diff of the recipe. It asks before it writes `stone.yaml`. Pass `-y` to answer yes.
+
+When `monitoring.yaml` has no release information, or you already know the version and tarball you want, pass them yourself:
+
+```bash
+boulder recipe update --ver "version name" --upstream "upstream URL" stone.yaml
 ```
 
 In the example of nano, to update to version 8.7, you would use the following command:
 
 ```bash
-boulder recipe update --ver 8.7 --upstream https://www.nano-editor.org/dist/v8/nano-8.7.tar.xz stone.yaml -w
+boulder recipe update --ver 8.7 --upstream https://www.nano-editor.org/dist/v8/nano-8.7.tar.xz stone.yaml
 ```
 
-This command does the following:
+The command prints a diff and asks before it writes the recipe. Pass `-y` to answer yes.
+
+Either form does the following:
 
 1) Updates the version of the package within the recipe
 2) Updates the upstream location of the source code
