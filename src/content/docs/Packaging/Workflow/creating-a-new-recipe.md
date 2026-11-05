@@ -218,6 +218,10 @@ builddeps   :
 
 Nano follows the GNU autotools flow, so uses the standard macros (`%configure`, `%make`, `%make_install`). These have already been populated by `boulder recipe new` so do not need to be adapted. You can consult the [macros](/packaging/macros/) documentation for variations and additional guidance.
 
+:::note[Listing macros]
+`boulder recipe macros` prints the macros available in your build environment. Pass a name to read one macro, for example `boulder recipe macros configure`.
+:::
+
 ### Step 6 · Review the finished recipe
 
 Combining all the prior steps gives you a complete `stone.yaml`:
