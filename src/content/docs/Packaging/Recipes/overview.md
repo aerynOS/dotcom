@@ -1,6 +1,6 @@
 ---
 title: 'Overview'
-lastUpdated: 2026-10-02T15:00:00Z
+lastUpdated: 2026-11-05T15:07:00Z
 description: Introduction to the `stone.yaml` format
 sidebar:
   order: 4
@@ -15,8 +15,11 @@ Simply put, a recipe is some metadata to describe a software package, and the as
 How might a `stone.yml` look like for a very trivial package, such as the [Nano editor](https://nano-editor.org)?
 
 ```yaml
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
 name        : nano
-version     : 8.7
+version     : "8.7"
 release     : 38
 homepage    : https://www.nano-editor.org/
 upstreams   :
