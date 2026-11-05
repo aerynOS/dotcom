@@ -14,7 +14,7 @@ Another week, another milestone completed. We're pleased to announce that we've 
 
 ## Announcing Moss
 
-Our immediate focus is now to implement our package manager: [moss](https://github.com/AerynOS/os-tools/). Currently it only has a trivial CLI and does absolutely nothing. We will now shift our attention to implement this as a core part of the `stage4` bootstrap. Moss is so-called as we're a rolling release, _a rolling stone gathers no moss_. The package manager is being implemented in the D Programming Language[^1]:.
+Our immediate focus is now to implement our package manager: [moss](https://github.com/aerynOS/os-tools/). Currently it only has a trivial CLI and does absolutely nothing. We will now shift our attention to implement this as a core part of the `stage4` bootstrap. Moss is so-called as we're a rolling release, _a rolling stone gathers no moss_. The package manager is being implemented in the D Programming Language[^1]:.
 
 Moss does not aim to be a next generation package management solution, it instead inspired by [eopkg](https://github.com/getsolus/eopkg), [RPM](https://github.com/rpm-software-management/rpm) and [swupd](https://github.com/clearlinux/swupd-server), aiming to provide a reliable modern package management and update solution with stateless design at the core. Core features and automatic dependencies will be managed through capability subscriptions. The binary format will be versioned and deduplicated, with multiple internal lookup tables and checksums. Our chief focus with moss is a reliable system management tool that is accessible even in situations where internet access is limited.
 

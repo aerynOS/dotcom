@@ -27,7 +27,7 @@ Packages may add more directories under `/usr/share/defaults` as required, but t
 
 ## System overrides
 
-Overrides are global (administrator-level) modifications that "override" the default environment of AerynOS, including system setup, configuration, hardware and current state. Because these overrides live in the /etc folder, they survive package updates. Create "drop-in" directories such as `/etc/pam.d` or `/etc/sudoers.d` to keep customisations scoped and easy to audit.
+Overrides are global (administrator-level) modifications that "override" the default environment of aerynOS, including system setup, configuration, hardware and current state. Because these overrides live in the /etc folder, they survive package updates. Create "drop-in" directories such as `/etc/pam.d` or `/etc/sudoers.d` to keep customisations scoped and easy to audit.
 When you need to revert to the shipped defaults, remove the override from `/etc` and Moss will fall back to the matching file in `/usr/share/defaults`.
 
 ## User-level configuration

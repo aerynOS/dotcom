@@ -28,7 +28,7 @@ export default defineConfig({
           tag: 'link',
           attrs: {
             rel: 'me',
-            href: 'https://hachyderm.io/@AerynOS',
+            href: 'https://hachyderm.io/@aerynOS',
           },
         },
       ],
@@ -62,7 +62,7 @@ export default defineConfig({
         {
           icon: 'x.com',
           label: 'x.com',
-          href: 'https://x.com/AerynOS_Linux',
+          href: 'https://x.com/aerynOS_Linux',
         },
         {
           icon: 'discourse',
