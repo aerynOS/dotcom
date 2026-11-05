@@ -65,7 +65,7 @@ This command does the following:
 
 ## Wider updates to a package
 
-If there are further changes required to the `stone.yaml` recipe file, you can either use a text editor (such as Nano itself) or a code editor (such as Zed which is pre-installed on aerynOS) to make changes those changes. Guidance on how to make changes to a stone.yaml file are covered in the [Creating a new package recipe](/packaging/workflow/creating-a-new-recipe/) page.
+If there are further changes required to the `stone.yaml` recipe file, you can either use a text editor (such as Nano itself) or a code editor (such as Gram, Zed or others available in aerynOS repositories) to make changes those changes. Guidance on how to make changes to a stone.yaml file are covered in the [Creating a new package recipe](/packaging/workflow/creating-a-new-recipe/) page.
 
 ## Build and test the package
 
