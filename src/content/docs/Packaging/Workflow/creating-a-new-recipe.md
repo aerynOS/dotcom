@@ -1,6 +1,6 @@
 ---
 title: 'Creating a new package recipe'
-lastUpdated: 2026-10-02T15:00:00Z
+lastUpdated: 2026-11-05T15:08:00Z
 description: "Creating a new package recipe from scratch"
 sidebar:
   order: 6
@@ -78,13 +78,11 @@ This command does the following:
 Using Nano as an example, the generated `stone.yaml` file will look like this:
 
 ```yaml
-#
-# SPDX-FileCopyrightText: © 2025- aerynOS Developers
-#
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
-#
+
 name        : nano
-version     : 8.7
+version     : "8.7"
 release     : 1
 homepage    : https://www.nano-editor.org/dist/v8
 upstreams   :
@@ -116,7 +114,7 @@ The second is a `monitoring.yaml` file which we will address later in this guide
 
 ### Step 2 - Add core metadata fields
 
-The `boulder recipe new` command has already made an attempt to populate the `name`, `version`, `release` and `homepage`. Please review these and correct them if necessary.
+The `boulder recipe new` command has already made an attempt to populate the `name`, `version`, `release` and `homepage`. Please review these and correct them if necessary. Always quote `version`. Tooling reads it as text naming the upstream version. The number you bump for a new build is `release`.
 
 In this case, the following changes need to be made:
 
@@ -126,7 +124,7 @@ In this case, the following changes need to be made:
 
 ```yaml
 name        : nano
-version     : 8.7
+version     : "8.7"
 release     : 1
 homepage    : https://www.nano-editor.org/
 upstreams   :
@@ -144,6 +142,33 @@ description : |
 :::note[Release numbering]
 Keep `release` at `1` when you introduce a brand-new package. We subsequently incrementally increase it by 1 each time we submit an update to our recipe repository.
 :::
+
+### Using a git tag or commit
+
+The Nano example above uses a release archive. This is the preferred way to package software. When upstream does not publish an archive, you can use a git tag instead. Use a git commit only when you need a revision that is not a tagged release. Please use a tag or a commit id. Branch names can change and break later builds.
+
+To use a tag, prefix the repository URL with `git|` and set the value to the tag name. Keep `version` as the quoted release number.
+
+```yaml
+version     : "1.2.3"
+upstreams   :
+    - git|https://github.com/example/project.git : v1.2.3
+```
+
+To use a commit, set the value to the full commit id. Set `version` to the upstream release that commit follows, then `~git.` and the first 7 characters of that commit id.
+
+```yaml
+version     : "1.2.3~git.aabbccd"
+upstreams   :
+    - git|https://github.com/example/project.git : aabbccddeeff00112233445566778899aabbccdd
+```
+
+You can copy the commit id from the commit page on the project's website. From a local clone, you can also run:
+
+```bash
+git rev-parse HEAD
+git rev-parse --short=7 HEAD
+```
 
 ### Step 3 - Declare / correct the license
 
@@ -191,13 +216,11 @@ Nano follows the GNU autotools flow, so uses the standard macros (`%configure`, 
 Combining all the prior steps gives you a complete `stone.yaml`:
 
 ```yaml
-#
-# SPDX-FileCopyrightText: © 2025- aerynOS Developers
-#
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
-#
+
 name        : nano
-version     : 8.7
+version     : "8.7"
 release     : 1
 homepage    : https://www.nano-editor.org/
 upstreams   :
