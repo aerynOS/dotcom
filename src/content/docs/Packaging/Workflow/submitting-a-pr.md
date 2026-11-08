@@ -1,6 +1,6 @@
 ---
 title: 'Submitting a PR'
-lastUpdated: 2026-10-02T15:00:00Z
+lastUpdated: 2026-11-07T15:00:00Z
 description: "How to submit a PR into the aerynOS repository"
 sidebar:
   order: 10
@@ -11,6 +11,14 @@ copyright: "Copyright © 2025 aerynOS Developers"
 # Submitting packages to aerynOS repository
 
 Once you have prepared your package, you can submit it to the aerynOS repository by creating a pull request (PR). There are certain guidelines to follow when submitting a PR.
+
+:::caution[Package Request approval is required before opening a Pull Request]
+Note that a Pull Request should only be opened after a Trusted Maintainer or Staff member has added the **`package: approved`** label to the corresponding, existing [Package Request](https://github.com/aerynOS/recipes/issues/new?template=request_new_package.yaml). Open the PR with `Resolves: #issuenumber`, and see the [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md) and [Creating a new package recipe](/packaging/workflow/creating-a-new-recipe/).
+
+We are trying hard to ensure that we have the resources to maintain the package recipes in our repository, which is why this process is in place. Thank you for your understanding.
+
+Updates and bug fixes to **existing** recipes do not need a prior `package: approved` label.
+:::
 
 ## One commit per package
 
