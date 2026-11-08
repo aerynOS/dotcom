@@ -1,6 +1,6 @@
 ---
 title: 'Creating a new package recipe'
-lastUpdated: 2026-11-05T15:08:00Z
+lastUpdated: 2026-11-07T15:00:00Z
 description: "Creating a new package recipe from scratch"
 sidebar:
   order: 6
@@ -8,9 +8,15 @@ license: "CC-BY-SA-4.0"
 copyright: "Copyright © 2025 aerynOS Developers"
 ---
 
-This guide details the process of creating a new package recipe that is not yet present in the [aerynOS repository](https://github.com/aerynOS/recipes). We will use Nano as the running example, but the same steps apply to any new package. 
+This guide details the process of creating a new package recipe that is not yet present in the [aerynOS repository](https://github.com/aerynOS/recipes). We will use Nano as the running example, but the same steps apply to any new package.
 
-Before creating the package recipe yourself, please double check that there isn't already an outstanding PR for the package you want to include. Please also check if someone has created a new package request issue in the [aerynOS recipes repository](https://github.com/aerynOS/recipes).
+:::caution[Package Request approval is required before opening a Pull Request]
+Note that a Pull Request should only be opened after a Trusted Maintainer or Staff member has added the **`package: approved`** label to the corresponding, existing [Package Request](https://github.com/aerynOS/recipes/issues/new?template=request_new_package.yaml).
+
+We are trying hard to ensure that we have the resources to maintain the package recipes in our repository, which is why this process is in place. Thank you for your understanding.
+
+Read the [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md) before filing a request. Also check that nobody else already has an open PR or request for the same package in the [recipes repository](https://github.com/aerynOS/recipes).
+:::
 
 ## Prepare your workspace
 
