@@ -19,6 +19,24 @@ Currently NVIDIA Drivers are not implemented by the live environment and will fa
 3. You should see the aerynOS boot process, and you will be presented with the live environment.
 4. **If utilizing Ventoy** select the aerynOS ISO file to boot from.
 
+### Editing kernel command line boot parameters
+
+To edit kernel command boot parameters, hold down the SHIFT key on your keyboard until an UEFI boot menu shows up on your screen.
+
+Press 'e' to edit the kernel command line boot parameters for the entry you have selected.
+
+If you have trouble getting the ISO to boot, we recommend that you edit the kernel command line as follows:
+
+- Remove the `quiet splash` parameters
+- Add the `SYSTEMD_SULOGIN_FORCE=1 rd.break rd.shell` parameters.
+- If you want to blacklist a certain kernel driver module, add `rd.driver.blacklist=<drivername>[,<drivername>, ...]`
+
+We use `dracut` to generate our live initramfs image. You can see all the supported `dracut` command line parameters in the [`dracut.cmdline` manual page](https://man7.org/linux/man-pages/man7/dracut.cmdline.7.html).
+
+To boot with the new parameters, press the Enter key.
+
+If the fonts are too big on your screen, you can run `setfont ter-vXXn` in the shell you are dropped into. The `XX` parameter is the height of the terminus console font in pixels. The size used by default is 32.
+
 ## Testing the Live Environment
 
 :::tip
